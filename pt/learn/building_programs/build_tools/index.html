@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Build tools &#8212; Fortran Programming Language</title>
+    <title>Ferramentas de compilação &#8212; Fortran Programming Language</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -45,33 +45,45 @@
     <link rel="index" title="Índice" href="../../../genindex/" />
     <link rel="search" title="Pesquisar" href="../../../search/" />
     <link rel="next" title="Compiling the source code" href="../compiling_source/" />
-    <link rel="prev" title="Building programs" href="../" /> 
+    <link rel="prev" title="Compilando programas" href="../" /> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    var pr_number = -1;
-    $(document).ready(function () {
-
-        if (window.location.href.indexOf("/pr/") > -1) {
-            pr_number = window.location.href.split('/').indexOf("pr") + 1;
-            document.getElementById("pr").innerHTML = "pull request " + window.location.href.split('/')[pr_number];
-            document.getElementById("pr").href = "https://github.com/fortran-lang/webpage/pull/" + window.location.href.split('/')[pr_number];
-            var banner = document.getElementById("banner");
-            banner.style.display = "block";
-        }
-    });
+  var pr_number = -1;
+  $(document).ready(function () {
+    if (window.location.href.indexOf("/pr/") > -1) {
+      pr_number = window.location.href.split("/").indexOf("pr") + 1;
+      document.getElementById("pr").innerHTML =
+        "pull request " + window.location.href.split("/")[pr_number];
+      document.getElementById("pr").href =
+        "https://github.com/fortran-lang/webpage/pull/" +
+        window.location.href.split("/")[pr_number];
+      var banner = document.getElementById("banner");
+      banner.style.display = "block";
+    }
+  });
 </script>
-<div id="banner" style='display:none' class="container">
-    <h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-git-pull-request">
-            <circle cx="18" cy="18" r="3"></circle>
-            <circle cx="6" cy="6" r="3"></circle>
-            <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-            <line x1="6" y1="9" x2="6" y2="21"></line>
-        </svg>
-        <b>Site preview: </b>you are previewing unpublished changes for <a id="pr"></a>
-    </h3>
+<div id="banner" style="display: none" class="container">
+  <h3>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="feather feather-git-pull-request"
+    >
+      <circle cx="18" cy="18" r="3"></circle>
+      <circle cx="6" cy="6" r="3"></circle>
+      <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+      <line x1="6" y1="9" x2="6" y2="21"></line>
+    </svg>
+    <b>Site preview: </b>you are previewing unpublished changes for
+    <a id="pr"></a>
+  </h3>
 </div> 
 <link
   rel="alternate"
@@ -143,16 +155,23 @@
 </span>
     
     <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button"
-        data-toggle="dropdown">
-        pt
-        <!-- this text may get changed later by javascript -->
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0"
-        aria-labelledby="version_switcher_button">
-        <!-- dropdown will be populated by javascript on page load -->
-    </div>
+  <button
+    type="button"
+    class="btn btn-sm navbar-btn dropdown-toggle"
+    id="version_switcher_button"
+    data-toggle="dropdown"
+  >
+    pt
+    <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div
+    id="version_switcher_menu"
+    class="dropdown-menu list-group-flush py-0"
+    aria-labelledby="version_switcher_button"
+  >
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
 </div>
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
@@ -161,106 +180,108 @@
 -->
 
 <script type="text/javascript">
-    // Check if corresponding page path exists in other version of docs
-    // and, if so, go there instead of the homepage of the other docs version
-    function checkPageExistsAndRedirect(event) {
-        const currentFilePath = "learn/building_programs/build_tools",
-            tryUrl = event.target.getAttribute("href");
-        location.href = tryUrl;
-        // this prevents the browser from following the href of the clicked node
-        // (which is fine because this function takes care of redirecting)
-        return false;
-    }
+  // Check if corresponding page path exists in other version of docs
+  // and, if so, go there instead of the homepage of the other docs version
+  function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "learn/building_programs/build_tools",
+      tryUrl = event.target.getAttribute("href");
+    location.href = tryUrl;
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+  }
 
-    // Populate the version switcher from the JSON config file
-    (function () {
+  // Populate the version switcher from the JSON config file
+  (function () {
+    const currentFilePath = "learn/building_programs/build_tools";
+    const indexFilePath = "../../../";
+    let btn = document.getElementById("version_switcher_button");
+    // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+    btn.dataset["activeVersionName"] = "";
+    btn.dataset["activeVersion"] = "";
+    // create links to the corresponding page in the other docs versions
+    data = [
+      {
+        name: "en",
+        version: "en",
+        url: "../en/",
+      },
+      {
+        name: "cs",
+        version: "cs",
+        url: "../cs/",
+      },
+      {
+        name: "de",
+        version: "de",
+        url: "../de/",
+      },
+      {
+        name: "es",
+        version: "es",
+        url: "../es/",
+      },
+      {
+        name: "fr",
+        version: "fr",
+        url: "../fr/",
+      },
+      {
+        name: "ja",
+        version: "ja",
+        url: "../ja/",
+      },
+      {
+        name: "nl",
+        version: "nl",
+        url: "../nl/",
+      },
+      {
+        name: "pt",
+        version: "pt",
+        url: "../pt/",
+      },
+      {
+        name: "zh_CN",
+        version: "zh_CN",
+        url: "../zh_CN/",
+      },
+    ];
+    console.log(data);
+    $.each(data, function (index, entry) {
+      // if no custom name specified (e.g., "latest"), use version string
+      if (!("name" in entry)) {
+        entry.name = entry.version;
+      }
+      // create the node
+      const node = document.createElement("a");
+      node.setAttribute("class", "list-group-item list-group-item-action py-1");
+      node.textContent = `${entry.name}`;
+      node.setAttribute(
+        "href",
+        `${indexFilePath}${entry.url}${currentFilePath}`
+      );
+      // on click, AJAX calls will check if the linked page exists before
+      // trying to redirect, and if not, will redirect to the homepage
+      // for that version of the docs.
+      node.onclick = checkPageExistsAndRedirect;
+      // Add dataset values for the version and name in case people want
+      // to apply CSS styling based on this information.
+      node.dataset["versionName"] = entry.name;
+      node.dataset["version"] = entry.version;
 
-        const currentFilePath = "learn/building_programs/build_tools";
-        const indexFilePath = "../../../";
-        let btn = document.getElementById("version_switcher_button");
-        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
-        btn.dataset["activeVersionName"] = "";
-        btn.dataset["activeVersion"] = "";
-        // create links to the corresponding page in the other docs versions
-        data = [
-            {
-                "name": "en",
-                "version": "en",
-                "url": "../en/"
-            },
-            {
-                "name": "cs",
-                "version": "cs",
-                "url": "../cs/"
-            },
-            {
-                "name": "de",
-                "version": "de",
-                "url": "../de/"
-            },
-            {
-                "name": "es",
-                "version": "es",
-                "url": "../es/"
-            },
-            {
-                "name": "fr",
-                "version": "fr",
-                "url": "../fr/"
-            },
-            {
-                "name": "ja",
-                "version": "ja",
-                "url": "../ja/"
-            },
-            {
-                "name": "nl",
-                "version": "nl",
-                "url": "../nl/"
-            },
-            {
-                "name": "pt",
-                "version": "pt",
-                "url": "../pt/"
-            },
-            {
-                "name": "zh_CN",
-                "version": "zh_CN",
-                "url": "../zh_CN/"
-            }
-        ]; console.log(data);
-        $.each(data, function (index, entry) {
-            // if no custom name specified (e.g., "latest"), use version string
-            if (!("name" in entry)) {
-                entry.name = entry.version;
-            }
-            // create the node
-            const node = document.createElement("a");
-            node.setAttribute("class", "list-group-item list-group-item-action py-1");
-            node.textContent = `${entry.name}`;
-            node.setAttribute("href", `${indexFilePath}${entry.url}${currentFilePath}`);
-            // on click, AJAX calls will check if the linked page exists before
-            // trying to redirect, and if not, will redirect to the homepage
-            // for that version of the docs.
-            node.onclick = checkPageExistsAndRedirect;
-            // Add dataset values for the version and name in case people want
-            // to apply CSS styling based on this information.
-            node.dataset["versionName"] = entry.name;
-            node.dataset["version"] = entry.version;
-
-            $("#version_switcher_menu").append(node);
-            // replace dropdown button text with the preferred display name of
-            // this version, rather than using sphinx's  variable.
-            // also highlight the dropdown entry for the currently-viewed
-            // version's entry
-            if (entry.version == "pt") {
-                node.classList.add("active");
-                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
-                btn.dataset["activeVersion"] = entry.version;
-            }
-        });
-
-    })();
+      $("#version_switcher_menu").append(node);
+      // replace dropdown button text with the preferred display name of
+      // this version, rather than using sphinx's  variable.
+      // also highlight the dropdown entry for the currently-viewed
+      // version's entry
+      if (entry.version == "pt") {
+        node.classList.add("active");
+        btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+        btn.dataset["activeVersion"] = entry.version;
+      }
+    });
+  })();
 </script>
     
   </div>
@@ -289,7 +310,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../community/">
-  Community
+  Comunidade
  </a>
 </li>
 
@@ -358,7 +379,7 @@
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../quickstart/">
-   Quickstart tutorial
+   Tutorial Introdutório
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -368,17 +389,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../quickstart/arrays_strings/">
-     Arrays and strings
+     Arrays e strings
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../quickstart/derived_types/">
-     Derived Types
+     Tipos Derivados (Derived Types)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../quickstart/hello_world/">
-     Hello world
+     Olá Mundo
     </a>
    </li>
    <li class="toctree-l2">
@@ -388,19 +409,19 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../quickstart/organising_code/">
-     Organising code structure
+     Organizando a estrutura de um código
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../quickstart/variables/">
-     Variables
+     Variáveis
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../best_practices/">
-   Fortran Best Practices
+   Práticas Recomendadas em Fortran
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -430,32 +451,32 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/file_io/">
-     File Input/Output
+     Entrada/Saída em Arquivos
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/floating_point/">
-     Floating Point Numbers
+     Números de Ponto Flutuante
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/integer_division/">
-     Integer Division
+     Divisão de Inteiros
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/modules_programs/">
-     Modules and Programs
+     Módulos e Programas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/multidim_arrays/">
-     Multidimensional Arrays
+     Arrays Multidimensionais
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/style_guide/">
-     Fortran Style Guide
+     Guia de Estilos para o Fortran
     </a>
    </li>
    <li class="toctree-l2">
@@ -477,34 +498,34 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../os_setup/choose_compiler/">
-     Choosing a compiler
+     Escolhendo um compilador
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../os_setup/ides/">
-     IDEs
+     Ambiente de Desenvolvimento Integrado (IDEs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../os_setup/install_gfortran/">
-     Installing GFortran
+     Instalação do GFortran
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../os_setup/text_editors/">
-     Text Editors
+     Editores de Texto
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../os_setup/tips/">
-     Smart Tips
+     Dicas Valiosas
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../">
-   Building programs
+   Compilando programas
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -514,7 +535,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Build tools
+     Ferramentas de compilação
     </a>
    </li>
    <li class="toctree-l2">
@@ -524,7 +545,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../distributing/">
-     Distributing your programs
+     Distribuição dos seus programas
     </a>
    </li>
    <li class="toctree-l2">
@@ -534,7 +555,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../linking_pieces/">
-     Linking the objects
+     Vinculando os objetos
     </a>
    </li>
    <li class="toctree-l2">
@@ -549,14 +570,14 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../runtime_libraries/">
-     Run-time libraries
+     Bibliotecas em Tempo de Execução
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../intrinsics/">
-   Fortran Intrinsics
+   Funções Intrínsecas do Fortran
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -595,7 +616,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../intrinsics/math/">
-     General mathematical functions
+     Funções matemáticas em geral
     </a>
    </li>
    <li class="toctree-l2">
@@ -630,11 +651,11 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../intrinsics/type/">
-     Types and kinds
+     Types e kinds
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../intrinsics/GNU_Free_Documentation_License/">
+    <a class="reference external" href="https://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">
      GNU Free Documentation License
     </a>
    </li>
@@ -676,12 +697,12 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#recursively-expanded-variables">
-     Recursively expanded variables
+     Variáveis expandidas recursivamente
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comments-and-whitespace">
-     Comments and whitespace
+     Comentários e espaços em branco
     </a>
    </li>
   </ul>
@@ -713,7 +734,7 @@
               
               <article class="bd-article" role="main">
                  <section id="build-tools">
-<h1>Build tools<a class="headerlink" href="#build-tools" title="Permalink to this heading">#</a></h1>
+<h1>Ferramentas de compilação<a class="headerlink" href="#build-tools" title="Permalink to this heading">#</a></h1>
 <p>Compiling your Fortran projects by hand can become quite complicated depending
 on the number of source files and the interdependencies through the module.
 Supporting different compilers and linkers or different platforms can become
@@ -722,7 +743,7 @@ perform those tasks.</p>
 <p>Depending on the size of your project and the purpose of project different
 options for the build automation can be used.</p>
 <p>First, your integrated development environment probably provides a way to build
-your program. A popular cross-platform  tool is Microsoft’s
+your program. A popular cross-platform tool is Microsoft’s
 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>,
 but others exist, such as
 <a href="https://atom.io/" target="_blank" rel="noopener">Atom</a>,
@@ -959,7 +980,7 @@ not used alone but combined with other tools to generate the <code class="docuti
 completely or in parts.</p>
 </div>
 <section id="recursively-expanded-variables">
-<h3>Recursively expanded variables<a class="headerlink" href="#recursively-expanded-variables" title="Permalink to this heading">#</a></h3>
+<h3>Variáveis expandidas recursivamente<a class="headerlink" href="#recursively-expanded-variables" title="Permalink to this heading">#</a></h3>
 <p>Commonly seen in many projects are recursively expanded variables (declared with
 <code class="docutils literal notranslate"><span class="pre">=</span></code> instead of <code class="docutils literal notranslate"><span class="pre">:=</span></code>). Recursive expansion of your variables allows out-of-order
 declaration and other neat tricks with <code class="docutils literal notranslate"><span class="pre">make</span></code>, since they are defined as rules,
@@ -1004,7 +1025,7 @@ carefully, of course. It is important to be aware of the differences between the
 two kinds and the respective implications.</p>
 </section>
 <section id="comments-and-whitespace">
-<h3>Comments and whitespace<a class="headerlink" href="#comments-and-whitespace" title="Permalink to this heading">#</a></h3>
+<h3>Comentários e espaços em branco<a class="headerlink" href="#comments-and-whitespace" title="Permalink to this heading">#</a></h3>
 <p>There are some caveats with whitespace and comments, which might pop up from
 time to time when using <code class="docutils literal notranslate"><span class="pre">make</span></code>. First, <code class="docutils literal notranslate"><span class="pre">make</span></code> does not know of any data
 type except for strings and the default separator is just a space.
@@ -1184,7 +1205,7 @@ our project:</p>
 </pre></div>
 </div>
 <p>We specified that we have a Fortran project and told CMake to create an executable
-<code class="docutils literal notranslate"><span class="pre">my_prog</span></code> from  the files <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code> and <code class="docutils literal notranslate"><span class="pre">functions.f90</span></code>.
+<code class="docutils literal notranslate"><span class="pre">my_prog</span></code> from the files <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code> and <code class="docutils literal notranslate"><span class="pre">functions.f90</span></code>.
 CMake knows the details how to build the executable from the specified sources,
 so we do not have to worry about the actual steps in the build process.</p>
 <div class="admonition tip">

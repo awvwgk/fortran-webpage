@@ -48,30 +48,42 @@
     <link rel="prev" title="Fortran Intrinsics" href="../" /> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    var pr_number = -1;
-    $(document).ready(function () {
-
-        if (window.location.href.indexOf("/pr/") > -1) {
-            pr_number = window.location.href.split('/').indexOf("pr") + 1;
-            document.getElementById("pr").innerHTML = "pull request " + window.location.href.split('/')[pr_number];
-            document.getElementById("pr").href = "https://github.com/fortran-lang/webpage/pull/" + window.location.href.split('/')[pr_number];
-            var banner = document.getElementById("banner");
-            banner.style.display = "block";
-        }
-    });
+  var pr_number = -1;
+  $(document).ready(function () {
+    if (window.location.href.indexOf("/pr/") > -1) {
+      pr_number = window.location.href.split("/").indexOf("pr") + 1;
+      document.getElementById("pr").innerHTML =
+        "pull request " + window.location.href.split("/")[pr_number];
+      document.getElementById("pr").href =
+        "https://github.com/fortran-lang/webpage/pull/" +
+        window.location.href.split("/")[pr_number];
+      var banner = document.getElementById("banner");
+      banner.style.display = "block";
+    }
+  });
 </script>
-<div id="banner" style='display:none' class="container">
-    <h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-git-pull-request">
-            <circle cx="18" cy="18" r="3"></circle>
-            <circle cx="6" cy="6" r="3"></circle>
-            <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-            <line x1="6" y1="9" x2="6" y2="21"></line>
-        </svg>
-        <b>Site preview: </b>you are previewing unpublished changes for <a id="pr"></a>
-    </h3>
+<div id="banner" style="display: none" class="container">
+  <h3>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="feather feather-git-pull-request"
+    >
+      <circle cx="18" cy="18" r="3"></circle>
+      <circle cx="6" cy="6" r="3"></circle>
+      <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+      <line x1="6" y1="9" x2="6" y2="21"></line>
+    </svg>
+    <b>Site preview: </b>you are previewing unpublished changes for
+    <a id="pr"></a>
+  </h3>
 </div> 
 <link
   rel="alternate"
@@ -143,16 +155,23 @@
 </span>
     
     <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button"
-        data-toggle="dropdown">
-        zh_CN
-        <!-- this text may get changed later by javascript -->
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0"
-        aria-labelledby="version_switcher_button">
-        <!-- dropdown will be populated by javascript on page load -->
-    </div>
+  <button
+    type="button"
+    class="btn btn-sm navbar-btn dropdown-toggle"
+    id="version_switcher_button"
+    data-toggle="dropdown"
+  >
+    zh_CN
+    <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div
+    id="version_switcher_menu"
+    class="dropdown-menu list-group-flush py-0"
+    aria-labelledby="version_switcher_button"
+  >
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
 </div>
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
@@ -161,106 +180,108 @@
 -->
 
 <script type="text/javascript">
-    // Check if corresponding page path exists in other version of docs
-    // and, if so, go there instead of the homepage of the other docs version
-    function checkPageExistsAndRedirect(event) {
-        const currentFilePath = "learn/intrinsics/array/index",
-            tryUrl = event.target.getAttribute("href");
-        location.href = tryUrl;
-        // this prevents the browser from following the href of the clicked node
-        // (which is fine because this function takes care of redirecting)
-        return false;
-    }
+  // Check if corresponding page path exists in other version of docs
+  // and, if so, go there instead of the homepage of the other docs version
+  function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "learn/intrinsics/array/index",
+      tryUrl = event.target.getAttribute("href");
+    location.href = tryUrl;
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+  }
 
-    // Populate the version switcher from the JSON config file
-    (function () {
+  // Populate the version switcher from the JSON config file
+  (function () {
+    const currentFilePath = "learn/intrinsics/array/index";
+    const indexFilePath = "../../../";
+    let btn = document.getElementById("version_switcher_button");
+    // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+    btn.dataset["activeVersionName"] = "";
+    btn.dataset["activeVersion"] = "";
+    // create links to the corresponding page in the other docs versions
+    data = [
+      {
+        name: "en",
+        version: "en",
+        url: "../en/",
+      },
+      {
+        name: "cs",
+        version: "cs",
+        url: "../cs/",
+      },
+      {
+        name: "de",
+        version: "de",
+        url: "../de/",
+      },
+      {
+        name: "es",
+        version: "es",
+        url: "../es/",
+      },
+      {
+        name: "fr",
+        version: "fr",
+        url: "../fr/",
+      },
+      {
+        name: "ja",
+        version: "ja",
+        url: "../ja/",
+      },
+      {
+        name: "nl",
+        version: "nl",
+        url: "../nl/",
+      },
+      {
+        name: "pt",
+        version: "pt",
+        url: "../pt/",
+      },
+      {
+        name: "zh_CN",
+        version: "zh_CN",
+        url: "../zh_CN/",
+      },
+    ];
+    console.log(data);
+    $.each(data, function (index, entry) {
+      // if no custom name specified (e.g., "latest"), use version string
+      if (!("name" in entry)) {
+        entry.name = entry.version;
+      }
+      // create the node
+      const node = document.createElement("a");
+      node.setAttribute("class", "list-group-item list-group-item-action py-1");
+      node.textContent = `${entry.name}`;
+      node.setAttribute(
+        "href",
+        `${indexFilePath}${entry.url}${currentFilePath}`
+      );
+      // on click, AJAX calls will check if the linked page exists before
+      // trying to redirect, and if not, will redirect to the homepage
+      // for that version of the docs.
+      node.onclick = checkPageExistsAndRedirect;
+      // Add dataset values for the version and name in case people want
+      // to apply CSS styling based on this information.
+      node.dataset["versionName"] = entry.name;
+      node.dataset["version"] = entry.version;
 
-        const currentFilePath = "learn/intrinsics/array/index";
-        const indexFilePath = "../../../";
-        let btn = document.getElementById("version_switcher_button");
-        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
-        btn.dataset["activeVersionName"] = "";
-        btn.dataset["activeVersion"] = "";
-        // create links to the corresponding page in the other docs versions
-        data = [
-            {
-                "name": "en",
-                "version": "en",
-                "url": "../en/"
-            },
-            {
-                "name": "cs",
-                "version": "cs",
-                "url": "../cs/"
-            },
-            {
-                "name": "de",
-                "version": "de",
-                "url": "../de/"
-            },
-            {
-                "name": "es",
-                "version": "es",
-                "url": "../es/"
-            },
-            {
-                "name": "fr",
-                "version": "fr",
-                "url": "../fr/"
-            },
-            {
-                "name": "ja",
-                "version": "ja",
-                "url": "../ja/"
-            },
-            {
-                "name": "nl",
-                "version": "nl",
-                "url": "../nl/"
-            },
-            {
-                "name": "pt",
-                "version": "pt",
-                "url": "../pt/"
-            },
-            {
-                "name": "zh_CN",
-                "version": "zh_CN",
-                "url": "../zh_CN/"
-            }
-        ]; console.log(data);
-        $.each(data, function (index, entry) {
-            // if no custom name specified (e.g., "latest"), use version string
-            if (!("name" in entry)) {
-                entry.name = entry.version;
-            }
-            // create the node
-            const node = document.createElement("a");
-            node.setAttribute("class", "list-group-item list-group-item-action py-1");
-            node.textContent = `${entry.name}`;
-            node.setAttribute("href", `${indexFilePath}${entry.url}${currentFilePath}`);
-            // on click, AJAX calls will check if the linked page exists before
-            // trying to redirect, and if not, will redirect to the homepage
-            // for that version of the docs.
-            node.onclick = checkPageExistsAndRedirect;
-            // Add dataset values for the version and name in case people want
-            // to apply CSS styling based on this information.
-            node.dataset["versionName"] = entry.name;
-            node.dataset["version"] = entry.version;
-
-            $("#version_switcher_menu").append(node);
-            // replace dropdown button text with the preferred display name of
-            // this version, rather than using sphinx's  variable.
-            // also highlight the dropdown entry for the currently-viewed
-            // version's entry
-            if (entry.version == "zh_CN") {
-                node.classList.add("active");
-                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
-                btn.dataset["activeVersion"] = entry.version;
-            }
-        });
-
-    })();
+      $("#version_switcher_menu").append(node);
+      // replace dropdown button text with the preferred display name of
+      // this version, rather than using sphinx's  variable.
+      // also highlight the dropdown entry for the currently-viewed
+      // version's entry
+      if (entry.version == "zh_CN") {
+        node.classList.add("active");
+        btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+        btn.dataset["activeVersion"] = entry.version;
+      }
+    });
+  })();
 </script>
     
   </div>
@@ -283,13 +304,13 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../compilers/">
-  Compilers
+  编译器
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../community/">
-  Community
+  社区
  </a>
 </li>
 
@@ -301,7 +322,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../news/">
-  News
+  新闻
  </a>
 </li>
 
@@ -400,7 +421,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../best_practices/">
-   Fortran Best Practices
+   Fortran最佳实践
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -410,57 +431,57 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/allocatable_arrays/">
-     Allocatable Arrays
+     可分配数组
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/arrays/">
-     Arrays
+     数组
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/callbacks/">
-     Callbacks
+     回调
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/element_operations/">
-     Element-wise Operations on Array
+     数组的逐元操作
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/file_io/">
-     File Input/Output
+     文件输入/输出
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/floating_point/">
-     Floating Point Numbers
+     浮点数
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/integer_division/">
-     Integer Division
+     整数除法
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/modules_programs/">
-     Modules and Programs
+     模块和程序
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/multidim_arrays/">
-     Multidimensional Arrays
+     多维数组
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/style_guide/">
-     Fortran Style Guide
+     Fortran风格指南
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../best_practices/type_casting/">
-     Type Casting in Callbacks
+     回调中的类型转换
     </a>
    </li>
   </ul>
@@ -514,22 +535,22 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../building_programs/build_tools/">
-     Build tools
+     构建工具
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../building_programs/compiling_source/">
-     Compiling the source code
+     编译源代码
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../building_programs/distributing/">
-     Distributing your programs
+     分发您的程序
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../building_programs/include_files/">
-     Include files and modules
+     包含文件和模块
     </a>
    </li>
    <li class="toctree-l2">
@@ -634,7 +655,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../GNU_Free_Documentation_License/">
+    <a class="reference external" href="https://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">
      GNU Free Documentation License
     </a>
    </li>
@@ -2241,7 +2262,7 @@ element the result is <strong>tsource</strong> if <strong>mask</strong> is true 
 <span class="xref myst"><strong>pack</strong>(3)</span>,
 <span class="xref myst"><strong>spread</strong>(3)</span>,
 <span class="xref myst"><strong>unpack</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions (license: MIT) &#64;urbanjost</p>
+<p>####### fortran内置过程（许可证：MIT） &#64;urbanjost</p>
 </section>
 </section>
 <section id="pack">
@@ -2256,7 +2277,7 @@ element the result is <strong>tsource</strong> if <strong>mask</strong> is true 
 
 <span class="w">   </span><span class="k">TYPE</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="nb">KIND</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="nb">pack</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="n">mask</span><span class="p">,</span><span class="n">vector</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="k">TYPE</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="nb">KIND</span><span class="p">),</span><span class="n">option</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
-<span class="w">   </span><span class="kt">logical</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">mask</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
+<span class="w">   </span><span class="kt">logical</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">mask</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="k">TYPE</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="nb">KIND</span><span class="p">),</span><span class="n">option</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vector</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
@@ -2266,7 +2287,7 @@ scalar as well an an array.</p>
 </section>
 <section id="id3">
 <h3><strong>Description</strong><a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h3>
-<p>Stores the elements of ARRAY in an array of rank one.</p>
+<p>将 ARRAY 的元素存储在一个一维数组中。</p>
 <p>The beginning of the resulting array is made up of elements whose <strong>mask</strong>
 equals <strong>.true.</strong>. Afterwards, positions are filled with elements taken from
 <strong>vector</strong>.</p>
@@ -2275,7 +2296,7 @@ equals <strong>.true.</strong>. Afterwards, positions are filled with elements t
 <h3><strong>Arguments</strong><a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
 <ul class="simple">
 <li><dl class="simple myst">
-<dt><strong>array</strong></dt><dd><p>Shall be an array of any type.</p>
+<dt><strong>array</strong></dt><dd><p>应是一个任意类型的数组。</p>
 </dd>
 </dl>
 </li>
@@ -2304,7 +2325,7 @@ If <strong>vector</strong> is present, the result size is that of <strong>vector
 </section>
 <section id="id6">
 <h3><strong>Examples</strong><a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_pack</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="k">   call </span><span class="n">test1</span><span class="p">()</span><span class="w"></span>
@@ -2344,10 +2365,10 @@ If <strong>vector</strong> is present, the result size is that of <strong>vector
 <span class="k">end program </span><span class="n">demo_pack</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   1 5 
-   1 2 3 4 
-   bat        cat        
+<p>结果：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   1 5
+   1 2 3 4
+   bat        cat
 </pre></div>
 </div>
 </section>
@@ -2362,7 +2383,7 @@ If <strong>vector</strong> is present, the result size is that of <strong>vector
 <span class="xref myst"><strong>pack</strong>(3)</span>,
 <span class="xref myst"><strong>spread</strong>(3)</span>,
 <span class="xref myst"><strong>unpack</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions (license: MIT) &#64;urbanjost</p>
+<p>####### fortran内置过程（许可证：MIT） &#64;urbanjost</p>
 </section>
 </section>
 <section id="spread">
@@ -2387,15 +2408,13 @@ If <strong>vector</strong> is present, the result size is that of <strong>vector
 <h3><strong>Description</strong><a class="headerlink" href="#id11" title="此标题的永久链接">#</a></h3>
 <p>Replicates a <strong>source</strong> array <strong>ncopies</strong> times along a specified
 dimension <strong>dim</strong>.</p>
-<p>If SOURCE is scalar, the shape of the result is (MAX (NCOPIES, 0)).
-and each element of the result has a value equal to SOURCE.</p>
+<p>如果SOURCE是标量，结果的形状是(MAX(NCOPIES,0))。结果的每个元素的值都等于SOURCE。</p>
 </section>
 <section id="id12">
 <h3><strong>Arguments</strong><a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h3>
 <ul class="simple">
 <li><dl class="simple myst">
-<dt><strong>source</strong></dt><dd><p>Shall be a scalar or an array of any type and a rank less than
-fifteen.</p>
+<dt><strong>source</strong></dt><dd><p>应是一个标量或任意类型的小于15维的数组。</p>
 </dd>
 </dl>
 </li>
@@ -2406,7 +2425,7 @@ fifteen.</p>
 </dl>
 </li>
 <li><dl class="simple myst">
-<dt><strong>ncopies</strong></dt><dd><p>Shall be a scalar of type <em>integer</em>.</p>
+<dt><strong>ncopies</strong></dt><dd><p>应是一个类型为 <em>integer</em> 的标量。</p>
 </dd>
 </dl>
 </li>
@@ -2419,7 +2438,7 @@ where <strong>n</strong> equals the rank of <strong>source</strong>.</p>
 </section>
 <section id="id14">
 <h3><strong>Examples</strong><a class="headerlink" href="#id14" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_spread</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
@@ -2498,7 +2517,7 @@ where <strong>n</strong> equals the rank of <strong>source</strong>.</p>
 <span class="xref myst"><strong>merge</strong>(3)</span>,
 <span class="xref myst"><strong>pack</strong>(3)</span>,
 <span class="xref myst"><strong>unpack</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="unpack">
@@ -2527,7 +2546,7 @@ as many elements as <strong>mask</strong> has <strong>.true.</strong> values.</p
 </dl>
 </li>
 <li><dl class="simple myst">
-<dt><strong>mask</strong></dt><dd><p>Shall be an array of type <em>logical</em>.</p>
+<dt><strong>mask</strong></dt><dd><p>应为 <em>logical</em> 类型的数组。</p>
 </dd>
 </dl>
 </li>
@@ -2545,7 +2564,7 @@ replaced by values from <strong>vector</strong> in array element order.</p>
 </section>
 <section id="id22">
 <h3><strong>Examples</strong><a class="headerlink" href="#id22" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_unpack</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vector</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
@@ -2559,7 +2578,7 @@ replaced by values from <strong>vector</strong> in array element order.</p>
 <span class="k">end program </span><span class="n">demo_unpack</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>              1           0           0           1           4
               2           2
 </pre></div>
@@ -2576,7 +2595,7 @@ replaced by values from <strong>vector</strong> in array element order.</p>
 <span class="xref myst"><strong>pack</strong>(3)</span>,
 <span class="xref myst"><strong>spread</strong>(3)</span>,
 <span class="xref myst"><strong>unpack</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="allocated">
@@ -2590,7 +2609,7 @@ replaced by values from <strong>vector</strong> in array element order.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="k">array</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p>or</p>
+<p>或</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
@@ -2604,12 +2623,12 @@ status of <strong>array</strong> and <strong>scalar</strong>, respectively.</p>
 <h3><strong>Arguments</strong><a class="headerlink" href="#id28" title="此标题的永久链接">#</a></h3>
 <ul class="simple">
 <li><dl class="simple myst">
-<dt><strong>array</strong></dt><dd><p>the argument shall be an <em>allocatable</em> array.</p>
+<dt><strong>array</strong></dt><dd><p>参数应为 <em>allocatable</em> 数组。</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple myst">
-<dt><strong>scalar</strong></dt><dd><p>the argument shall be an <em>allocatable</em> scalar.</p>
+<dt><strong>scalar</strong></dt><dd><p>参数应是一个 <em>allocatable</em> 标量。</p>
 </dd>
 </dl>
 </li>
@@ -2617,13 +2636,11 @@ status of <strong>array</strong> and <strong>scalar</strong>, respectively.</p>
 </section>
 <section id="id29">
 <h3><strong>Returns</strong><a class="headerlink" href="#id29" title="此标题的永久链接">#</a></h3>
-<p>The return value is a scalar <em>logical</em> with the default logical kind type
-parameter. If the argument is allocated then the result is .true.;
-otherwise, it returns .false..</p>
+<p>返回值是带有默认逻辑种类标量 <em>logical</em> 类型。如果分配了参数，则结果为 .true。；否则，它返回 .false..</p>
 </section>
 <section id="id30">
 <h3><strong>Examples</strong><a class="headerlink" href="#id30" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_allocated</span><span class="w"></span>
 <span class="k">use</span><span class="p">,</span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">dp</span><span class="o">=&gt;</span><span class="n">real64</span><span class="p">,</span><span class="n">sp</span><span class="o">=&gt;</span><span class="n">real32</span><span class="w"></span>
 <span class="k">implicit none</span>
@@ -2655,7 +2672,7 @@ otherwise, it returns .false..</p>
 <span class="k">end program </span><span class="n">demo_allocated</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    T           4
     do things if allocated
     note it was allocated in calling program F
@@ -2665,13 +2682,12 @@ otherwise, it returns .false..</p>
 </section>
 <section id="id31">
 <h3><strong>Standard</strong><a class="headerlink" href="#id31" title="此标题的永久链接">#</a></h3>
-<p>Fortran 95 and later. Note, the scalar= keyword and allocatable
-scalar entities are available in Fortran 2003 and later.</p>
+<p>Fortran 95 及更高版本。请注意，scalar= 关键字和可分配的标量实体在 Fortran 2003 及更高版本中可用。</p>
 </section>
 <section id="id32">
 <h3><strong>See Also</strong><a class="headerlink" href="#id32" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>move_alloc</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="is-contiguous">
@@ -2688,8 +2704,8 @@ scalar entities are available in Fortran 2003 and later.</p>
 </section>
 <section id="id35">
 <h3><strong>Description</strong><a class="headerlink" href="#id35" title="此标题的永久链接">#</a></h3>
-<p>True if and only if an object is contiguous.</p>
-<p>An object is contiguous if it is</p>
+<p>当且仅当对象是连续的时为真。</p>
+<p>一个对象是连续的，如果它是</p>
 <ul class="simple">
 <li><p><strong>(1)</strong>
 an object with the CONTIGUOUS attribute,</p></li>
@@ -2761,7 +2777,7 @@ is contiguous, and false otherwise.</p>
 </section>
 <section id="id38">
 <h3><strong>Examples</strong><a class="headerlink" href="#id38" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_is_contiguous</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="k">intrinsic </span><span class="nb">is_contiguous</span>
@@ -2776,7 +2792,7 @@ is contiguous, and false otherwise.</p>
 <span class="k">end program </span><span class="n">demo_is_contiguous</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    IN is  T
     OUT is  F
 </pre></div>
@@ -2785,7 +2801,7 @@ is contiguous, and false otherwise.</p>
 <section id="id39">
 <h3><strong>Standard</strong><a class="headerlink" href="#id39" title="此标题的永久链接">#</a></h3>
 <p>Fortran 2008 and later</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="lbound">
@@ -2799,7 +2815,7 @@ is contiguous, and false otherwise.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">lbound</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="nb">dim</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">TYPE</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="nb">KIND</span><span class="p">)</span><span class="w"> </span><span class="k">elemental function </span><span class="nb">lbound</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="nb">dim</span><span class="p">,</span><span class="nb">kind</span><span class="p">)</span><span class="w"></span>
-<span class="w">   </span><span class="k">TYPE</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="nb">KIND</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="k">array </span>
+<span class="w">   </span><span class="k">TYPE</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="nb">KIND</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
 <span class="k">   </span><span class="kt">integer</span><span class="p">,</span><span class="k">optional</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">dim</span>
 <span class="nb">   </span><span class="kt">integer</span><span class="p">,</span><span class="k">optional</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">kind</span><span class="w"></span>
 </pre></div>
@@ -2895,7 +2911,7 @@ occur if there is no interface defined.</p>
 <span class="c">!end program demo_lbound</span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">MAIN</span><span class="p">:</span> <span class="n">LOWER</span><span class="o">=</span>         <span class="o">-</span><span class="mi">10</span> <span class="n">UPPER</span><span class="o">=</span>          <span class="mi">10</span> <span class="n">SIZE</span><span class="o">=</span>          <span class="mi">21</span>
    <span class="n">CSUB</span><span class="p">:</span> <span class="n">LOWER</span><span class="o">=</span>         <span class="o">-</span><span class="mi">10</span> <span class="n">UPPER</span><span class="o">=</span>          <span class="mi">10</span> <span class="n">SIZE</span><span class="o">=</span>          <span class="mi">21</span>
    <span class="n">MSUB</span><span class="p">:</span> <span class="n">LOWER</span><span class="o">=</span>           <span class="mi">1</span> <span class="n">UPPER</span><span class="o">=</span>          <span class="mi">21</span> <span class="n">SIZE</span><span class="o">=</span>          <span class="mi">21</span>
@@ -2911,7 +2927,7 @@ occur if there is no interface defined.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id47" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>ubound</strong>(3)</span>,
 <span class="xref myst"><strong>co_lbound</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="rank">
@@ -2947,7 +2963,7 @@ arrays, their rank is returned; for scalars zero is returned.</p>
 </section>
 <section id="id53">
 <h3><strong>Examples</strong><a class="headerlink" href="#id53" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_rank</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
@@ -2957,7 +2973,7 @@ arrays, their rank is returned; for scalars zero is returned.</p>
 <span class="k">end program </span><span class="n">demo_rank</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   0           2           3
 </pre></div>
 </div>
@@ -2965,7 +2981,7 @@ arrays, their rank is returned; for scalars zero is returned.</p>
 <section id="id54">
 <h3><strong>Standard</strong><a class="headerlink" href="#id54" title="此标题的永久链接">#</a></h3>
 <p>TS 29113</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="shape">
@@ -3011,7 +3027,7 @@ value has the default integer kind otherwise the specified kind.</p>
 </section>
 <section id="id60">
 <h3><strong>Examples</strong><a class="headerlink" href="#id60" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_shape</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">all</span><span class="o">=</span><span class="s1">&#39;(*(g0,1x))&#39;</span><span class="w"></span>
@@ -3024,7 +3040,7 @@ value has the default integer kind otherwise the specified kind.</p>
 <span class="k">end program </span><span class="n">demo_shape</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   shape of array= 3 4
    shape of constant=
    size of shape of constant= 0
@@ -3041,7 +3057,7 @@ value has the default integer kind otherwise the specified kind.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id62" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>reshape</strong>(3)</span>,
 <span class="xref myst"><strong>size</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="size">
@@ -3091,7 +3107,7 @@ is absent, the return value is of default <em>integer</em> kind.</p>
 </section>
 <section id="id68">
 <h3><strong>Examples</strong><a class="headerlink" href="#id68" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_size</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
@@ -3187,7 +3203,7 @@ is absent, the return value is of default <em>integer</em> kind.</p>
 <span class="k">end program </span><span class="n">demo_size</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    SIZE of simple one-dimensional array=           3
     body
     SHAPE(arr)       :           3          11
@@ -3240,7 +3256,7 @@ is absent, the return value is of default <em>integer</em> kind.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id70" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>shape</strong>(3)</span>,
 [<strong>reshape</strong>(3)])(RESHAPE)</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="ubound">
@@ -3347,7 +3363,7 @@ interface defined.</p>
 <span class="c">!end program demo_ubound</span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  MAIN: LOWER=         -10 UPPER=          10 SIZE=          21
   CSUB: LOWER=         -10 UPPER=          10 SIZE=          21
   MSUB: LOWER=           1 UPPER=          21 SIZE=          21
@@ -3365,7 +3381,7 @@ and later</p>
 <p><span class="xref myst"><strong>lbound</strong>(3)</span>,
 <span class="xref myst"><strong>co_ubound</strong>(3)</span>,
 [<strong>co_lbound</strong>(3)(CO_LBOUND)]</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="maxloc">
@@ -3456,7 +3472,7 @@ not start with one.</p>
 <span class="k">end program </span><span class="n">demo_maxloc</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>      3       5
       3       3       3       3       3
       5       5       5
@@ -3478,7 +3494,7 @@ not start with one.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id86" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>max</strong>(3)</span>,
 <span class="xref myst"><strong>maxval</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="minloc">
@@ -3489,10 +3505,10 @@ not start with one.</p>
 </section>
 <section id="id88">
 <h3><strong>Syntax</strong><a class="headerlink" href="#id88" title="此标题的永久链接">#</a></h3>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">minloc</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="nb">dim</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">minloc</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="nb">dim</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p>or</p>
+<p>或</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">minloc</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
@@ -3561,7 +3577,7 @@ default <em>integer</em> type.</p>
 <span class="k">end program </span><span class="n">demo_minloc</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         1       3
          1       3       1       3       2
          3       5       4
@@ -3578,7 +3594,7 @@ default <em>integer</em> type.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id94" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>min</strong>(3)</span>,
 <span class="xref myst"><strong>minval</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="findloc">
@@ -3589,9 +3605,9 @@ default <em>integer</em> type.</p>
 </section>
 <section id="id96">
 <h3><strong>Syntax</strong><a class="headerlink" href="#id96" title="此标题的永久链接">#</a></h3>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">findloc</span><span class="w"> </span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="nb">dim</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="p">)</span><span class="w"> </span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">findloc</span><span class="w"> </span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="nb">dim</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="p">)</span><span class="w"></span>
 
-<span class="nb">or </span>
+<span class="nb">or</span>
 
 <span class="nb">findloc</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="p">)</span><span class="w"></span>
 </pre></div>
@@ -3766,7 +3782,7 @@ The value of</p></li>
 </div>
 <p>has the value [2, 1]. This is independent of the declared lower
 bounds for <strong>b</strong>.</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="transpose">
@@ -3803,7 +3819,7 @@ value <strong>matrix(j, i)</strong>, for all i, j.</p>
 </section>
 <section id="id106">
 <h3><strong>Examples</strong><a class="headerlink" href="#id106" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_transpose</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">([&amp;</span><span class="w"></span>
@@ -3840,7 +3856,7 @@ value <strong>matrix(j, i)</strong>, for all i, j.</p>
 <span class="k">end program </span><span class="n">demo_transpose</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">xx</span> <span class="n">array</span><span class="p">:</span>
     <span class="o">&gt;</span> <span class="p">[</span>     <span class="mi">1</span><span class="p">,</span>     <span class="mi">2</span><span class="p">,</span>     <span class="mi">3</span><span class="p">,</span>     <span class="mi">4</span><span class="p">,</span>     <span class="mi">5</span> <span class="p">]</span>
     <span class="o">&gt;</span> <span class="p">[</span>    <span class="mi">10</span><span class="p">,</span>    <span class="mi">20</span><span class="p">,</span>    <span class="mi">30</span><span class="p">,</span>    <span class="mi">40</span><span class="p">,</span>    <span class="mi">50</span> <span class="p">]</span>
@@ -3857,7 +3873,7 @@ value <strong>matrix(j, i)</strong>, for all i, j.</p>
 <section id="id107">
 <h3><strong>Standard</strong><a class="headerlink" href="#id107" title="此标题的永久链接">#</a></h3>
 <p>Fortran 95 and later</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="all">
@@ -3933,7 +3949,7 @@ dim)</strong> is equal to <strong>all(mask (s1 , s2 , … , sdim-1 ,
 </section>
 <section id="id113">
 <h3><strong>Examples</strong><a class="headerlink" href="#id113" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_all</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">logical </span><span class="n">l</span><span class="w"></span>
@@ -3954,7 +3970,7 @@ dim)</strong> is equal to <strong>all(mask (s1 , s2 , … , sdim-1 ,
 <span class="k">end program </span><span class="n">demo_all</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    T
     T F T
     T F
@@ -3968,7 +3984,7 @@ dim)</strong> is equal to <strong>all(mask (s1 , s2 , … , sdim-1 ,
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                          1|3|5
    If B is the array      -+-+-
                           2|4|6
-  
+
                           0|3|5
    and C is the array     -+-+-
                           7|4|8
@@ -3986,7 +4002,7 @@ dim)</strong> is equal to <strong>all(mask (s1 , s2 , … , sdim-1 ,
 <section id="id114">
 <h3><strong>Standard</strong><a class="headerlink" href="#id114" title="此标题的永久链接">#</a></h3>
 <p>Fortran 95 and later</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="any">
@@ -4040,7 +4056,7 @@ dim)</strong> is determined by applying <strong>any()</strong> to the array sect
 </section>
 <section id="id120">
 <h3><strong>Examples</strong><a class="headerlink" href="#id120" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_any</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">logical </span><span class="n">l</span><span class="w"></span>
@@ -4059,7 +4075,7 @@ dim)</strong> is determined by applying <strong>any()</strong> to the array sect
 <span class="k">end program </span><span class="n">demo_any</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    T
     T T T
     T T
@@ -4069,7 +4085,7 @@ dim)</strong> is determined by applying <strong>any()</strong> to the array sect
 <section id="id121">
 <h3><strong>Standard</strong><a class="headerlink" href="#id121" title="此标题的永久链接">#</a></h3>
 <p>Fortran 95 and later</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="count">
@@ -4121,7 +4137,7 @@ size corresponding to the shape of <strong>array</strong> with the <strong>dim</
 </section>
 <section id="id127">
 <h3><strong>Examples</strong><a class="headerlink" href="#id127" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_count</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
@@ -4149,17 +4165,17 @@ size corresponding to the shape of <strong>array</strong> with the <strong>dim</
 <p>Expected Results:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  1  3  5
   2  4  6
- 
+
   0  3  5
   7  4  8
- 
+
   T  F  F
   T  F  T
- 
+
   3
- 
+
   2  0  1
- 
+
   1  2
 </pre></div>
 </div>
@@ -4168,7 +4184,7 @@ size corresponding to the shape of <strong>array</strong> with the <strong>dim</
 <h3><strong>Standard</strong><a class="headerlink" href="#id128" title="此标题的永久链接">#</a></h3>
 <p>Fortran 95 and later, with KIND argument - Fortran 2003
 and later</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="maxval">
@@ -4182,7 +4198,7 @@ and later</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">maxval</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="nb">dim</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p>or</p>
+<p>或</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">maxval</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
@@ -4247,7 +4263,7 @@ kind as <strong>array</strong>.</p>
 <span class="k">end program </span><span class="n">demo_maxval</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">55</span>
    <span class="mi">11</span>     <span class="mi">22</span>     <span class="mi">33</span>     <span class="mi">44</span>     <span class="mi">55</span>
     <span class="mi">5</span>     <span class="mi">50</span>     <span class="mi">55</span>
@@ -4263,7 +4279,7 @@ kind as <strong>array</strong>.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id136" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>max</strong>(3)</span>,
 <span class="xref myst"><strong>maxloc</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="minval">
@@ -4351,7 +4367,7 @@ kind as <strong>array</strong>.</p>
 <span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;What is the smallest element in each row?&#39;</span><span class="w"></span>
 <span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="nb">minval</span><span class="p">(</span><span class="n">ints</span><span class="p">,</span><span class="nb">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">   </span><span class="c">! notice the shape of the output has less columns </span>
+<span class="w">   </span><span class="c">! notice the shape of the output has less columns</span>
 <span class="w">   </span><span class="c">! than the input in this case</span>
 <span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;What is the smallest element in each column,&#39;</span><span class="w"></span>
 <span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;considering only those elements that are&#39;</span><span class="w"></span>
@@ -4379,11 +4395,11 @@ kind as <strong>array</strong>.</p>
 <span class="k">end program </span><span class="n">demo_minval</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span> Given the array
-    1   -2    3    4    5    
-   10   20  -30   40   50    
-   11   22   33  -44   55    
+    1   -2    3    4    5
+   10   20  -30   40   50
+   11   22   33  -44   55
 
  What is the smallest element in the array?
    -44 at &lt; 3 4 &gt;
@@ -4418,7 +4434,7 @@ kind as <strong>array</strong>.</p>
 <h3><strong>See Also</strong><a class="headerlink" href="#id144" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>min</strong>(3)</span>,
 <span class="xref myst"><strong>minloc</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions (license: MIT) &#64;urbanjost</p>
+<p>####### fortran内置过程（许可证：MIT） &#64;urbanjost</p>
 </section>
 </section>
 <section id="product">
@@ -4445,7 +4461,7 @@ dimension <strong>dim</strong> if the corresponding element in <strong>mask</str
 <p>If <strong>dim</strong> is absent, a scalar with the product of all elements in <strong>array</strong> is
 returned. (Note a zero-sized <strong>array</strong> returns <strong>1</strong>).</p>
 <p>When <strong>dim</strong> is present, If the masked array has a dimension of one
-(ie. is a vector) the result is a scalar.  Otherwise, an array of rank
+(ie. is a vector) the result is a scalar. Otherwise, an array of rank
 <strong>n-1</strong>, where <strong>n</strong> equals the rank of <strong>array</strong>, and a shape similar
 to that of <strong>array</strong> with dimension <strong>dim</strong> dropped is returned.</p>
 </section>
@@ -4477,18 +4493,18 @@ array of the same shape as <strong>array</strong>.</p>
 </section>
 <section id="id150">
 <h3><strong>Examples</strong><a class="headerlink" href="#id150" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_product</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">all</span><span class="o">=</span><span class="s1">&#39;(*(g0,1x))&#39;</span><span class="w"> </span><span class="c">! a handy format</span>
-<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nl</span><span class="o">=</span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nl</span><span class="o">=</span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="n">NO_DIM</span><span class="p">:</span><span class="w"> </span><span class="k">block</span><span class="w"></span>
-<span class="c">!    If DIM is not specified, the result is the product of all the </span>
-<span class="c">!    selected array elements. </span>
+<span class="c">!    If DIM is not specified, the result is the product of all the</span>
+<span class="c">!    selected array elements.</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="n">p2</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(:)</span><span class="w"></span>
-<span class="w">   </span><span class="c">! all elements are selected by default </span>
+<span class="w">   </span><span class="c">! all elements are selected by default</span>
 <span class="w">   </span><span class="k">do </span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="w"></span>
 <span class="w">      </span><span class="k">print all</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;factorial of &#39;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s1">&#39; is &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">product</span><span class="p">([(</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)])</span><span class="w"></span>
 <span class="w">   </span><span class="k">enddo</span><span class="w"></span>
@@ -4502,10 +4518,10 @@ array of the same shape as <strong>array</strong>.</p>
 
 <span class="w">   </span><span class="c">! NOTE: If ARRAY is a zero-sized array, the result is equal to one</span>
 <span class="w">   </span><span class="k">print all</span>
-<span class="k">   print all</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;zero-sized array=&gt;&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">([</span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="p">])</span><span class="w"> </span>
+<span class="k">   print all</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;zero-sized array=&gt;&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">([</span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="p">])</span><span class="w"></span>
 <span class="w">   </span><span class="c">! NOTE: If nothing in the mask is true, this also results in a null</span>
 <span class="w">   </span><span class="c">!       array</span>
-<span class="w">   </span><span class="k">print all</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;all elements have a false mask=&gt;&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="n">mask</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span><span class="w"> </span>
+<span class="w">   </span><span class="k">print all</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;all elements have a false mask=&gt;&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="n">mask</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span><span class="w"></span>
 
 <span class="k">endblock </span><span class="n">NO_DIM</span><span class="w"></span>
 
@@ -4546,8 +4562,8 @@ array of the same shape as <strong>array</strong>.</p>
 
 <span class="c">!   If DIM is specified and ARRAY has rank greater than one, the</span>
 <span class="c">!   result is a new array in which dimension DIM has been eliminated.</span>
-<span class="w"> </span>
-<span class="w">   </span><span class="c">! pick a dimension to multiply though </span>
+
+<span class="w">   </span><span class="c">! pick a dimension to multiply though</span>
 <span class="w">   </span><span class="k">call </span><span class="n">print_matrix_int</span><span class="p">(</span><span class="s1">&#39;dim=1&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">(</span><span class="n">box</span><span class="p">,</span><span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">call </span><span class="n">print_matrix_int</span><span class="p">(</span><span class="s1">&#39;dim=2&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">(</span><span class="n">box</span><span class="p">,</span><span class="nb">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
@@ -4555,38 +4571,38 @@ array of the same shape as <strong>array</strong>.</p>
 <span class="w">   </span><span class="k">call </span><span class="n">print_matrix_int</span><span class="p">(</span><span class="s1">&#39;dim=3&#39;</span><span class="p">,</span><span class="nb">product</span><span class="p">(</span><span class="n">box</span><span class="p">,</span><span class="nb">dim</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
 
 <span class="k">endblock </span><span class="n">WITH_DIM</span><span class="w"></span>
-<span class="w">  </span>
+
 <span class="k">contains</span>
-<span class="k">  </span>
+
 <span class="k">subroutine </span><span class="n">print_matrix_int</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="n">arr</span><span class="p">)</span><span class="w"></span>
 <span class="k">implicit none</span><span class="w"></span>
-<span class="w">  </span>
+
 <span class="c">!@(#) print small 2d integer arrays in row-column format</span>
-<span class="w">  </span>
+
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">title</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">arr</span><span class="p">(:,:)</span><span class="w"></span>
 <span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">biggest</span><span class="w"></span>
-<span class="w">  </span>
+
 <span class="w">   </span><span class="k">print all</span>
 <span class="k">   print all</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">title</span><span class="p">),</span><span class="s1">&#39;:(&#39;</span><span class="p">,</span><span class="nb">shape</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="c">! print title</span>
 <span class="w">   </span><span class="n">biggest</span><span class="o">=</span><span class="s1">&#39;           &#39;</span><span class="w">  </span><span class="c">! make buffer to write integer into</span>
 <span class="w">   </span><span class="c">! find how many characters to use for integers</span>
-<span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="n">biggest</span><span class="p">,</span><span class="s1">&#39;(i0)&#39;</span><span class="p">)</span><span class="nb">ceiling</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="nb">maxval</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arr</span><span class="p">)))))</span><span class="o">+</span><span class="mi">2</span><span class="w"> </span>
+<span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="n">biggest</span><span class="p">,</span><span class="s1">&#39;(i0)&#39;</span><span class="p">)</span><span class="nb">ceiling</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="nb">maxval</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arr</span><span class="p">)))))</span><span class="o">+</span><span class="mi">2</span><span class="w"></span>
 <span class="w">   </span><span class="c">! use this format to write a row</span>
-<span class="w">   </span><span class="n">biggest</span><span class="o">=</span><span class="s1">&#39;(&quot; &gt; [&quot;,*(i&#39;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">biggest</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;:,&quot;,&quot;))&#39;</span><span class="w">     </span>
+<span class="w">   </span><span class="n">biggest</span><span class="o">=</span><span class="s1">&#39;(&quot; &gt; [&quot;,*(i&#39;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">biggest</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;:,&quot;,&quot;))&#39;</span><span class="w"></span>
 <span class="w">   </span><span class="c">! print one row of array at a time</span>
-<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">                      </span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="n">biggest</span><span class="p">,</span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="n">arr</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w"></span>
 <span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot; ]&quot;)&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="k">enddo</span>
-<span class="k">  </span>
+
 <span class="k">end subroutine </span><span class="n">print_matrix_int</span><span class="w"></span>
-<span class="w">  </span>
+
 <span class="k">end program </span><span class="n">demo_product</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>factorial of  1  is  1.000000
 factorial of  2  is  2.000000
 factorial of  3  is  6.000000
@@ -4599,7 +4615,7 @@ factorial of  9  is  362880.0
 factorial of  10  is  3628800.
 
  product of all elements 351000000
- odd * even = 
+ odd * even =
  4875 * 72000 = 351000000
 
 zero-sized array=&gt; 1
@@ -4656,7 +4672,7 @@ dim=3 :( 2 3 )
 <h3><strong>See Also</strong><a class="headerlink" href="#id152" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>sum</strong>(3)</span>, note that an element by element multiplication is done
 directly using the star character.</p>
-<p>####### fortran-lang intrinsic descriptions (license: MIT) &#64;urbanjost</p>
+<p>####### fortran内置过程（许可证：MIT） &#64;urbanjost</p>
 </section>
 </section>
 <section id="sum">
@@ -4709,7 +4725,7 @@ is returned.</p>
 </section>
 <section id="id158">
 <h3><strong>Examples</strong><a class="headerlink" href="#id158" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">simple_sum</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">,</span><span class="mi">5</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
@@ -4737,7 +4753,7 @@ is returned.</p>
 <span class="k">end program </span><span class="n">demo_sum</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span> Sum of all elements in c =    35.0000000
  Sum of Positive elements in c =    36.0000000
  Sum of elements in c when corresponding elements in b&gt;0 =   30.0000000
@@ -4751,7 +4767,7 @@ is returned.</p>
 <section id="id160">
 <h3><strong>See Also</strong><a class="headerlink" href="#id160" title="此标题的永久链接">#</a></h3>
 <p>intrinsics</p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 <section id="reshape">
@@ -4807,7 +4823,7 @@ assumed.</p>
 </section>
 <section id="id166">
 <h3><strong>Examples</strong><a class="headerlink" href="#id166" title="此标题的永久链接">#</a></h3>
-<p>Sample program:</p>
+<p>示例程序：</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">demo_reshape</span><span class="w"></span>
 <span class="k">implicit none</span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
@@ -4821,11 +4837,11 @@ assumed.</p>
 <span class="w">    </span><span class="c">! pack any array into a vector</span>
 <span class="w">    </span><span class="n">xx</span><span class="o">=</span><span class="mf">1.0</span><span class="w"></span>
 <span class="w">    </span><span class="n">v</span><span class="o">=</span><span class="nb">reshape</span><span class="p">(</span><span class="n">xx</span><span class="p">,[</span><span class="n">size</span><span class="p">(</span><span class="n">xx</span><span class="p">)])</span><span class="w"></span>
-<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="nb">shape</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="nb">ubound</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="nb">shape</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="nb">ubound</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
 <span class="k">end program </span><span class="n">demo_reshape</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>结果：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>              4
               2           2
              12          12
@@ -4839,7 +4855,7 @@ assumed.</p>
 <section id="id168">
 <h3><strong>See Also</strong><a class="headerlink" href="#id168" title="此标题的永久链接">#</a></h3>
 <p><span class="xref myst"><strong>shape</strong>(3)</span></p>
-<p>####### fortran-lang intrinsic descriptions</p>
+<p>####### fortran 内置过程描述</p>
 </section>
 </section>
 </section>

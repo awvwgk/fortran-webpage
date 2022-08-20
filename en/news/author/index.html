@@ -44,30 +44,42 @@
     <link rel="search" title="Search" href="../../search/" /> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    var pr_number = -1;
-    $(document).ready(function () {
-
-        if (window.location.href.indexOf("/pr/") > -1) {
-            pr_number = window.location.href.split('/').indexOf("pr") + 1;
-            document.getElementById("pr").innerHTML = "pull request " + window.location.href.split('/')[pr_number];
-            document.getElementById("pr").href = "https://github.com/fortran-lang/webpage/pull/" + window.location.href.split('/')[pr_number];
-            var banner = document.getElementById("banner");
-            banner.style.display = "block";
-        }
-    });
+  var pr_number = -1;
+  $(document).ready(function () {
+    if (window.location.href.indexOf("/pr/") > -1) {
+      pr_number = window.location.href.split("/").indexOf("pr") + 1;
+      document.getElementById("pr").innerHTML =
+        "pull request " + window.location.href.split("/")[pr_number];
+      document.getElementById("pr").href =
+        "https://github.com/fortran-lang/webpage/pull/" +
+        window.location.href.split("/")[pr_number];
+      var banner = document.getElementById("banner");
+      banner.style.display = "block";
+    }
+  });
 </script>
-<div id="banner" style='display:none' class="container">
-    <h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-git-pull-request">
-            <circle cx="18" cy="18" r="3"></circle>
-            <circle cx="6" cy="6" r="3"></circle>
-            <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-            <line x1="6" y1="9" x2="6" y2="21"></line>
-        </svg>
-        <b>Site preview: </b>you are previewing unpublished changes for <a id="pr"></a>
-    </h3>
+<div id="banner" style="display: none" class="container">
+  <h3>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="feather feather-git-pull-request"
+    >
+      <circle cx="18" cy="18" r="3"></circle>
+      <circle cx="6" cy="6" r="3"></circle>
+      <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+      <line x1="6" y1="9" x2="6" y2="21"></line>
+    </svg>
+    <b>Site preview: </b>you are previewing unpublished changes for
+    <a id="pr"></a>
+  </h3>
 </div> 
 <link
   rel="alternate"
@@ -139,16 +151,23 @@
 </span>
     
     <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button"
-        data-toggle="dropdown">
-        en
-        <!-- this text may get changed later by javascript -->
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0"
-        aria-labelledby="version_switcher_button">
-        <!-- dropdown will be populated by javascript on page load -->
-    </div>
+  <button
+    type="button"
+    class="btn btn-sm navbar-btn dropdown-toggle"
+    id="version_switcher_button"
+    data-toggle="dropdown"
+  >
+    en
+    <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div
+    id="version_switcher_menu"
+    class="dropdown-menu list-group-flush py-0"
+    aria-labelledby="version_switcher_button"
+  >
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
 </div>
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
@@ -157,106 +176,108 @@
 -->
 
 <script type="text/javascript">
-    // Check if corresponding page path exists in other version of docs
-    // and, if so, go there instead of the homepage of the other docs version
-    function checkPageExistsAndRedirect(event) {
-        const currentFilePath = "news/author",
-            tryUrl = event.target.getAttribute("href");
-        location.href = tryUrl;
-        // this prevents the browser from following the href of the clicked node
-        // (which is fine because this function takes care of redirecting)
-        return false;
-    }
+  // Check if corresponding page path exists in other version of docs
+  // and, if so, go there instead of the homepage of the other docs version
+  function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "news/author",
+      tryUrl = event.target.getAttribute("href");
+    location.href = tryUrl;
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+  }
 
-    // Populate the version switcher from the JSON config file
-    (function () {
+  // Populate the version switcher from the JSON config file
+  (function () {
+    const currentFilePath = "news/author";
+    const indexFilePath = "../../";
+    let btn = document.getElementById("version_switcher_button");
+    // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+    btn.dataset["activeVersionName"] = "";
+    btn.dataset["activeVersion"] = "";
+    // create links to the corresponding page in the other docs versions
+    data = [
+      {
+        name: "en",
+        version: "en",
+        url: "../en/",
+      },
+      {
+        name: "cs",
+        version: "cs",
+        url: "../cs/",
+      },
+      {
+        name: "de",
+        version: "de",
+        url: "../de/",
+      },
+      {
+        name: "es",
+        version: "es",
+        url: "../es/",
+      },
+      {
+        name: "fr",
+        version: "fr",
+        url: "../fr/",
+      },
+      {
+        name: "ja",
+        version: "ja",
+        url: "../ja/",
+      },
+      {
+        name: "nl",
+        version: "nl",
+        url: "../nl/",
+      },
+      {
+        name: "pt",
+        version: "pt",
+        url: "../pt/",
+      },
+      {
+        name: "zh_CN",
+        version: "zh_CN",
+        url: "../zh_CN/",
+      },
+    ];
+    console.log(data);
+    $.each(data, function (index, entry) {
+      // if no custom name specified (e.g., "latest"), use version string
+      if (!("name" in entry)) {
+        entry.name = entry.version;
+      }
+      // create the node
+      const node = document.createElement("a");
+      node.setAttribute("class", "list-group-item list-group-item-action py-1");
+      node.textContent = `${entry.name}`;
+      node.setAttribute(
+        "href",
+        `${indexFilePath}${entry.url}${currentFilePath}`
+      );
+      // on click, AJAX calls will check if the linked page exists before
+      // trying to redirect, and if not, will redirect to the homepage
+      // for that version of the docs.
+      node.onclick = checkPageExistsAndRedirect;
+      // Add dataset values for the version and name in case people want
+      // to apply CSS styling based on this information.
+      node.dataset["versionName"] = entry.name;
+      node.dataset["version"] = entry.version;
 
-        const currentFilePath = "news/author";
-        const indexFilePath = "../../";
-        let btn = document.getElementById("version_switcher_button");
-        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
-        btn.dataset["activeVersionName"] = "";
-        btn.dataset["activeVersion"] = "";
-        // create links to the corresponding page in the other docs versions
-        data = [
-            {
-                "name": "en",
-                "version": "en",
-                "url": "../en/"
-            },
-            {
-                "name": "cs",
-                "version": "cs",
-                "url": "../cs/"
-            },
-            {
-                "name": "de",
-                "version": "de",
-                "url": "../de/"
-            },
-            {
-                "name": "es",
-                "version": "es",
-                "url": "../es/"
-            },
-            {
-                "name": "fr",
-                "version": "fr",
-                "url": "../fr/"
-            },
-            {
-                "name": "ja",
-                "version": "ja",
-                "url": "../ja/"
-            },
-            {
-                "name": "nl",
-                "version": "nl",
-                "url": "../nl/"
-            },
-            {
-                "name": "pt",
-                "version": "pt",
-                "url": "../pt/"
-            },
-            {
-                "name": "zh_CN",
-                "version": "zh_CN",
-                "url": "../zh_CN/"
-            }
-        ]; console.log(data);
-        $.each(data, function (index, entry) {
-            // if no custom name specified (e.g., "latest"), use version string
-            if (!("name" in entry)) {
-                entry.name = entry.version;
-            }
-            // create the node
-            const node = document.createElement("a");
-            node.setAttribute("class", "list-group-item list-group-item-action py-1");
-            node.textContent = `${entry.name}`;
-            node.setAttribute("href", `${indexFilePath}${entry.url}${currentFilePath}`);
-            // on click, AJAX calls will check if the linked page exists before
-            // trying to redirect, and if not, will redirect to the homepage
-            // for that version of the docs.
-            node.onclick = checkPageExistsAndRedirect;
-            // Add dataset values for the version and name in case people want
-            // to apply CSS styling based on this information.
-            node.dataset["versionName"] = entry.name;
-            node.dataset["version"] = entry.version;
-
-            $("#version_switcher_menu").append(node);
-            // replace dropdown button text with the preferred display name of
-            // this version, rather than using sphinx's  variable.
-            // also highlight the dropdown entry for the currently-viewed
-            // version's entry
-            if (entry.version == "en") {
-                node.classList.add("active");
-                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
-                btn.dataset["activeVersion"] = entry.version;
-            }
-        });
-
-    })();
+      $("#version_switcher_menu").append(node);
+      // replace dropdown button text with the preferred display name of
+      // this version, rather than using sphinx's  variable.
+      // also highlight the dropdown entry for the currently-viewed
+      // version's entry
+      if (entry.version == "en") {
+        node.classList.add("active");
+        btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+        btn.dataset["activeVersion"] = entry.version;
+      }
+    });
+  })();
 </script>
     
   </div>
@@ -356,31 +377,31 @@
 <ul>
    
   <li>
-    <a href="../2022/06-09-Fortran-Newsletter-June-2022.md/"
+    <a href="../2022/06-09-Fortran-Newsletter-June-2022/"
       >09 June - Fortran newsletter: June 2022</a
     >
   </li>
   
   <li>
-    <a href="../2022/05-05-Fortran-Newsletter-May-2022.md/"
+    <a href="../2022/05-05-Fortran-Newsletter-May-2022/"
       >05 May - Fortran newsletter: May 2022</a
     >
   </li>
   
   <li>
-    <a href="../2022/04-07-Fortran-Newsletter-April-2022.md/"
+    <a href="../2022/04-07-Fortran-Newsletter-April-2022/"
       >07 April - Fortran newsletter: April 2022</a
     >
   </li>
   
   <li>
-    <a href="../2022/03-09-Fortran-Newsletter-March-2022.md/"
+    <a href="../2022/03-09-Fortran-Newsletter-March-2022/"
       >09 March - Fortran newsletter: March 2022</a
     >
   </li>
   
   <li>
-    <a href="../2022/02-01-Fortran-Newsletter-February-2022.md/"
+    <a href="../2022/02-01-Fortran-Newsletter-February-2022/"
       >01 February - Fortran newsletter: February 2022</a
     >
   </li>
@@ -436,7 +457,7 @@
     <p>
         09 June 2022 
       -
-      <a href="../2022/06-09-Fortran-Newsletter-June-2022.md/"
+      <a href="../2022/06-09-Fortran-Newsletter-June-2022/"
         >Fortran newsletter: June 2022</a
       >
     </p>
@@ -447,7 +468,7 @@
     <p>
         05 May 2022 
       -
-      <a href="../2022/05-05-Fortran-Newsletter-May-2022.md/"
+      <a href="../2022/05-05-Fortran-Newsletter-May-2022/"
         >Fortran newsletter: May 2022</a
       >
     </p>
@@ -458,7 +479,7 @@
     <p>
         07 April 2022 
       -
-      <a href="../2022/04-07-Fortran-Newsletter-April-2022.md/"
+      <a href="../2022/04-07-Fortran-Newsletter-April-2022/"
         >Fortran newsletter: April 2022</a
       >
     </p>
@@ -469,7 +490,7 @@
     <p>
         09 March 2022 
       -
-      <a href="../2022/03-09-Fortran-Newsletter-March-2022.md/"
+      <a href="../2022/03-09-Fortran-Newsletter-March-2022/"
         >Fortran newsletter: March 2022</a
       >
     </p>
@@ -480,7 +501,7 @@
     <p>
         01 February 2022 
       -
-      <a href="../2022/02-01-Fortran-Newsletter-February-2022.md/"
+      <a href="../2022/02-01-Fortran-Newsletter-February-2022/"
         >Fortran newsletter: February 2022</a
       >
     </p>
@@ -491,7 +512,7 @@
     <p>
         01 January 2022 
       -
-      <a href="../2022/01-01-Fortran-Newsletter-January-2022.md/"
+      <a href="../2022/01-01-Fortran-Newsletter-January-2022/"
         >Fortran newsletter: January 2022</a
       >
     </p>
@@ -502,7 +523,7 @@
     <p>
         01 December 2021 
       -
-      <a href="../2021/12-01-Fortran-Newsletter-December-2021.md/"
+      <a href="../2021/12-01-Fortran-Newsletter-December-2021/"
         >Fortran newsletter: December 2021</a
       >
     </p>
@@ -513,7 +534,7 @@
     <p>
         01 November 2021 
       -
-      <a href="../2021/11-01-Fortran-Newsletter-November-2021.md/"
+      <a href="../2021/11-01-Fortran-Newsletter-November-2021/"
         >Fortran newsletter: November 2021</a
       >
     </p>
@@ -524,7 +545,7 @@
     <p>
         01 October 2021 
       -
-      <a href="../2021/10-01-Fortran-Newsletter-October-2021.md/"
+      <a href="../2021/10-01-Fortran-Newsletter-October-2021/"
         >Fortran newsletter: October 2021</a
       >
     </p>
@@ -535,7 +556,7 @@
     <p>
         01 September 2021 
       -
-      <a href="../2021/09-01-Fortran-Newsletter-September-2021.md/"
+      <a href="../2021/09-01-Fortran-Newsletter-September-2021/"
         >Fortran newsletter: September 2021</a
       >
     </p>
@@ -546,7 +567,7 @@
     <p>
         01 May 2021 
       -
-      <a href="../2021/05-01-Fortran-Newsletter-May-2021.md/"
+      <a href="../2021/05-01-Fortran-Newsletter-May-2021/"
         >Fortran newsletter: May 2021</a
       >
     </p>
@@ -557,7 +578,7 @@
     <p>
         01 April 2021 
       -
-      <a href="../2021/04-01-Fortran-Newsletter-April-2021.md/"
+      <a href="../2021/04-01-Fortran-Newsletter-April-2021/"
         >Fortran newsletter: April 2021</a
       >
     </p>
@@ -568,7 +589,7 @@
     <p>
         01 February 2021 
       -
-      <a href="../2021/02-01-Fortran-Newsletter-February-2021.md/"
+      <a href="../2021/02-01-Fortran-Newsletter-February-2021/"
         >Fortran newsletter: February 2021</a
       >
     </p>
@@ -587,7 +608,7 @@
     <p>
         18 May 2021 
       -
-      <a href="../2021/05-18-Welcome-GSoC-students.md/"
+      <a href="../2021/05-18-Welcome-GSoC-students/"
         >Fortran-lang welcomes new students to Google Summer of Code 2021</a
       >
     </p>
@@ -598,7 +619,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -617,7 +638,7 @@
     <p>
         01 August 2020 
       -
-      <a href="../2020/08-01-Fortran-Newsletter-August-2020.md/"
+      <a href="../2020/08-01-Fortran-Newsletter-August-2020/"
         >Fortran newsletter: August 2020</a
       >
     </p>
@@ -636,7 +657,7 @@
     <p>
         18 May 2021 
       -
-      <a href="../2021/05-18-Welcome-GSoC-students.md/"
+      <a href="../2021/05-18-Welcome-GSoC-students/"
         >Fortran-lang welcomes new students to Google Summer of Code 2021</a
       >
     </p>
@@ -647,7 +668,7 @@
     <p>
         20 April 2021 
       -
-      <a href="../2021/04-20-First-Year.md/"
+      <a href="../2021/04-20-First-Year/"
         >First year of the Fortran website</a
       >
     </p>
@@ -658,7 +679,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -669,7 +690,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -680,7 +701,7 @@
     <p>
         01 October 2020 
       -
-      <a href="../2020/10-01-Fortran-Newsletter-October-2020.md/"
+      <a href="../2020/10-01-Fortran-Newsletter-October-2020/"
         >Fortran newsletter: October 2020</a
       >
     </p>
@@ -691,7 +712,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>
@@ -702,7 +723,7 @@
     <p>
         01 June 2020 
       -
-      <a href="../2020/06-01-Fortran-Newsletter-June-2020.md/"
+      <a href="../2020/06-01-Fortran-Newsletter-June-2020/"
         >Fortran newsletter: June 2020</a
       >
     </p>
@@ -721,7 +742,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -740,7 +761,7 @@
     <p>
         05 May 2022 
       -
-      <a href="../2022/05-05-Fortran-Newsletter-May-2022.md/"
+      <a href="../2022/05-05-Fortran-Newsletter-May-2022/"
         >Fortran newsletter: May 2022</a
       >
     </p>
@@ -751,7 +772,7 @@
     <p>
         01 February 2022 
       -
-      <a href="../2022/02-01-Fortran-Newsletter-February-2022.md/"
+      <a href="../2022/02-01-Fortran-Newsletter-February-2022/"
         >Fortran newsletter: February 2022</a
       >
     </p>
@@ -770,7 +791,7 @@
     <p>
         01 January 2021 
       -
-      <a href="../2021/01-01-Fortran-Newsletter-January-2021.md/"
+      <a href="../2021/01-01-Fortran-Newsletter-January-2021/"
         >Fortran newsletter: January 2021</a
       >
     </p>
@@ -781,7 +802,7 @@
     <p>
         01 December 2020 
       -
-      <a href="../2020/12-01-Fortran-Newsletter-December-2020.md/"
+      <a href="../2020/12-01-Fortran-Newsletter-December-2020/"
         >Fortran newsletter: December 2020</a
       >
     </p>
@@ -792,7 +813,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -803,7 +824,7 @@
     <p>
         01 October 2020 
       -
-      <a href="../2020/10-01-Fortran-Newsletter-October-2020.md/"
+      <a href="../2020/10-01-Fortran-Newsletter-October-2020/"
         >Fortran newsletter: October 2020</a
       >
     </p>
@@ -814,7 +835,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>
@@ -833,7 +854,7 @@
     <p>
         05 May 2022 
       -
-      <a href="../2022/05-05-Fortran-Newsletter-May-2022.md/"
+      <a href="../2022/05-05-Fortran-Newsletter-May-2022/"
         >Fortran newsletter: May 2022</a
       >
     </p>
@@ -852,7 +873,7 @@
     <p>
         09 June 2022 
       -
-      <a href="../2022/06-09-Fortran-Newsletter-June-2022.md/"
+      <a href="../2022/06-09-Fortran-Newsletter-June-2022/"
         >Fortran newsletter: June 2022</a
       >
     </p>
@@ -871,7 +892,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -890,7 +911,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -901,7 +922,7 @@
     <p>
         01 June 2020 
       -
-      <a href="../2020/06-01-Fortran-Newsletter-June-2020.md/"
+      <a href="../2020/06-01-Fortran-Newsletter-June-2020/"
         >Fortran newsletter: June 2020</a
       >
     </p>
@@ -920,7 +941,7 @@
     <p>
         01 February 2022 
       -
-      <a href="../2022/02-01-Fortran-Newsletter-February-2022.md/"
+      <a href="../2022/02-01-Fortran-Newsletter-February-2022/"
         >Fortran newsletter: February 2022</a
       >
     </p>
@@ -931,7 +952,7 @@
     <p>
         01 January 2022 
       -
-      <a href="../2022/01-01-Fortran-Newsletter-January-2022.md/"
+      <a href="../2022/01-01-Fortran-Newsletter-January-2022/"
         >Fortran newsletter: January 2022</a
       >
     </p>
@@ -942,7 +963,7 @@
     <p>
         29 December 2021 
       -
-      <a href="../2021/12-29-Fortran-lang-2021-in-review.md/"
+      <a href="../2021/12-29-Fortran-lang-2021-in-review/"
         >Fortran-lang: 2021 in review</a
       >
     </p>
@@ -953,7 +974,7 @@
     <p>
         01 February 2021 
       -
-      <a href="../2021/02-01-Fortran-Newsletter-February-2021.md/"
+      <a href="../2021/02-01-Fortran-Newsletter-February-2021/"
         >Fortran newsletter: February 2021</a
       >
     </p>
@@ -964,7 +985,7 @@
     <p>
         01 January 2021 
       -
-      <a href="../2021/01-01-Fortran-Newsletter-January-2021.md/"
+      <a href="../2021/01-01-Fortran-Newsletter-January-2021/"
         >Fortran newsletter: January 2021</a
       >
     </p>
@@ -975,7 +996,7 @@
     <p>
         01 December 2020 
       -
-      <a href="../2020/12-01-Fortran-Newsletter-December-2020.md/"
+      <a href="../2020/12-01-Fortran-Newsletter-December-2020/"
         >Fortran newsletter: December 2020</a
       >
     </p>
@@ -986,7 +1007,7 @@
     <p>
         01 October 2020 
       -
-      <a href="../2020/10-01-Fortran-Newsletter-October-2020.md/"
+      <a href="../2020/10-01-Fortran-Newsletter-October-2020/"
         >Fortran newsletter: October 2020</a
       >
     </p>
@@ -997,7 +1018,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>
@@ -1008,7 +1029,7 @@
     <p>
         01 August 2020 
       -
-      <a href="../2020/08-01-Fortran-Newsletter-August-2020.md/"
+      <a href="../2020/08-01-Fortran-Newsletter-August-2020/"
         >Fortran newsletter: August 2020</a
       >
     </p>
@@ -1027,7 +1048,7 @@
     <p>
         29 December 2021 
       -
-      <a href="../2021/12-29-Fortran-lang-2021-in-review.md/"
+      <a href="../2021/12-29-Fortran-lang-2021-in-review/"
         >Fortran-lang: 2021 in review</a
       >
     </p>
@@ -1038,7 +1059,7 @@
     <p>
         01 October 2021 
       -
-      <a href="../2021/10-01-Fortran-Newsletter-October-2021.md/"
+      <a href="../2021/10-01-Fortran-Newsletter-October-2021/"
         >Fortran newsletter: October 2021</a
       >
     </p>
@@ -1049,7 +1070,7 @@
     <p>
         01 August 2021 
       -
-      <a href="../2021/08-01-Fortran-Newsletter-August-2021.md/"
+      <a href="../2021/08-01-Fortran-Newsletter-August-2021/"
         >Fortran newsletter: August 2021</a
       >
     </p>
@@ -1060,7 +1081,7 @@
     <p>
         01 July 2021 
       -
-      <a href="../2021/07-01-Fortran-Newsletter-July-2021.md/"
+      <a href="../2021/07-01-Fortran-Newsletter-July-2021/"
         >Fortran newsletter: July 2021</a
       >
     </p>
@@ -1071,7 +1092,7 @@
     <p>
         01 June 2021 
       -
-      <a href="../2021/06-01-Fortran-Newsletter-June-2021.md/"
+      <a href="../2021/06-01-Fortran-Newsletter-June-2021/"
         >Fortran newsletter: June 2021</a
       >
     </p>
@@ -1082,7 +1103,7 @@
     <p>
         18 May 2021 
       -
-      <a href="../2021/05-18-Welcome-GSoC-students.md/"
+      <a href="../2021/05-18-Welcome-GSoC-students/"
         >Fortran-lang welcomes new students to Google Summer of Code 2021</a
       >
     </p>
@@ -1093,7 +1114,7 @@
     <p>
         01 May 2021 
       -
-      <a href="../2021/05-01-Fortran-Newsletter-May-2021.md/"
+      <a href="../2021/05-01-Fortran-Newsletter-May-2021/"
         >Fortran newsletter: May 2021</a
       >
     </p>
@@ -1104,7 +1125,7 @@
     <p>
         20 April 2021 
       -
-      <a href="../2021/04-20-First-Year.md/"
+      <a href="../2021/04-20-First-Year/"
         >First year of the Fortran website</a
       >
     </p>
@@ -1115,7 +1136,7 @@
     <p>
         01 April 2021 
       -
-      <a href="../2021/04-01-Fortran-Newsletter-April-2021.md/"
+      <a href="../2021/04-01-Fortran-Newsletter-April-2021/"
         >Fortran newsletter: April 2021</a
       >
     </p>
@@ -1126,7 +1147,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -1137,7 +1158,7 @@
     <p>
         01 March 2021 
       -
-      <a href="../2021/03-01-Fortran-Newsletter-March-2021.md/"
+      <a href="../2021/03-01-Fortran-Newsletter-March-2021/"
         >Fortran newsletter: March 2021</a
       >
     </p>
@@ -1148,7 +1169,7 @@
     <p>
         01 February 2021 
       -
-      <a href="../2021/02-01-Fortran-Newsletter-February-2021.md/"
+      <a href="../2021/02-01-Fortran-Newsletter-February-2021/"
         >Fortran newsletter: February 2021</a
       >
     </p>
@@ -1159,7 +1180,7 @@
     <p>
         01 January 2021 
       -
-      <a href="../2021/01-01-Fortran-Newsletter-January-2021.md/"
+      <a href="../2021/01-01-Fortran-Newsletter-January-2021/"
         >Fortran newsletter: January 2021</a
       >
     </p>
@@ -1170,7 +1191,7 @@
     <p>
         01 December 2020 
       -
-      <a href="../2020/12-01-Fortran-Newsletter-December-2020.md/"
+      <a href="../2020/12-01-Fortran-Newsletter-December-2020/"
         >Fortran newsletter: December 2020</a
       >
     </p>
@@ -1181,7 +1202,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -1192,7 +1213,7 @@
     <p>
         01 August 2020 
       -
-      <a href="../2020/08-01-Fortran-Newsletter-August-2020.md/"
+      <a href="../2020/08-01-Fortran-Newsletter-August-2020/"
         >Fortran newsletter: August 2020</a
       >
     </p>
@@ -1203,7 +1224,7 @@
     <p>
         01 July 2020 
       -
-      <a href="../2020/07-01-Fortran-Newsletter-July-2020.md/"
+      <a href="../2020/07-01-Fortran-Newsletter-July-2020/"
         >Fortran newsletter: July 2020</a
       >
     </p>
@@ -1222,7 +1243,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -1241,7 +1262,7 @@
     <p>
         09 June 2022 
       -
-      <a href="../2022/06-09-Fortran-Newsletter-June-2022.md/"
+      <a href="../2022/06-09-Fortran-Newsletter-June-2022/"
         >Fortran newsletter: June 2022</a
       >
     </p>
@@ -1252,7 +1273,7 @@
     <p>
         05 May 2022 
       -
-      <a href="../2022/05-05-Fortran-Newsletter-May-2022.md/"
+      <a href="../2022/05-05-Fortran-Newsletter-May-2022/"
         >Fortran newsletter: May 2022</a
       >
     </p>
@@ -1263,7 +1284,7 @@
     <p>
         07 April 2022 
       -
-      <a href="../2022/04-07-Fortran-Newsletter-April-2022.md/"
+      <a href="../2022/04-07-Fortran-Newsletter-April-2022/"
         >Fortran newsletter: April 2022</a
       >
     </p>
@@ -1274,7 +1295,7 @@
     <p>
         09 March 2022 
       -
-      <a href="../2022/03-09-Fortran-Newsletter-March-2022.md/"
+      <a href="../2022/03-09-Fortran-Newsletter-March-2022/"
         >Fortran newsletter: March 2022</a
       >
     </p>
@@ -1285,7 +1306,7 @@
     <p>
         01 February 2022 
       -
-      <a href="../2022/02-01-Fortran-Newsletter-February-2022.md/"
+      <a href="../2022/02-01-Fortran-Newsletter-February-2022/"
         >Fortran newsletter: February 2022</a
       >
     </p>
@@ -1296,7 +1317,7 @@
     <p>
         01 January 2022 
       -
-      <a href="../2022/01-01-Fortran-Newsletter-January-2022.md/"
+      <a href="../2022/01-01-Fortran-Newsletter-January-2022/"
         >Fortran newsletter: January 2022</a
       >
     </p>
@@ -1307,7 +1328,7 @@
     <p>
         29 December 2021 
       -
-      <a href="../2021/12-29-Fortran-lang-2021-in-review.md/"
+      <a href="../2021/12-29-Fortran-lang-2021-in-review/"
         >Fortran-lang: 2021 in review</a
       >
     </p>
@@ -1318,7 +1339,7 @@
     <p>
         01 December 2021 
       -
-      <a href="../2021/12-01-Fortran-Newsletter-December-2021.md/"
+      <a href="../2021/12-01-Fortran-Newsletter-December-2021/"
         >Fortran newsletter: December 2021</a
       >
     </p>
@@ -1329,7 +1350,7 @@
     <p>
         01 November 2021 
       -
-      <a href="../2021/11-01-Fortran-Newsletter-November-2021.md/"
+      <a href="../2021/11-01-Fortran-Newsletter-November-2021/"
         >Fortran newsletter: November 2021</a
       >
     </p>
@@ -1340,7 +1361,7 @@
     <p>
         01 September 2021 
       -
-      <a href="../2021/09-01-Fortran-Newsletter-September-2021.md/"
+      <a href="../2021/09-01-Fortran-Newsletter-September-2021/"
         >Fortran newsletter: September 2021</a
       >
     </p>
@@ -1351,7 +1372,7 @@
     <p>
         01 August 2021 
       -
-      <a href="../2021/08-01-Fortran-Newsletter-August-2021.md/"
+      <a href="../2021/08-01-Fortran-Newsletter-August-2021/"
         >Fortran newsletter: August 2021</a
       >
     </p>
@@ -1362,7 +1383,7 @@
     <p>
         01 July 2021 
       -
-      <a href="../2021/07-01-Fortran-Newsletter-July-2021.md/"
+      <a href="../2021/07-01-Fortran-Newsletter-July-2021/"
         >Fortran newsletter: July 2021</a
       >
     </p>
@@ -1373,7 +1394,7 @@
     <p>
         01 June 2021 
       -
-      <a href="../2021/06-01-Fortran-Newsletter-June-2021.md/"
+      <a href="../2021/06-01-Fortran-Newsletter-June-2021/"
         >Fortran newsletter: June 2021</a
       >
     </p>
@@ -1384,7 +1405,7 @@
     <p>
         18 May 2021 
       -
-      <a href="../2021/05-18-Welcome-GSoC-students.md/"
+      <a href="../2021/05-18-Welcome-GSoC-students/"
         >Fortran-lang welcomes new students to Google Summer of Code 2021</a
       >
     </p>
@@ -1395,7 +1416,7 @@
     <p>
         01 May 2021 
       -
-      <a href="../2021/05-01-Fortran-Newsletter-May-2021.md/"
+      <a href="../2021/05-01-Fortran-Newsletter-May-2021/"
         >Fortran newsletter: May 2021</a
       >
     </p>
@@ -1406,7 +1427,7 @@
     <p>
         20 April 2021 
       -
-      <a href="../2021/04-20-First-Year.md/"
+      <a href="../2021/04-20-First-Year/"
         >First year of the Fortran website</a
       >
     </p>
@@ -1417,7 +1438,7 @@
     <p>
         01 April 2021 
       -
-      <a href="../2021/04-01-Fortran-Newsletter-April-2021.md/"
+      <a href="../2021/04-01-Fortran-Newsletter-April-2021/"
         >Fortran newsletter: April 2021</a
       >
     </p>
@@ -1428,7 +1449,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -1439,7 +1460,7 @@
     <p>
         01 March 2021 
       -
-      <a href="../2021/03-01-Fortran-Newsletter-March-2021.md/"
+      <a href="../2021/03-01-Fortran-Newsletter-March-2021/"
         >Fortran newsletter: March 2021</a
       >
     </p>
@@ -1450,7 +1471,7 @@
     <p>
         01 February 2021 
       -
-      <a href="../2021/02-01-Fortran-Newsletter-February-2021.md/"
+      <a href="../2021/02-01-Fortran-Newsletter-February-2021/"
         >Fortran newsletter: February 2021</a
       >
     </p>
@@ -1461,7 +1482,7 @@
     <p>
         01 January 2021 
       -
-      <a href="../2021/01-01-Fortran-Newsletter-January-2021.md/"
+      <a href="../2021/01-01-Fortran-Newsletter-January-2021/"
         >Fortran newsletter: January 2021</a
       >
     </p>
@@ -1472,7 +1493,7 @@
     <p>
         01 December 2020 
       -
-      <a href="../2020/12-01-Fortran-Newsletter-December-2020.md/"
+      <a href="../2020/12-01-Fortran-Newsletter-December-2020/"
         >Fortran newsletter: December 2020</a
       >
     </p>
@@ -1483,7 +1504,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -1494,7 +1515,7 @@
     <p>
         01 October 2020 
       -
-      <a href="../2020/10-01-Fortran-Newsletter-October-2020.md/"
+      <a href="../2020/10-01-Fortran-Newsletter-October-2020/"
         >Fortran newsletter: October 2020</a
       >
     </p>
@@ -1505,7 +1526,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>
@@ -1516,7 +1537,7 @@
     <p>
         01 August 2020 
       -
-      <a href="../2020/08-01-Fortran-Newsletter-August-2020.md/"
+      <a href="../2020/08-01-Fortran-Newsletter-August-2020/"
         >Fortran newsletter: August 2020</a
       >
     </p>
@@ -1527,7 +1548,7 @@
     <p>
         01 July 2020 
       -
-      <a href="../2020/07-01-Fortran-Newsletter-July-2020.md/"
+      <a href="../2020/07-01-Fortran-Newsletter-July-2020/"
         >Fortran newsletter: July 2020</a
       >
     </p>
@@ -1538,7 +1559,7 @@
     <p>
         01 May 2020 
       -
-      <a href="../2020/05-01-Fortran-Newsletter-May-2020.md/"
+      <a href="../2020/05-01-Fortran-Newsletter-May-2020/"
         >Fortran newsletter: May 2020</a
       >
     </p>
@@ -1557,7 +1578,7 @@
     <p>
         01 June 2020 
       -
-      <a href="../2020/06-01-Fortran-Newsletter-June-2020.md/"
+      <a href="../2020/06-01-Fortran-Newsletter-June-2020/"
         >Fortran newsletter: June 2020</a
       >
     </p>
@@ -1576,7 +1597,7 @@
     <p>
         09 June 2022 
       -
-      <a href="../2022/06-09-Fortran-Newsletter-June-2022.md/"
+      <a href="../2022/06-09-Fortran-Newsletter-June-2022/"
         >Fortran newsletter: June 2022</a
       >
     </p>
@@ -1587,7 +1608,7 @@
     <p>
         09 March 2022 
       -
-      <a href="../2022/03-09-Fortran-Newsletter-March-2022.md/"
+      <a href="../2022/03-09-Fortran-Newsletter-March-2022/"
         >Fortran newsletter: March 2022</a
       >
     </p>
@@ -1598,7 +1619,7 @@
     <p>
         01 January 2022 
       -
-      <a href="../2022/01-01-Fortran-Newsletter-January-2022.md/"
+      <a href="../2022/01-01-Fortran-Newsletter-January-2022/"
         >Fortran newsletter: January 2022</a
       >
     </p>
@@ -1609,7 +1630,7 @@
     <p>
         29 December 2021 
       -
-      <a href="../2021/12-29-Fortran-lang-2021-in-review.md/"
+      <a href="../2021/12-29-Fortran-lang-2021-in-review/"
         >Fortran-lang: 2021 in review</a
       >
     </p>
@@ -1620,7 +1641,7 @@
     <p>
         01 November 2021 
       -
-      <a href="../2021/11-01-Fortran-Newsletter-November-2021.md/"
+      <a href="../2021/11-01-Fortran-Newsletter-November-2021/"
         >Fortran newsletter: November 2021</a
       >
     </p>
@@ -1631,7 +1652,7 @@
     <p>
         01 October 2021 
       -
-      <a href="../2021/10-01-Fortran-Newsletter-October-2021.md/"
+      <a href="../2021/10-01-Fortran-Newsletter-October-2021/"
         >Fortran newsletter: October 2021</a
       >
     </p>
@@ -1642,7 +1663,7 @@
     <p>
         01 September 2021 
       -
-      <a href="../2021/09-01-Fortran-Newsletter-September-2021.md/"
+      <a href="../2021/09-01-Fortran-Newsletter-September-2021/"
         >Fortran newsletter: September 2021</a
       >
     </p>
@@ -1653,7 +1674,7 @@
     <p>
         01 August 2021 
       -
-      <a href="../2021/08-01-Fortran-Newsletter-August-2021.md/"
+      <a href="../2021/08-01-Fortran-Newsletter-August-2021/"
         >Fortran newsletter: August 2021</a
       >
     </p>
@@ -1664,7 +1685,7 @@
     <p>
         01 July 2021 
       -
-      <a href="../2021/07-01-Fortran-Newsletter-July-2021.md/"
+      <a href="../2021/07-01-Fortran-Newsletter-July-2021/"
         >Fortran newsletter: July 2021</a
       >
     </p>
@@ -1675,7 +1696,7 @@
     <p>
         01 June 2021 
       -
-      <a href="../2021/06-01-Fortran-Newsletter-June-2021.md/"
+      <a href="../2021/06-01-Fortran-Newsletter-June-2021/"
         >Fortran newsletter: June 2021</a
       >
     </p>
@@ -1686,7 +1707,7 @@
     <p>
         18 May 2021 
       -
-      <a href="../2021/05-18-Welcome-GSoC-students.md/"
+      <a href="../2021/05-18-Welcome-GSoC-students/"
         >Fortran-lang welcomes new students to Google Summer of Code 2021</a
       >
     </p>
@@ -1697,7 +1718,7 @@
     <p>
         01 May 2021 
       -
-      <a href="../2021/05-01-Fortran-Newsletter-May-2021.md/"
+      <a href="../2021/05-01-Fortran-Newsletter-May-2021/"
         >Fortran newsletter: May 2021</a
       >
     </p>
@@ -1708,7 +1729,7 @@
     <p>
         20 April 2021 
       -
-      <a href="../2021/04-20-First-Year.md/"
+      <a href="../2021/04-20-First-Year/"
         >First year of the Fortran website</a
       >
     </p>
@@ -1719,7 +1740,7 @@
     <p>
         01 April 2021 
       -
-      <a href="../2021/04-01-Fortran-Newsletter-April-2021.md/"
+      <a href="../2021/04-01-Fortran-Newsletter-April-2021/"
         >Fortran newsletter: April 2021</a
       >
     </p>
@@ -1730,7 +1751,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -1741,7 +1762,7 @@
     <p>
         01 March 2021 
       -
-      <a href="../2021/03-01-Fortran-Newsletter-March-2021.md/"
+      <a href="../2021/03-01-Fortran-Newsletter-March-2021/"
         >Fortran newsletter: March 2021</a
       >
     </p>
@@ -1752,7 +1773,7 @@
     <p>
         01 January 2021 
       -
-      <a href="../2021/01-01-Fortran-Newsletter-January-2021.md/"
+      <a href="../2021/01-01-Fortran-Newsletter-January-2021/"
         >Fortran newsletter: January 2021</a
       >
     </p>
@@ -1763,7 +1784,7 @@
     <p>
         01 December 2020 
       -
-      <a href="../2020/12-01-Fortran-Newsletter-December-2020.md/"
+      <a href="../2020/12-01-Fortran-Newsletter-December-2020/"
         >Fortran newsletter: December 2020</a
       >
     </p>
@@ -1774,7 +1795,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -1785,7 +1806,7 @@
     <p>
         01 October 2020 
       -
-      <a href="../2020/10-01-Fortran-Newsletter-October-2020.md/"
+      <a href="../2020/10-01-Fortran-Newsletter-October-2020/"
         >Fortran newsletter: October 2020</a
       >
     </p>
@@ -1796,7 +1817,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>
@@ -1807,7 +1828,7 @@
     <p>
         01 August 2020 
       -
-      <a href="../2020/08-01-Fortran-Newsletter-August-2020.md/"
+      <a href="../2020/08-01-Fortran-Newsletter-August-2020/"
         >Fortran newsletter: August 2020</a
       >
     </p>
@@ -1826,7 +1847,7 @@
     <p>
         28 February 2020 
       -
-      <a href="../2020/02-28-J3-february-meeting.md/"
+      <a href="../2020/02-28-J3-february-meeting/"
         >J3 February 2020 Meeting</a
       >
     </p>
@@ -1845,7 +1866,7 @@
     <p>
         01 February 2022 
       -
-      <a href="../2022/02-01-Fortran-Newsletter-February-2022.md/"
+      <a href="../2022/02-01-Fortran-Newsletter-February-2022/"
         >Fortran newsletter: February 2022</a
       >
     </p>
@@ -1856,7 +1877,7 @@
     <p>
         01 January 2022 
       -
-      <a href="../2022/01-01-Fortran-Newsletter-January-2022.md/"
+      <a href="../2022/01-01-Fortran-Newsletter-January-2022/"
         >Fortran newsletter: January 2022</a
       >
     </p>
@@ -1867,7 +1888,7 @@
     <p>
         29 December 2021 
       -
-      <a href="../2021/12-29-Fortran-lang-2021-in-review.md/"
+      <a href="../2021/12-29-Fortran-lang-2021-in-review/"
         >Fortran-lang: 2021 in review</a
       >
     </p>
@@ -1878,7 +1899,7 @@
     <p>
         01 December 2021 
       -
-      <a href="../2021/12-01-Fortran-Newsletter-December-2021.md/"
+      <a href="../2021/12-01-Fortran-Newsletter-December-2021/"
         >Fortran newsletter: December 2021</a
       >
     </p>
@@ -1889,7 +1910,7 @@
     <p>
         01 November 2021 
       -
-      <a href="../2021/11-01-Fortran-Newsletter-November-2021.md/"
+      <a href="../2021/11-01-Fortran-Newsletter-November-2021/"
         >Fortran newsletter: November 2021</a
       >
     </p>
@@ -1900,7 +1921,7 @@
     <p>
         01 September 2021 
       -
-      <a href="../2021/09-01-Fortran-Newsletter-September-2021.md/"
+      <a href="../2021/09-01-Fortran-Newsletter-September-2021/"
         >Fortran newsletter: September 2021</a
       >
     </p>
@@ -1911,7 +1932,7 @@
     <p>
         01 July 2021 
       -
-      <a href="../2021/07-01-Fortran-Newsletter-July-2021.md/"
+      <a href="../2021/07-01-Fortran-Newsletter-July-2021/"
         >Fortran newsletter: July 2021</a
       >
     </p>
@@ -1922,7 +1943,7 @@
     <p>
         01 June 2021 
       -
-      <a href="../2021/06-01-Fortran-Newsletter-June-2021.md/"
+      <a href="../2021/06-01-Fortran-Newsletter-June-2021/"
         >Fortran newsletter: June 2021</a
       >
     </p>
@@ -1933,7 +1954,7 @@
     <p>
         18 May 2021 
       -
-      <a href="../2021/05-18-Welcome-GSoC-students.md/"
+      <a href="../2021/05-18-Welcome-GSoC-students/"
         >Fortran-lang welcomes new students to Google Summer of Code 2021</a
       >
     </p>
@@ -1944,7 +1965,7 @@
     <p>
         01 May 2021 
       -
-      <a href="../2021/05-01-Fortran-Newsletter-May-2021.md/"
+      <a href="../2021/05-01-Fortran-Newsletter-May-2021/"
         >Fortran newsletter: May 2021</a
       >
     </p>
@@ -1955,7 +1976,7 @@
     <p>
         01 April 2021 
       -
-      <a href="../2021/04-01-Fortran-Newsletter-April-2021.md/"
+      <a href="../2021/04-01-Fortran-Newsletter-April-2021/"
         >Fortran newsletter: April 2021</a
       >
     </p>
@@ -1966,7 +1987,7 @@
     <p>
         09 March 2021 
       -
-      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021.md/"
+      <a href="../2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"
         >Fortran-lang accepted to Google Summer of Code 2021</a
       >
     </p>
@@ -1977,7 +1998,7 @@
     <p>
         01 February 2021 
       -
-      <a href="../2021/02-01-Fortran-Newsletter-February-2021.md/"
+      <a href="../2021/02-01-Fortran-Newsletter-February-2021/"
         >Fortran newsletter: February 2021</a
       >
     </p>
@@ -1988,7 +2009,7 @@
     <p>
         01 January 2021 
       -
-      <a href="../2021/01-01-Fortran-Newsletter-January-2021.md/"
+      <a href="../2021/01-01-Fortran-Newsletter-January-2021/"
         >Fortran newsletter: January 2021</a
       >
     </p>
@@ -1999,7 +2020,7 @@
     <p>
         01 November 2020 
       -
-      <a href="../2020/11-01-Fortran-Newsletter-November-2020.md/"
+      <a href="../2020/11-01-Fortran-Newsletter-November-2020/"
         >Fortran newsletter: November 2020</a
       >
     </p>
@@ -2018,7 +2039,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>
@@ -2037,7 +2058,7 @@
     <p>
         01 July 2021 
       -
-      <a href="../2021/07-01-Fortran-Newsletter-July-2021.md/"
+      <a href="../2021/07-01-Fortran-Newsletter-July-2021/"
         >Fortran newsletter: July 2021</a
       >
     </p>
@@ -2056,7 +2077,7 @@
     <p>
         01 July 2020 
       -
-      <a href="../2020/07-01-Fortran-Newsletter-July-2020.md/"
+      <a href="../2020/07-01-Fortran-Newsletter-July-2020/"
         >Fortran newsletter: July 2020</a
       >
     </p>
@@ -2075,7 +2096,7 @@
     <p>
         01 October 2020 
       -
-      <a href="../2020/10-01-Fortran-Newsletter-October-2020.md/"
+      <a href="../2020/10-01-Fortran-Newsletter-October-2020/"
         >Fortran newsletter: October 2020</a
       >
     </p>
@@ -2086,7 +2107,7 @@
     <p>
         01 September 2020 
       -
-      <a href="../2020/09-01-Fortran-Newsletter-September-2020.md/"
+      <a href="../2020/09-01-Fortran-Newsletter-September-2020/"
         >Fortran newsletter: September 2020</a
       >
     </p>

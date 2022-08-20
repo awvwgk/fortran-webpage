@@ -48,30 +48,42 @@
     <link rel="prev" title="Libraries for advanced data types and container classes" href="../data-types/" /> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    var pr_number = -1;
-    $(document).ready(function () {
-
-        if (window.location.href.indexOf("/pr/") > -1) {
-            pr_number = window.location.href.split('/').indexOf("pr") + 1;
-            document.getElementById("pr").innerHTML = "pull request " + window.location.href.split('/')[pr_number];
-            document.getElementById("pr").href = "https://github.com/fortran-lang/webpage/pull/" + window.location.href.split('/')[pr_number];
-            var banner = document.getElementById("banner");
-            banner.style.display = "block";
-        }
-    });
+  var pr_number = -1;
+  $(document).ready(function () {
+    if (window.location.href.indexOf("/pr/") > -1) {
+      pr_number = window.location.href.split("/").indexOf("pr") + 1;
+      document.getElementById("pr").innerHTML =
+        "pull request " + window.location.href.split("/")[pr_number];
+      document.getElementById("pr").href =
+        "https://github.com/fortran-lang/webpage/pull/" +
+        window.location.href.split("/")[pr_number];
+      var banner = document.getElementById("banner");
+      banner.style.display = "block";
+    }
+  });
 </script>
-<div id="banner" style='display:none' class="container">
-    <h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-git-pull-request">
-            <circle cx="18" cy="18" r="3"></circle>
-            <circle cx="6" cy="6" r="3"></circle>
-            <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-            <line x1="6" y1="9" x2="6" y2="21"></line>
-        </svg>
-        <b>Site preview: </b>you are previewing unpublished changes for <a id="pr"></a>
-    </h3>
+<div id="banner" style="display: none" class="container">
+  <h3>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="feather feather-git-pull-request"
+    >
+      <circle cx="18" cy="18" r="3"></circle>
+      <circle cx="6" cy="6" r="3"></circle>
+      <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+      <line x1="6" y1="9" x2="6" y2="21"></line>
+    </svg>
+    <b>Site preview: </b>you are previewing unpublished changes for
+    <a id="pr"></a>
+  </h3>
 </div> 
 <link
   rel="alternate"
@@ -143,16 +155,23 @@
 </span>
     
     <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button"
-        data-toggle="dropdown">
-        pt
-        <!-- this text may get changed later by javascript -->
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0"
-        aria-labelledby="version_switcher_button">
-        <!-- dropdown will be populated by javascript on page load -->
-    </div>
+  <button
+    type="button"
+    class="btn btn-sm navbar-btn dropdown-toggle"
+    id="version_switcher_button"
+    data-toggle="dropdown"
+  >
+    pt
+    <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div
+    id="version_switcher_menu"
+    class="dropdown-menu list-group-flush py-0"
+    aria-labelledby="version_switcher_button"
+  >
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
 </div>
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
@@ -161,106 +180,108 @@
 -->
 
 <script type="text/javascript">
-    // Check if corresponding page path exists in other version of docs
-    // and, if so, go there instead of the homepage of the other docs version
-    function checkPageExistsAndRedirect(event) {
-        const currentFilePath = "packages/interfaces",
-            tryUrl = event.target.getAttribute("href");
-        location.href = tryUrl;
-        // this prevents the browser from following the href of the clicked node
-        // (which is fine because this function takes care of redirecting)
-        return false;
-    }
+  // Check if corresponding page path exists in other version of docs
+  // and, if so, go there instead of the homepage of the other docs version
+  function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "packages/interfaces",
+      tryUrl = event.target.getAttribute("href");
+    location.href = tryUrl;
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+  }
 
-    // Populate the version switcher from the JSON config file
-    (function () {
+  // Populate the version switcher from the JSON config file
+  (function () {
+    const currentFilePath = "packages/interfaces";
+    const indexFilePath = "../../";
+    let btn = document.getElementById("version_switcher_button");
+    // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+    btn.dataset["activeVersionName"] = "";
+    btn.dataset["activeVersion"] = "";
+    // create links to the corresponding page in the other docs versions
+    data = [
+      {
+        name: "en",
+        version: "en",
+        url: "../en/",
+      },
+      {
+        name: "cs",
+        version: "cs",
+        url: "../cs/",
+      },
+      {
+        name: "de",
+        version: "de",
+        url: "../de/",
+      },
+      {
+        name: "es",
+        version: "es",
+        url: "../es/",
+      },
+      {
+        name: "fr",
+        version: "fr",
+        url: "../fr/",
+      },
+      {
+        name: "ja",
+        version: "ja",
+        url: "../ja/",
+      },
+      {
+        name: "nl",
+        version: "nl",
+        url: "../nl/",
+      },
+      {
+        name: "pt",
+        version: "pt",
+        url: "../pt/",
+      },
+      {
+        name: "zh_CN",
+        version: "zh_CN",
+        url: "../zh_CN/",
+      },
+    ];
+    console.log(data);
+    $.each(data, function (index, entry) {
+      // if no custom name specified (e.g., "latest"), use version string
+      if (!("name" in entry)) {
+        entry.name = entry.version;
+      }
+      // create the node
+      const node = document.createElement("a");
+      node.setAttribute("class", "list-group-item list-group-item-action py-1");
+      node.textContent = `${entry.name}`;
+      node.setAttribute(
+        "href",
+        `${indexFilePath}${entry.url}${currentFilePath}`
+      );
+      // on click, AJAX calls will check if the linked page exists before
+      // trying to redirect, and if not, will redirect to the homepage
+      // for that version of the docs.
+      node.onclick = checkPageExistsAndRedirect;
+      // Add dataset values for the version and name in case people want
+      // to apply CSS styling based on this information.
+      node.dataset["versionName"] = entry.name;
+      node.dataset["version"] = entry.version;
 
-        const currentFilePath = "packages/interfaces";
-        const indexFilePath = "../../";
-        let btn = document.getElementById("version_switcher_button");
-        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
-        btn.dataset["activeVersionName"] = "";
-        btn.dataset["activeVersion"] = "";
-        // create links to the corresponding page in the other docs versions
-        data = [
-            {
-                "name": "en",
-                "version": "en",
-                "url": "../en/"
-            },
-            {
-                "name": "cs",
-                "version": "cs",
-                "url": "../cs/"
-            },
-            {
-                "name": "de",
-                "version": "de",
-                "url": "../de/"
-            },
-            {
-                "name": "es",
-                "version": "es",
-                "url": "../es/"
-            },
-            {
-                "name": "fr",
-                "version": "fr",
-                "url": "../fr/"
-            },
-            {
-                "name": "ja",
-                "version": "ja",
-                "url": "../ja/"
-            },
-            {
-                "name": "nl",
-                "version": "nl",
-                "url": "../nl/"
-            },
-            {
-                "name": "pt",
-                "version": "pt",
-                "url": "../pt/"
-            },
-            {
-                "name": "zh_CN",
-                "version": "zh_CN",
-                "url": "../zh_CN/"
-            }
-        ]; console.log(data);
-        $.each(data, function (index, entry) {
-            // if no custom name specified (e.g., "latest"), use version string
-            if (!("name" in entry)) {
-                entry.name = entry.version;
-            }
-            // create the node
-            const node = document.createElement("a");
-            node.setAttribute("class", "list-group-item list-group-item-action py-1");
-            node.textContent = `${entry.name}`;
-            node.setAttribute("href", `${indexFilePath}${entry.url}${currentFilePath}`);
-            // on click, AJAX calls will check if the linked page exists before
-            // trying to redirect, and if not, will redirect to the homepage
-            // for that version of the docs.
-            node.onclick = checkPageExistsAndRedirect;
-            // Add dataset values for the version and name in case people want
-            // to apply CSS styling based on this information.
-            node.dataset["versionName"] = entry.name;
-            node.dataset["version"] = entry.version;
-
-            $("#version_switcher_menu").append(node);
-            // replace dropdown button text with the preferred display name of
-            // this version, rather than using sphinx's  variable.
-            // also highlight the dropdown entry for the currently-viewed
-            // version's entry
-            if (entry.version == "pt") {
-                node.classList.add("active");
-                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
-                btn.dataset["activeVersion"] = entry.version;
-            }
-        });
-
-    })();
+      $("#version_switcher_menu").append(node);
+      // replace dropdown button text with the preferred display name of
+      // this version, rather than using sphinx's  variable.
+      // also highlight the dropdown entry for the currently-viewed
+      // version's entry
+      if (entry.version == "pt") {
+        node.classList.add("active");
+        btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+        btn.dataset["activeVersion"] = entry.version;
+      }
+    });
+  })();
 </script>
     
   </div>
@@ -289,7 +310,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../community/">
-  Community
+  Comunidade
  </a>
 </li>
 
@@ -397,8 +418,8 @@
 <h1><a class="reference external" href="https://github.com/arrayfire/arrayfire-fortran">arrayfire-fortran</a><a class="headerlink" href="#arrayfire-fortran" title="Permalink to this heading">#</a></h1>
 <p>Fortran binding to the ArrayFire general purpose GPU library</p>
 <p>Tags: cpp gpu opencl</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/arrayfire/arrayfire-fortran?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/arrayfire/arrayfire-fortran" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/arrayfire/arrayfire-fortran?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/arrayfire/arrayfire-fortran" />
 <img alt="stars" src="https://img.shields.io/github/stars/arrayfire/arrayfire-fortran" />
 <img alt="forks" src="https://img.shields.io/github/forks/arrayfire/arrayfire-fortran" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/arrayfire/arrayfire-fortran?color=blue" />
@@ -408,8 +429,8 @@
 <h1><a class="reference external" href="https://github.com/cass-support/clfortran">clfortran</a><a class="headerlink" href="#clfortran" title="Permalink to this heading">#</a></h1>
 <p>Fortran interfaces to Khronos OpenCL 1.2 API</p>
 <p>Tags: gpu compute accelerator</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/cass-support/clfortran?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/cass-support/clfortran" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/cass-support/clfortran?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/cass-support/clfortran" />
 <img alt="stars" src="https://img.shields.io/github/stars/cass-support/clfortran" />
 <img alt="forks" src="https://img.shields.io/github/forks/cass-support/clfortran" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/cass-support/clfortran?color=blue" />
@@ -419,8 +440,8 @@
 <h1><a class="reference external" href="https://gitlab.com/elsi_project/elsi_interface">ELSI</a><a class="headerlink" href="#elsi" title="Permalink to this heading">#</a></h1>
 <p>A software interface designed for electronic structure codes to connect with ELPA, libOMM, PEXSI, EigenExa, SLEPc, NTPoly, BSEPACK, LAPACK, MAGMA, and other solver libraries.</p>
 <p>Tags: electronic-structure mpi gpu</p>
-<img alt="Release" src="https://img.shields.io/gitlab/v/release/elsi_project/elsi_interface?date_order_by=created_at&amp;sort=date&amp;color=green" />
-<img alt="license" src="https://img.shields.io/gitlab/license/elsi_project/elsi_interface" />
+<img alt="Lançamento" src="https://img.shields.io/gitlab/v/release/elsi_project/elsi_interface?date_order_by=created_at&amp;sort=date&amp;color=green" />
+<img alt="licença" src="https://img.shields.io/gitlab/license/elsi_project/elsi_interface" />
 <img alt="forks" src="https://img.shields.io/gitlab/forks/elsi_project/elsi_interface" />
 <img alt="issues" src="https://img.shields.io/gitlab/issues/all/elsi_project/elsi_interface?color=yellow" />
 </section>
@@ -432,9 +453,9 @@
 <section id="fgsl">
 <h1><a class="reference external" href="https://github.com/reinh-bader/fgsl">fgsl</a><a class="headerlink" href="#fgsl" title="Permalink to this heading">#</a></h1>
 <p>Fortran interface to the GNU Scientific Library</p>
-<p>Tags: None</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/reinh-bader/fgsl?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/reinh-bader/fgsl" />
+<p>Tags: Nenhuma</p>
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/reinh-bader/fgsl?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/reinh-bader/fgsl" />
 <img alt="stars" src="https://img.shields.io/github/stars/reinh-bader/fgsl" />
 <img alt="forks" src="https://img.shields.io/github/forks/reinh-bader/fgsl" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/reinh-bader/fgsl?color=blue" />
@@ -444,8 +465,8 @@
 <h1><a class="reference external" href="https://github.com/scientific-computing/FKB">FKB</a><a class="headerlink" href="#fkb" title="Permalink to this heading">#</a></h1>
 <p>Fortran Keras Bridge - A two-way deep learning bridge between Keras and Fortran</p>
 <p>Tags: deep-learning data-science machine-learning neural-networks</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/scientific-computing/FKB?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/scientific-computing/FKB" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/scientific-computing/FKB?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/scientific-computing/FKB" />
 <img alt="stars" src="https://img.shields.io/github/stars/scientific-computing/FKB" />
 <img alt="forks" src="https://img.shields.io/github/forks/scientific-computing/FKB" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/scientific-computing/FKB?color=blue" />
@@ -455,8 +476,8 @@
 <h1><a class="reference external" href="https://github.com/swig-fortran/flibcpp">flibcpp</a><a class="headerlink" href="#flibcpp" title="Permalink to this heading">#</a></h1>
 <p>Fortran bindings to the C++ Standard Library</p>
 <p>Tags: cpp</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/swig-fortran/flibcpp?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/swig-fortran/flibcpp" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/swig-fortran/flibcpp?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/swig-fortran/flibcpp" />
 <img alt="stars" src="https://img.shields.io/github/stars/swig-fortran/flibcpp" />
 <img alt="forks" src="https://img.shields.io/github/forks/swig-fortran/flibcpp" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/swig-fortran/flibcpp?color=blue" />
@@ -465,8 +486,8 @@
 <section id="flook">
 <h1><a class="reference external" href="https://github.com/ElectronicStructureLibrary/flook">flook</a><a class="headerlink" href="#flook" title="Permalink to this heading">#</a></h1>
 <p>Tags: lua</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/ElectronicStructureLibrary/flook?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/ElectronicStructureLibrary/flook" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/ElectronicStructureLibrary/flook?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/ElectronicStructureLibrary/flook" />
 <img alt="stars" src="https://img.shields.io/github/stars/ElectronicStructureLibrary/flook" />
 <img alt="forks" src="https://img.shields.io/github/forks/ElectronicStructureLibrary/flook" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/ElectronicStructureLibrary/flook?color=blue" />
@@ -476,8 +497,8 @@
 <h1><a class="reference external" href="https://github.com/LKedward/focal">Focal</a><a class="headerlink" href="#focal" title="Permalink to this heading">#</a></h1>
 <p>A module library which wraps calls to the OpenCL runtime API with a higher abstraction level</p>
 <p>Tags: gpu compute accelerator</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/LKedward/focal?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/LKedward/focal" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/LKedward/focal?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/LKedward/focal" />
 <img alt="stars" src="https://img.shields.io/github/stars/LKedward/focal" />
 <img alt="forks" src="https://img.shields.io/github/forks/LKedward/focal" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/LKedward/focal?color=blue" />
@@ -487,8 +508,8 @@
 <h1><a class="reference external" href="https://github.com/ylikx/forpy">forpy</a><a class="headerlink" href="#forpy" title="Permalink to this heading">#</a></h1>
 <p>allows you to use Python features in Fortran</p>
 <p>Tags: dict list tuple numpy python matplotlib scipy</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/ylikx/forpy?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/ylikx/forpy" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/ylikx/forpy?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/ylikx/forpy" />
 <img alt="stars" src="https://img.shields.io/github/stars/ylikx/forpy" />
 <img alt="forks" src="https://img.shields.io/github/forks/ylikx/forpy" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/ylikx/forpy?color=blue" />
@@ -498,8 +519,8 @@
 <h1><a class="reference external" href="https://github.com/interkosmos/fortran-curl">fortran-curl</a><a class="headerlink" href="#fortran-curl" title="Permalink to this heading">#</a></h1>
 <p>Fortran 2008 interface bindings to libcurl</p>
 <p>Tags: https curl imap libcurl smtp gopher</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/interkosmos/fortran-curl?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/interkosmos/fortran-curl" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/interkosmos/fortran-curl?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/interkosmos/fortran-curl" />
 <img alt="stars" src="https://img.shields.io/github/stars/interkosmos/fortran-curl" />
 <img alt="forks" src="https://img.shields.io/github/forks/interkosmos/fortran-curl" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/interkosmos/fortran-curl?color=blue" />
@@ -509,8 +530,8 @@
 <h1><a class="reference external" href="https://github.com/interkosmos/fortran-lua53">fortran-lua53</a><a class="headerlink" href="#fortran-lua53" title="Permalink to this heading">#</a></h1>
 <p>Fortran 2008 interface bindings to Lua 5.3</p>
 <p>Tags: lua</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/interkosmos/fortran-lua53?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/interkosmos/fortran-lua53" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/interkosmos/fortran-lua53?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/interkosmos/fortran-lua53" />
 <img alt="stars" src="https://img.shields.io/github/stars/interkosmos/fortran-lua53" />
 <img alt="forks" src="https://img.shields.io/github/forks/interkosmos/fortran-lua53" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/interkosmos/fortran-lua53?color=blue" />
@@ -519,9 +540,9 @@
 <section id="fortran-sdl2">
 <h1><a class="reference external" href="https://github.com/interkosmos/fortran-sdl2">fortran-sdl2</a><a class="headerlink" href="#fortran-sdl2" title="Permalink to this heading">#</a></h1>
 <p>A collection of ISO C binding interfaces to Simple DirectMedia Layer 2.0 (SDL 2.0), for multimedia and game programming in Fortran</p>
-<p>Tags: None</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/interkosmos/fortran-sdl2?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/interkosmos/fortran-sdl2" />
+<p>Tags: Nenhuma</p>
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/interkosmos/fortran-sdl2?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/interkosmos/fortran-sdl2" />
 <img alt="stars" src="https://img.shields.io/github/stars/interkosmos/fortran-sdl2" />
 <img alt="forks" src="https://img.shields.io/github/forks/interkosmos/fortran-sdl2" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/interkosmos/fortran-sdl2?color=blue" />
@@ -531,8 +552,8 @@
 <h1><a class="reference external" href="https://github.com/interkosmos/fortran-xlib">fortran-xlib</a><a class="headerlink" href="#fortran-xlib" title="Permalink to this heading">#</a></h1>
 <p>A collection of ISO C binding interfaces to Xlib for Fortran 2003</p>
 <p>Tags: x11 mandelbrot raycast wireframe</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/interkosmos/fortran-xlib?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/interkosmos/fortran-xlib" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/interkosmos/fortran-xlib?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/interkosmos/fortran-xlib" />
 <img alt="stars" src="https://img.shields.io/github/stars/interkosmos/fortran-xlib" />
 <img alt="forks" src="https://img.shields.io/github/forks/interkosmos/fortran-xlib" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/interkosmos/fortran-xlib?color=blue" />
@@ -542,8 +563,8 @@
 <h1><a class="reference external" href="https://github.com/astrofrog/fortranlib">fortranlib</a><a class="headerlink" href="#fortranlib" title="Permalink to this heading">#</a></h1>
 <p>Collection of personal scientific routines in Fortran</p>
 <p>Tags: solver integral integrate interpolation histogram constants hdf5 error random posix angles probability stokes vectors</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/astrofrog/fortranlib?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/astrofrog/fortranlib" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/astrofrog/fortranlib?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/astrofrog/fortranlib" />
 <img alt="stars" src="https://img.shields.io/github/stars/astrofrog/fortranlib" />
 <img alt="forks" src="https://img.shields.io/github/forks/astrofrog/fortranlib" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/astrofrog/fortranlib?color=blue" />
@@ -558,8 +579,8 @@
 <h1><a class="reference external" href="https://github.com/CASL/Futility">Futility</a><a class="headerlink" href="#futility" title="Permalink to this heading">#</a></h1>
 <p>Fortran utilities including unit test harness, arbitrary length strings, parameter list objects, timers, geometry definitions, file wrappers, linear algebra tools, and parallel computing support</p>
 <p>Tags:</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/CASL/Futility?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/CASL/Futility" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/CASL/Futility?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/CASL/Futility" />
 <img alt="stars" src="https://img.shields.io/github/stars/CASL/Futility" />
 <img alt="forks" src="https://img.shields.io/github/forks/CASL/Futility" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/CASL/Futility?color=blue" />
@@ -569,8 +590,8 @@
 <h1><a class="reference external" href="https://github.com/vmagnin/gtk-fortran">gtk-fortran</a><a class="headerlink" href="#gtk-fortran" title="Permalink to this heading">#</a></h1>
 <p>A cross-platform library to build Graphical User Interfaces (GUI)</p>
 <p>Tags: gui gtk graphical user interface</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/vmagnin/gtk-fortran?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/vmagnin/gtk-fortran" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/vmagnin/gtk-fortran?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/vmagnin/gtk-fortran" />
 <img alt="stars" src="https://img.shields.io/github/stars/vmagnin/gtk-fortran" />
 <img alt="forks" src="https://img.shields.io/github/forks/vmagnin/gtk-fortran" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/vmagnin/gtk-fortran?color=blue" />
@@ -589,9 +610,9 @@
 <section id="m-process">
 <h1><a class="reference external" href="https://github.com/urbanjost/M_process">M_process</a><a class="headerlink" href="#m-process" title="Permalink to this heading">#</a></h1>
 <p>Read and write lines to or from a process from Fortran via a C wrapper</p>
-<p>Tags: None</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/urbanjost/M_process?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/urbanjost/M_process" />
+<p>Tags: Nenhuma</p>
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/urbanjost/M_process?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/urbanjost/M_process" />
 <img alt="stars" src="https://img.shields.io/github/stars/urbanjost/M_process" />
 <img alt="forks" src="https://img.shields.io/github/forks/urbanjost/M_process" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/urbanjost/M_process?color=blue" />
@@ -601,8 +622,8 @@
 <h1><a class="reference external" href="https://github.com/urbanjost/M_system">M_system</a><a class="headerlink" href="#m-system" title="Permalink to this heading">#</a></h1>
 <p>Call C system routines from Fortran</p>
 <p>Tags: posix putenv getenv setenv environment file system mkdir rename rmdir chmod rand uname</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/urbanjost/M_system?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/urbanjost/M_system" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/urbanjost/M_system?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/urbanjost/M_system" />
 <img alt="stars" src="https://img.shields.io/github/stars/urbanjost/M_system" />
 <img alt="forks" src="https://img.shields.io/github/forks/urbanjost/M_system" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/urbanjost/M_system?color=blue" />
@@ -612,8 +633,8 @@
 <h1><a class="reference external" href="https://github.com/dftbplus/mpifx">mpifx</a><a class="headerlink" href="#mpifx" title="Permalink to this heading">#</a></h1>
 <p>Modern Fortran wrappers around MPI routines</p>
 <p>Tags: mpi fypp</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/dftbplus/mpifx?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/dftbplus/mpifx" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/dftbplus/mpifx?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/dftbplus/mpifx" />
 <img alt="stars" src="https://img.shields.io/github/stars/dftbplus/mpifx" />
 <img alt="forks" src="https://img.shields.io/github/forks/dftbplus/mpifx" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/dftbplus/mpifx?color=blue" />
@@ -623,8 +644,8 @@
 <h1><a class="reference external" href="https://github.com/IonicaBizau/node-fortran">node-fortran</a><a class="headerlink" href="#node-fortran" title="Permalink to this heading">#</a></h1>
 <p>Fortran bridge for Node.js which allows you to run Fortran code from Node.js</p>
 <p>Tags:</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/IonicaBizau/node-fortran?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/IonicaBizau/node-fortran" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/IonicaBizau/node-fortran?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/IonicaBizau/node-fortran" />
 <img alt="stars" src="https://img.shields.io/github/stars/IonicaBizau/node-fortran" />
 <img alt="forks" src="https://img.shields.io/github/forks/IonicaBizau/node-fortran" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/IonicaBizau/node-fortran?color=blue" />
@@ -634,8 +655,8 @@
 <h1><a class="reference external" href="https://github.com/IonicaBizau/node.fortran">node.fortran</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>Execute Node.js in your Fortran programs</p>
 <p>Tags:</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/IonicaBizau/node.fortran?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/IonicaBizau/node.fortran" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/IonicaBizau/node.fortran?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/IonicaBizau/node.fortran" />
 <img alt="stars" src="https://img.shields.io/github/stars/IonicaBizau/node.fortran" />
 <img alt="forks" src="https://img.shields.io/github/forks/IonicaBizau/node.fortran" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/IonicaBizau/node.fortran?color=blue" />
@@ -645,8 +666,8 @@
 <h1><a class="reference external" href="https://github.com/kookma/ogpf">ogpf</a><a class="headerlink" href="#ogpf" title="Permalink to this heading">#</a></h1>
 <p>Object based interface to GnuPlot for Fortran</p>
 <p>Tags: animation plot surface contour</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/kookma/ogpf?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/kookma/ogpf" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/kookma/ogpf?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/kookma/ogpf" />
 <img alt="stars" src="https://img.shields.io/github/stars/kookma/ogpf" />
 <img alt="forks" src="https://img.shields.io/github/forks/kookma/ogpf" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/kookma/ogpf?color=blue" />
@@ -666,8 +687,8 @@
 <h1><a class="reference external" href="https://github.com/jacobwilliams/pyplot-fortran">pyplot-fortran</a><a class="headerlink" href="#pyplot-fortran" title="Permalink to this heading">#</a></h1>
 <p>For generating plots from Fortran using Python’s matplotlib.pyplot</p>
 <p>Tags: pyplot matplotlib contour histogram</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/jacobwilliams/pyplot-fortran?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/jacobwilliams/pyplot-fortran" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/jacobwilliams/pyplot-fortran?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/jacobwilliams/pyplot-fortran" />
 <img alt="stars" src="https://img.shields.io/github/stars/jacobwilliams/pyplot-fortran" />
 <img alt="forks" src="https://img.shields.io/github/forks/jacobwilliams/pyplot-fortran" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/jacobwilliams/pyplot-fortran?color=blue" />
@@ -677,8 +698,8 @@
 <h1><a class="reference external" href="https://github.com/dftbplus/scalapackfx">scalapackfx</a><a class="headerlink" href="#scalapackfx" title="Permalink to this heading">#</a></h1>
 <p>Modern Fortran wrappers around ScaLAPACK routines</p>
 <p>Tags: mpi fypp pblas blacs</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/dftbplus/scalapackfx?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/dftbplus/scalapackfx" />
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/dftbplus/scalapackfx?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/dftbplus/scalapackfx" />
 <img alt="stars" src="https://img.shields.io/github/stars/dftbplus/scalapackfx" />
 <img alt="forks" src="https://img.shields.io/github/forks/dftbplus/scalapackfx" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/dftbplus/scalapackfx?color=blue" />
@@ -688,17 +709,17 @@
 <h1><a class="reference external" href="https://gitlab.com/everythingfunctional/sqliteff">sqliteff</a><a class="headerlink" href="#sqliteff" title="Permalink to this heading">#</a></h1>
 <p>A thin wrapper around the SQLite library</p>
 <p>Tags: sql database</p>
-<img alt="Release" src="https://img.shields.io/gitlab/v/release/everythingfunctional/sqliteff?date_order_by=created_at&amp;sort=date&amp;color=green" />
-<img alt="license" src="https://img.shields.io/gitlab/license/everythingfunctional/sqliteff" />
+<img alt="Lançamento" src="https://img.shields.io/gitlab/v/release/everythingfunctional/sqliteff?date_order_by=created_at&amp;sort=date&amp;color=green" />
+<img alt="licença" src="https://img.shields.io/gitlab/license/everythingfunctional/sqliteff" />
 <img alt="forks" src="https://img.shields.io/gitlab/forks/everythingfunctional/sqliteff" />
 <img alt="issues" src="https://img.shields.io/gitlab/issues/all/everythingfunctional/sqliteff?color=yellow" />
 </section>
 <section id="tcp-client-server">
 <h1><a class="reference external" href="https://github.com/modern-fortran/tcp-client-server">tcp-client-server</a><a class="headerlink" href="#tcp-client-server" title="Permalink to this heading">#</a></h1>
 <p>A minimal Fortran TCP client and server demonstrating c interoperability</p>
-<p>Tags: None</p>
-<img alt="Release" src="https://img.shields.io/github/v/release/modern-fortran/tcp-client-server?color=green" />
-<img alt="license" src="https://img.shields.io/github/license/modern-fortran/tcp-client-server" />
+<p>Tags: Nenhuma</p>
+<img alt="Lançamento" src="https://img.shields.io/github/v/release/modern-fortran/tcp-client-server?color=green" />
+<img alt="licença" src="https://img.shields.io/github/license/modern-fortran/tcp-client-server" />
 <img alt="stars" src="https://img.shields.io/github/stars/modern-fortran/tcp-client-server" />
 <img alt="forks" src="https://img.shields.io/github/forks/modern-fortran/tcp-client-server" />
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/modern-fortran/tcp-client-server?color=blue" />
