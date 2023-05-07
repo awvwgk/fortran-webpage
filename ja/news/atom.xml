@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2023-05-03T21:25:31.408670+00:00</updated>
+  <updated>2023-05-07T22:33:09.041815+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.2">ABlog</generator>
@@ -609,7 +609,7 @@ and details Fortran news from the previous month.Work has continued on the Fortr
     <title>Fortran newsletter: June 2020</title>
     <updated>2020-06-01T00:00:00+00:00</updated>
     <author>
-      <name>Jeremie Vandenplas</name>
+      <name>Milan Curcic and Ondřej Čertík</name>
     </author>
     <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
 &lt;p&gt;Welcome to the June 2020 edition of the monthly Fortran newsletter.
