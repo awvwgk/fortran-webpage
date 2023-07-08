@@ -26,7 +26,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -806,9 +806,15 @@
 </div>
 <p>Символьные значения обрамляются одиночными (<code class="docutils literal notranslate"><span class="pre">'</span></code>) или двойными кавычками (<code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>).</p>
 <p>Логические или булевы величины могут быть равны <code class="docutils literal notranslate"><span class="pre">.true.</span></code> (истина) или <code class="docutils literal notranslate"><span class="pre">.false.</span></code> (ложь).</p>
-<blockquote>
-<div><p>Осторожно используйте присваивание при объявлении: <code class="docutils literal notranslate"><span class="pre">integer</span> <span class="pre">::</span> <span class="pre">amount</span> <span class="pre">=</span> <span class="pre">1</span></code>. <strong>Это НЕ ЯВЛЯЕТСЯ нормальным способом инициализации;</strong> в этом случае неявно применяется атрибут <code class="docutils literal notranslate"><span class="pre">save</span></code>, который означает, что переменная сохраняет своё значение между вызовами подпрограммы (процедуры или функции). Хорошей практикой является инициализация ваших переменных отдельно от их объявления.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>Watch out for assignment at declaration:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>This is NOT a normal initialisation;</strong> it implies the <code class="docutils literal notranslate"><span class="pre">save</span></code> attribute, which means that the variable retains
+its value between procedure calls. Good practice is to initialise your variables separately to their declaration.</p>
+</div>
 <section id="standard-input-output">
 <h2>Стандартный ввод / вывод<a class="headerlink" href="#standard-input-output" title="Permalink to this heading">#</a></h2>
 <p>В нашем примере программы <em>Hello World</em>, мы вывели текст в окно команд. Обычно такой вывод называется <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">output</span></code> (стандартным выводом) или <code class="docutils literal notranslate"><span class="pre">stdout</span></code>.</p>
