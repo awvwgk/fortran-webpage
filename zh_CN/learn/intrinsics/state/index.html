@@ -1566,7 +1566,7 @@ which indicates an end of file condition for <strong>iostat=</strong> specifiers
 <span class="k">      read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span><span class="n">iomsg</span><span class="o">=</span><span class="n">message</span><span class="p">)</span><span class="k">value</span>
 <span class="k">      if</span><span class="p">(</span><span class="n">ios</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
 <span class="k">         write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;VALUE=&#39;</span><span class="p">,</span><span class="k">value</span>
-<span class="k">      </span><span class="n">elseif</span><span class="p">(</span><span class="w"> </span><span class="nb">is_iostat_end</span><span class="p">(</span><span class="n">ios</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      elseif</span><span class="p">(</span><span class="w"> </span><span class="nb">is_iostat_end</span><span class="p">(</span><span class="n">ios</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">         stop</span><span class="w"> </span><span class="s1">&#39;end of file. Goodbye!&#39;</span>
 <span class="w">      </span><span class="k">else</span>
 <span class="k">         write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span><span class="n">ios</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
@@ -1656,10 +1656,10 @@ otherwise.</p>
 <span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;iostat=&#39;</span><span class="p">,</span><span class="n">ios</span>
 <span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="nb">is_iostat_eor</span><span class="p">(</span><span class="n">ios</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
 <span class="k">         stop</span><span class="w"> </span><span class="s1">&#39;end of record&#39;</span>
-<span class="w">      </span><span class="n">elseif</span><span class="p">(</span><span class="nb">is_iostat_end</span><span class="p">(</span><span class="n">ios</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="k">elseif</span><span class="p">(</span><span class="nb">is_iostat_end</span><span class="p">(</span><span class="n">ios</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
 <span class="k">         print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;end of file&#39;</span>
 <span class="w">         </span><span class="k">exit</span>
-<span class="k">      </span><span class="n">elseif</span><span class="p">(</span><span class="n">ios</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
+<span class="k">      elseif</span><span class="p">(</span><span class="n">ios</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
 <span class="k">         print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;I/O error&#39;</span><span class="p">,</span><span class="n">ios</span>
 <span class="w">         </span><span class="k">exit</span>
 <span class="k">      endif</span>
