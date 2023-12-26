@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="bn">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2023-12-25T03:02:39.300700+00:00</updated>
+  <updated>2023-12-26T03:16:04.216001+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -11,7 +11,7 @@
     <title>Fortran newsletter: June 2022</title>
     <updated>2022-06-09T00:00:00+00:00</updated>
     <author>
-      <name>Henil Panchal</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the June edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -19,7 +19,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2022/06-09-Fortran-Newsletter-June-2022/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2022/06-09-Fortran-Newsletter-June-2022/"/>
     <summary>Welcome to the June edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.Here's what's new in the fortran-lang.org repo:</summary>
@@ -30,7 +30,7 @@ Fortran news from the previous month.Here's what's new in the fortran-lang.org r
     <title>Fortran newsletter: May 2022</title>
     <updated>2022-05-05T00:00:00+00:00</updated>
     <author>
-      <name>Gagandeep Singh</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the May edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -38,7 +38,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2022/05-05-Fortran-Newsletter-May-2022/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2022/05-05-Fortran-Newsletter-May-2022/"/>
     <summary>Welcome to the May edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.Here's what's new in the fortran-lang.org repo:</summary>
@@ -57,7 +57,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2022/04-07-Fortran-Newsletter-April-2022/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2022/04-07-Fortran-Newsletter-April-2022/"/>
     <summary>Welcome to the April edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.Here's what's new in the fortran-lang.org repo:</summary>
@@ -76,7 +76,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2022/03-09-Fortran-Newsletter-March-2022/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2022/03-09-Fortran-Newsletter-March-2022/"/>
     <summary>Welcome to the March edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.Here's what's new in the fortran-lang.org repo:</summary>
@@ -95,7 +95,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2022/02-01-Fortran-Newsletter-February-2022/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2022/02-01-Fortran-Newsletter-February-2022/"/>
     <summary>Welcome to the February 2022 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.Here's what's new and ongoing in the fortran-lang.org repo:</summary>
@@ -106,7 +106,7 @@ Fortran news from the previous month.Here's what's new and ongoing in the fortra
     <title>Fortran newsletter: January 2022</title>
     <updated>2022-01-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Jérémie Vandenplas</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Happy New Year and welcome to the January 2022 edition of the monthly Fortran
 newsletter.
@@ -115,7 +115,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2022/01-01-Fortran-Newsletter-January-2022/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2022/01-01-Fortran-Newsletter-January-2022/"/>
     <summary>Happy New Year and welcome to the January 2022 edition of the monthly Fortran
 newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -127,7 +127,7 @@ Fortran news from the previous month.Here's what's new and ongoing in the fortra
     <title>Fortran-lang: 2021 in review</title>
     <updated>2021-12-29T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Jérémie Vandenplas</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;=(Fortran-lang-2021-in-review)&lt;/p&gt;
 &lt;p&gt;With another year behind us, let's review the progress that the
@@ -144,7 +144,7 @@ In this article we summarize new developments from 2021,
 from flagship and new projects to community development and outreach.&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/12-29-Fortran-lang-2021-in-review/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/12-29-Fortran-lang-2021-in-review/"/>
     <summary>=(Fortran-lang-2021-in-review)With another year behind us, let's review the progress that the
 Fortran-lang community has made.
 If you're new to Fortran-lang, here's a quick intro:
@@ -164,7 +164,7 @@ from flagship and new projects to community development and outreach.</summary>
     <title>Fortran newsletter: December 2021</title>
     <updated>2021-12-01T00:00:00+00:00</updated>
     <author>
-      <name>Sebastian Ehlert</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the December 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -172,7 +172,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Here's what's new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/12-01-Fortran-Newsletter-December-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/12-01-Fortran-Newsletter-December-2021/"/>
     <summary>Welcome to the December 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.Here's what's new and ongoing in the fortran-lang.org repo:</summary>
@@ -191,7 +191,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/11-01-Fortran-Newsletter-November-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/11-01-Fortran-Newsletter-November-2021/"/>
     <summary>Welcome to the November 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -210,7 +210,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/10-01-Fortran-Newsletter-October-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/10-01-Fortran-Newsletter-October-2021/"/>
     <summary>Welcome to the October 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -221,7 +221,7 @@ Fortran news from the previous month.This month we've had several updates to the
     <title>Fortran newsletter: September 2021</title>
     <updated>2021-09-01T00:00:00+00:00</updated>
     <author>
-      <name>Sebastian Ehlert</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the September 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -229,7 +229,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/09-01-Fortran-Newsletter-September-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/09-01-Fortran-Newsletter-September-2021/"/>
     <summary>Welcome to the September 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -240,7 +240,7 @@ Fortran news from the previous month.This month we've had several updates to the
     <title>Fortran newsletter: August 2021</title>
     <updated>2021-08-01T00:00:00+00:00</updated>
     <author>
-      <name>Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the August 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -248,7 +248,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/08-01-Fortran-Newsletter-August-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/08-01-Fortran-Newsletter-August-2021/"/>
     <summary>Welcome to the August 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -259,7 +259,7 @@ Fortran news from the previous month.This month we've had several updates to the
     <title>Fortran newsletter: July 2021</title>
     <updated>2021-07-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Zachary Moon</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the July 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -267,7 +267,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/07-01-Fortran-Newsletter-July-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/07-01-Fortran-Newsletter-July-2021/"/>
     <summary>Welcome to the July 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -286,7 +286,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/06-01-Fortran-Newsletter-June-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/06-01-Fortran-Newsletter-June-2021/"/>
     <summary>Welcome to the June 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -307,7 +307,7 @@ mentors will be &lt;a class="reference external" href="https://github.com/awvwgk
 &lt;a class="reference external" href="https://github.com/milancurcic"&gt;Milan Curcic&lt;/a&gt;.&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/05-18-Welcome-GSoC-students/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/05-18-Welcome-GSoC-students/"/>
     <summary>We're happy to announce six students that will work on Fortran projects under
 the Google Summer of Code 2021 program:Aman Godara will work on strings in the
 Fortran Standard Library. Aman's
@@ -328,7 +328,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/05-01-Fortran-Newsletter-May-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/05-01-Fortran-Newsletter-May-2021/"/>
     <summary>Welcome to the May 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -339,7 +339,7 @@ Fortran news from the previous month.This month we've had several updates to the
     <title>First year of the Fortran website</title>
     <updated>2021-04-20T00:00:00+00:00</updated>
     <author>
-      <name>Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;In April 2020 we created a website for the Fortran language at
 &lt;a class="reference external" href="https://fortran-lang.org/"&gt;fortran-lang.org&lt;/a&gt;. In exactly one year, it grew to
@@ -353,7 +353,7 @@ is welcome to participate. Fortran was invented in 1956, and we aim to be the
 stewards of the language and we welcome you to join us.&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/04-20-First-Year/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/04-20-First-Year/"/>
     <summary>In April 2020 we created a website for the Fortran language at
 fortran-lang.org. In exactly one year, it grew to
 be the first result when you search "Fortran" in Bing, Yahoo, DuckDuckGo,
@@ -378,7 +378,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/04-01-Fortran-Newsletter-April-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/04-01-Fortran-Newsletter-April-2021/"/>
     <summary>Welcome to the April 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -397,7 +397,7 @@ Fortran news from the previous month.This month we've had several updates to the
 and if you have any ideas that are not mentioned, please let us know.&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/03-09-fortran-lang-accepted-for-google-summer-of-code-2021/"/>
     <summary>We are excited to announce that Fortran-lang has been accepted as a Google Summer of Code (GSoC) 2021 mentoring organization! 🎉You can review our project ideas
 here,
 and if you have any ideas that are not mentioned, please let us know.</summary>
@@ -408,7 +408,7 @@ and if you have any ideas that are not mentioned, please let us know.</summary>
     <title>Fortran newsletter: March 2021</title>
     <updated>2021-03-01T00:00:00+00:00</updated>
     <author>
-      <name>Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the March 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -416,7 +416,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had several updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/03-01-Fortran-Newsletter-March-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/03-01-Fortran-Newsletter-March-2021/"/>
     <summary>Welcome to the March 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had several updates to the website:</summary>
@@ -427,7 +427,7 @@ Fortran news from the previous month.This month we've had several updates to the
     <title>Fortran newsletter: February 2021</title>
     <updated>2021-02-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Jérémie Vandenplas</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the February 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -435,7 +435,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had a few updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/02-01-Fortran-Newsletter-February-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/02-01-Fortran-Newsletter-February-2021/"/>
     <summary>Welcome to the February 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had a few updates to the website:</summary>
@@ -455,7 +455,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had a few updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2021/01-01-Fortran-Newsletter-January-2021/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2021/01-01-Fortran-Newsletter-January-2021/"/>
     <summary>Happy New Year!
 Welcome to the January 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -467,7 +467,7 @@ Fortran news from the previous month.This month we've had a few updates to the w
     <title>Fortran newsletter: December 2020</title>
     <updated>2020-12-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Jérémie Vandenplas</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the December 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -475,7 +475,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had a few updates to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/12-01-Fortran-Newsletter-December-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/12-01-Fortran-Newsletter-December-2020/"/>
     <summary>Welcome to the December 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.This month we've had a few updates to the website:</summary>
@@ -494,7 +494,7 @@ Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had a few additions and improvements to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/11-01-Fortran-Newsletter-November-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/11-01-Fortran-Newsletter-November-2020/"/>
     <summary>Welcome to the November 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month and details
 Fortran news from the previous month.This month we've had a few additions and improvements to the website:</summary>
@@ -505,7 +505,7 @@ Fortran news from the previous month.This month we've had a few additions and im
     <title>Fortran newsletter: October 2020</title>
     <updated>2020-10-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>and Laurence Kedward</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the October 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
@@ -513,7 +513,7 @@ and details Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;This month we've had only one minor change to the website:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/10-01-Fortran-Newsletter-October-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/10-01-Fortran-Newsletter-October-2020/"/>
     <summary>Welcome to the October 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
 and details Fortran news from the previous month.This month we've had only one minor change to the website:</summary>
@@ -524,7 +524,7 @@ and details Fortran news from the previous month.This month we've had only one m
     <title>Fortran newsletter: September 2020</title>
     <updated>2020-09-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>and Laurence Kedward</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the September 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
@@ -532,7 +532,7 @@ and details Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;We continued the work on the Fortran-lang website, specifically:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/09-01-Fortran-Newsletter-September-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/09-01-Fortran-Newsletter-September-2020/"/>
     <summary>Welcome to the September 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
 and details Fortran news from the previous month.We continued the work on the Fortran-lang website, specifically:</summary>
@@ -543,7 +543,7 @@ and details Fortran news from the previous month.We continued the work on the Fo
     <title>Fortran newsletter: August 2020</title>
     <updated>2020-08-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Arjen Markus and Gary Klimowicz</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the August 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
@@ -551,7 +551,7 @@ and details Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;We continued the work on the Fortran-lang website, including:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/08-01-Fortran-Newsletter-August-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/08-01-Fortran-Newsletter-August-2020/"/>
     <summary>Welcome to the August 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
 and details Fortran news from the previous month.We continued the work on the Fortran-lang website, including:</summary>
@@ -562,7 +562,7 @@ and details Fortran news from the previous month.We continued the work on the Fo
     <title>Fortran newsletter: July 2020</title>
     <updated>2020-07-01T00:00:00+00:00</updated>
     <author>
-      <name>Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the July 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
@@ -570,7 +570,7 @@ and details Fortran news from the previous month.&lt;/p&gt;
 &lt;p&gt;Work has continued on the Fortran-lang website, including a new community page and additional tutorial content:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/07-01-Fortran-Newsletter-July-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/07-01-Fortran-Newsletter-July-2020/"/>
     <summary>Welcome to the July 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
 and details Fortran news from the previous month.Work has continued on the Fortran-lang website, including a new community page and additional tutorial content:</summary>
@@ -581,7 +581,7 @@ and details Fortran news from the previous month.Work has continued on the Fortr
     <title>Fortran newsletter: June 2020</title>
     <updated>2020-06-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic and Ondřej Čertík</name>
+      <name>Jeremie Vandenplas</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the June 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
@@ -595,7 +595,7 @@ reorganized for easier navigation and currently features a quickstart tutorial,
 Fortran books, and other online resources.&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/06-01-Fortran-Newsletter-June-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/06-01-Fortran-Newsletter-June-2020/"/>
     <summary>Welcome to the June 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
 and details Fortran news from the previous month.The Fortran website has been up since mid-April, and we've already got great
@@ -627,7 +627,7 @@ we'll be focusing on in the coming months.
 Please help us make them better!&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/05-01-Fortran-Newsletter-May-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/05-01-Fortran-Newsletter-May-2020/"/>
     <summary>Welcome to the first monthly Fortran newsletter.
 It will come out on the first calendar day of every month,
 detailing Fortran news from the previous month.If you came to this newsletter from elsewhere, welcome to the new Fortran website.
@@ -654,7 +654,7 @@ and developer tools.&lt;/p&gt;
 &lt;p&gt;Watch the episode now:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/04-18-Fortran-Webinar/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/04-18-Fortran-Webinar/"/>
     <summary>Ondřej Čertík (@ondrejcertik) and
 Milan Curcic (@realmilancurcic) spoke
 yesterday about the future of Fortran in Episode 40 of the Open Source
@@ -679,7 +679,7 @@ Click &lt;a class="reference external" href="https://tcevents.chem.uzh.ch/event/
 an abstract.&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/04-06-Announcing-FortranCon-2020/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/04-06-Announcing-FortranCon-2020/"/>
     <summary>FortranCon 2020, the first international conference targeting the Fortran
 programming language, will take place on July 2-4, 2020, in Zürich, Switzerland.FortranCon aims to bring together developers of Fortran libraries,
 applications, and language itself to share their experience and ideas.
@@ -701,7 +701,7 @@ an abstract.</summary>
 &lt;p&gt;The following people / companies attended:&lt;/p&gt;
 &lt;/p&gt;
 </content>
-    <link href="https://fortran-lang.org/en/news/2020/02-28-J3-february-meeting/" rel="alternate"/>
+    <link href="https://fortran-lang.org/en/news/2020/02-28-J3-february-meeting/"/>
     <summary>The J3 Fortran Committee meeting took place in Las Vegas, NV, on February 24-28, 2020.The following people / companies attended:</summary>
     <published>2020-02-28T00:00:00+00:00</published>
   </entry>
