@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2024-01-11T03:10:09.181335+00:00</updated>
+  <updated>2024-01-12T03:10:01.128907+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -11,7 +11,7 @@
     <title>Fortran newsletter: June 2022</title>
     <updated>2022-06-09T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Henil Panchal</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the June edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -30,7 +30,7 @@ Fortran news from the previous month.Here’s what’s new in the fortran-lang.o
     <title>Fortran newsletter: May 2022</title>
     <updated>2022-05-05T00:00:00+00:00</updated>
     <author>
-      <name>Giannis Nikiteas</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the May edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -106,7 +106,7 @@ Fortran news from the previous month.Here’s what’s new and ongoing in the fo
     <title>Fortran newsletter: January 2022</title>
     <updated>2022-01-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Alexis Perry-Holby</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Happy New Year and welcome to the January 2022 edition of the monthly Fortran
 newsletter.
@@ -183,7 +183,7 @@ Fortran news from the previous month.Here’s what’s new and ongoing in the fo
     <title>Fortran newsletter: November 2021</title>
     <updated>2021-11-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Alexis Perry-Holby</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the November 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -415,7 +415,7 @@ stewards of the language and we welcome you to join us.</summary>
     <title>Fortran 通讯：2021 年 2 月</title>
     <updated>2021-02-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Alexis Perry-Holby</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;欢迎阅读 2021 年 2 月版的每月 Fortran 通讯。时事通讯在每个月初发布，详细介绍上个月的 Fortran 新闻。&lt;/p&gt;
 &lt;p&gt;本月我们对网站进行了一些更新：&lt;/p&gt;
@@ -475,7 +475,7 @@ stewards of the language and we welcome you to join us.</summary>
     <title>Fortran 通讯：2020 年 10 月</title>
     <updated>2020-10-01T00:00:00+00:00</updated>
     <author>
-      <name>and Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;欢迎阅读 2020 年 10 月版的每月 Fortran 通讯。时事通讯在每个月的第一个日历日发布，详细介绍上个月的 Fortran 新闻。&lt;/p&gt;
 &lt;p&gt;这个月我们对网站只有一个小改动：&lt;/p&gt;
@@ -490,7 +490,7 @@ stewards of the language and we welcome you to join us.</summary>
     <title>Fortran 通讯：2020 年 9 月</title>
     <updated>2020-09-01T00:00:00+00:00</updated>
     <author>
-      <name>and Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;欢迎阅读 2020 年 9 月版的每月 Fortran 通讯。时事通讯在每个月的第一个日历日发布，详细介绍上个月的 Fortran 新闻。&lt;/p&gt;
 &lt;p&gt;我们继续在 Fortran-lang 网站上开展工作，具体来说：&lt;/p&gt;
@@ -520,7 +520,7 @@ stewards of the language and we welcome you to join us.</summary>
     <title>Fortran 通讯：2020 年 7 月</title>
     <updated>2020-07-01T00:00:00+00:00</updated>
     <author>
-      <name>and Jérémie Vandenplas</name>
+      <name>Laurence Kedward</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;欢迎阅读 2020 年 7 月版的每月 Fortran 通讯。时事通讯在每个月的第一个日历日发布，详细介绍上个月的 Fortran 新闻。&lt;/p&gt;
 &lt;p&gt;Fortran-lang 网站上的工作仍在继续，包括一个新的社区页面和其他教程内容：&lt;/p&gt;
@@ -535,7 +535,7 @@ stewards of the language and we welcome you to join us.</summary>
     <title>Fortran 通讯：2020 年 6 月</title>
     <updated>2020-06-01T00:00:00+00:00</updated>
     <author>
-      <name>Brad Richardson</name>
+      <name>Milan Curcic and Ondřej Čertík</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;欢迎阅读 2020 年 6 月版的每月 Fortran 通讯。时事通讯在每个月的第一个日历日发布，详细介绍上个月的 Fortran 新闻。&lt;/p&gt;
 &lt;p&gt;Fortran 网站自 4 月中旬以来一直在运行，我们已经从社区中得到了很好的反馈。在过去的一个月里，我们更新了 &lt;a class="reference internal" href="../compilers/"&gt;&lt;span class="doc std std-doc"&gt;Compilers&lt;/span&gt;&lt;/a&gt; 页面，该页面现在很全面，包括所有主要的开源和商业编译器。 &lt;a class="reference internal" href="../learn/"&gt;&lt;span class="doc std std-doc"&gt;Learn&lt;/span&gt;&lt;/a&gt; 页面也进行了重大更新 —— 它已经过重新组织，以便于导航，目前提供快速入门教程、Fortran 书籍和其它在线资源。&lt;/p&gt;
