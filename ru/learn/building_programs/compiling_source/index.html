@@ -724,11 +724,22 @@
 <p>Первым шагом в процессе сборки является компиляция исходного кода. Результатом этого действия обычно является получение объектного кода – набора инструкций для компьютера, сгенерированных из человекочитаемого исходного кода. Разные компиляторы создают разный объектный код из одного и того же исходного кода и соглашения об именовании у них отличаются.</p>
 <p>Последствия:</p>
 <ul class="simple">
-<li><p>Если вы используете определённый компилятор для компиляции одного файла исходного кода программы, то вам необходимо использовать тот же компилятор (или совместимый) для компиляции всех остальных файлов исходного кода этой программы. В конце концов, программа может быть собрана из множества файлов, при это скомпилированные части должны взаимодействовать.</p></li>
+<li><p>If you use a particular compiler for one source file, you need to use
+that same compiler (or a compatible one) for all other pieces. After
+all, a program may be built from many different source files and the
+compiled pieces have to cooperate.</p></li>
 <li><p>Каждый файл исходного кода будет скомпилирован и результат будет сохранён в файл с расширением «.o» или «.obj». Именно эти файлы объектного кода являются входными данными для следующего этапа: процесса компоновки.</p></li>
 </ul>
-<p>Компиляторы являются сложными программами: они должны понимать язык программирования гораздо детальнее и глубже, чем средний программист. Кроме того, они должны понимать внутреннюю организацию работы компьютера. В итоге, с годами они были дополнены многочисленными опциями для настройки процесса компиляции и конечной программы, которая будет собрана.</p>
-<p>Но основы достаточно просты. Возьмём компилятор gfortran, входящий в состав GNU compiler collection (набор компиляторов GNU). Чтобы скомпилировать простую программу, как приведённая выше, состоящую из одного файла исходного кода, вы выполняете следующую команду, предполагая, что исходный код сохранён в файле «hello.f90»:</p>
+<p>Compilers are complex pieces of software: they have to understand the
+language in much more detail and depth than the average programmer. They
+also need to understand the inner workings of the computer. And then,
+over the years they have been extended with numerous options to
+customise the compilation process and the final program that will be
+built.</p>
+<p>But the basics are simple enough. Take the gfortran compiler, part of
+the GNU compiler collection. To compile a simple program like the one
+above, that consists of one source file, you run the following command,
+assuming the source code is stored in the file «hello.f90»:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-c<span class="w"> </span>hello.f90
 </pre></div>
 </div>

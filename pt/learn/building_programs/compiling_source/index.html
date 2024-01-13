@@ -724,11 +724,22 @@
 <p>O primeiro passo no processo de build é compilar o código fonte. A saída nesse passo é geralmente conhecida como código objeto - um conjunto de instruções para o computador gerado a partir de código fonte legível por humanos. Compiladores diferentes irão produzir códigos objeto diferentes a partir do mesmo código fonte e as convenções de nomeação são diferentes.</p>
 <p>As consequências:</p>
 <ul class="simple">
-<li><p>Se você usar um compilador em particular para um arquivo fonte, você precisará usar o mesmo compilador (ou um compatível) para todas as outras partes. Afinal de contas, um programa pode ser construído a partir de diferentes arquivos fonte e as partes compiladas devem cooperar.</p></li>
+<li><p>If you use a particular compiler for one source file, you need to use
+that same compiler (or a compatible one) for all other pieces. After
+all, a program may be built from many different source files and the
+compiled pieces have to cooperate.</p></li>
 <li><p>Cada arquivo fonte será compilador e o resultado é armazenado em um arquivo com a extensão «.o» ou «.obj». Esse é os arquivos objeto que são a entrada para o próximo passo: o processo de link.</p></li>
 </ul>
-<p>Compiladores são pedaços complexos de software: eles tem que entender a linguagem em muito mais detalhes e profundidade que o programador médio. Eles também precisam entender o funcionamento interno do computador. E por fim, através de anos eles foram estendidos com numerosas opções para customizar o processo de compilação e o programa final ser construído.</p>
-<p>Mas os básicos são simples. Por exemplo, o compilador gfortran, parte da coleção de compiladores GNU. Para compilar um simples programa como o acima, que consiste de um arquivo fonte, você pode executar o seguinte comando, assumindo que o código fonte é armazenado no arquivo «hello.f90»:</p>
+<p>Compilers are complex pieces of software: they have to understand the
+language in much more detail and depth than the average programmer. They
+also need to understand the inner workings of the computer. And then,
+over the years they have been extended with numerous options to
+customise the compilation process and the final program that will be
+built.</p>
+<p>But the basics are simple enough. Take the gfortran compiler, part of
+the GNU compiler collection. To compile a simple program like the one
+above, that consists of one source file, you run the following command,
+assuming the source code is stored in the file «hello.f90»:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-c<span class="w"> </span>hello.f90
 </pre></div>
 </div>
