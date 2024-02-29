@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2024-02-28T03:05:04.181237+00:00</updated>
+  <updated>2024-02-29T03:05:21.068258+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -49,7 +49,7 @@ Fortran news from the previous month.Here’s what’s new in the fortran-lang.o
     <title>Fortran newsletter: April 2022</title>
     <updated>2022-04-07T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Alexis Perry-Holby</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the April edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -183,7 +183,7 @@ Fortran news from the previous month.Here’s what’s new and ongoing in the fo
     <title>Fortran newsletter: November 2021</title>
     <updated>2021-11-01T00:00:00+00:00</updated>
     <author>
-      <name>Ondřej Čertík</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the November 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -427,7 +427,7 @@ Fortran news from the previous month.This month we’ve had several updates to t
     <title>Fortran newsletter: February 2021</title>
     <updated>2021-02-01T00:00:00+00:00</updated>
     <author>
-      <name>Laurence Kedward</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the February 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -581,7 +581,7 @@ and details Fortran news from the previous month.Work has continued on the Fortr
     <title>Fortran newsletter: June 2020</title>
     <updated>2020-06-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic and Ondřej Čertík</name>
+      <name>Brad Richardson</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the June 2020 edition of the monthly Fortran newsletter.
 The newsletter comes out on the first calendar day of every month
