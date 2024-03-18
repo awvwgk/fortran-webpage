@@ -411,6 +411,13 @@
     </span>
   
   
+  <a href="../../author/sebastian-ehlert/">Sebastian Ehlert</a>
+  
+  ,
+  
+  
+  
+  
   <a href="../../author/milan-curcic/">Milan Curcic</a>
   
   ,
@@ -419,13 +426,6 @@
   
   
   <a href="../../author/alexis-perry-holby/">Alexis Perry-Holby</a>
-  
-  ,
-  
-  
-  
-  
-  <a href="../../author/sebastian-ehlert/">Sebastian Ehlert</a>
   
   
   
@@ -752,9 +752,7 @@ Compiler flags profiles</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">fpm</span></code> 仍处于早期开发阶段，我们需要尽可能多的帮助。以下是你今天可以提供的帮助：</p>
 <ul class="simple">
-<li><p>Use it and let us know what you think! Read the <a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/PACKAGING.md">fpm packaging guide</a>
-to learn how to build your package with fpm, and the <a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/manifest-reference.md">manifest reference</a>
-to learn what are all the things that you can specify in the fpm.toml file.</p></li>
+<li><p>使用它并告诉我们你的想法！阅读<a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/PACKAGING.md">fpm 打包指南</a> 了解如何使用 fpm 构建软件包，并阅读<a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/manifest-reference.md">清单参考</a> 了解可以在 fpm.toml 文件中指定哪些内容。</p></li>
 <li><p>在 <a class="reference external" href="https://fortran-lang.org/packages/fpm">fortran-lang 网站</a> 上浏览现有的 <em>fpm</em> 包</p></li>
 <li><p>浏览 <a class="reference external" href="https://github.com/fortran-lang/fpm/issues">开启的 issues</a>，看看你是否可以帮助实施任何修复或功能。</p></li>
 <li><p>为 fpm 调整 Fortran 包并将其提交到 <a class="reference external" href="https://github.com/fortran-lang/fpm-registry">Registry</a>。</p></li>
@@ -777,8 +775,8 @@ to learn what are all the things that you can specify in the fpm.toml file.</p><
 </li>
 <li><p>FIR</p>
 <ul>
-<li><p>Add base of the FIR to LLVM IR pass</p></li>
-<li><p>Add various FIR to LLVM IR conversion patterns:</p>
+<li><p>将 FIR 的基础添加到 LLVM IR 通证中</p></li>
+<li><p>添加各种 FIR 到 LLVM IR 的转换模式：</p>
 <ul>
 <li><p>fir.unreachable</p></li>
 <li><p>fir.insert_on_range</p></li>
@@ -792,7 +790,7 @@ to learn what are all the things that you can specify in the fpm.toml file.</p><
 <li><p>fir.store and fir.load</p></li>
 </ul>
 </li>
-<li><p>Add substr information to fircg.ext_embox and fircg.ext_rebox operations</p></li>
+<li><p>为 fircg.ext_embox 和 fircg.ext_rebox 操作添加子字符串信息</p></li>
 <li><p>Use notifyMatchFailure in fir.zero_bits conversion</p></li>
 <li><p>Restrict array type on fir.insert_on_range</p></li>
 <li><p>Add test for FIR types conversion</p></li>
@@ -809,11 +807,11 @@ to learn what are all the things that you can specify in the fpm.toml file.</p><
 <li><p>flang-omp-report</p>
 <ul>
 <li><p>Removed unnecessary comments in flang-omp-report plugin tests</p></li>
-<li><p>Remove the loop workarounds for nowait clause</p></li>
-<li><p>Add flang-omp-report summarising script</p></li>
+<li><p>删除 nowait 子句的循环变通方法</p></li>
+<li><p>添加 flang-omp-report 总结脚本</p></li>
 </ul>
 </li>
-<li><p>Checks for pointers to intrinsic functions</p></li>
+<li><p>检查指向内置函数的指针</p></li>
 <li><p>Fold SPREAD</p></li>
 <li><p>Improve error message for misuse of NULL(mold) as data statement constant</p></li>
 <li><p>Fix crash on “call system_clock(count_max=j)”</p></li>

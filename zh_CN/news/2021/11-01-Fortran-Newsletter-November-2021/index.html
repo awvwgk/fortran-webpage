@@ -411,20 +411,6 @@
     </span>
   
   
-  <a href="../../author/milan-curcic/">Milan Curcic</a>
-  
-  ,
-  
-  
-  
-  
-  <a href="../../author/alexis-perry-holby/">Alexis Perry-Holby</a>
-  
-  ,
-  
-  
-  
-  
   <a href="../../author/sebastian-ehlert/">Sebastian Ehlert</a>
   
   ,
@@ -433,6 +419,20 @@
   
   
   <a href="../../author/ondrej-certik/">Ondřej Čertík</a>
+  
+  ,
+  
+  
+  
+  
+  <a href="../../author/milan-curcic/">Milan Curcic</a>
+  
+  ,
+  
+  
+  
+  
+  <a href="../../author/alexis-perry-holby/">Alexis Perry-Holby</a>
   
   
   
@@ -739,9 +739,7 @@ Compiler flags profiles</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">fpm</span></code> 仍处于早期开发阶段，我们需要尽可能多的帮助。以下是你今天可以提供的帮助：</p>
 <ul class="simple">
-<li><p>Use it and let us know what you think! Read the <a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/PACKAGING.md">fpm packaging guide</a>
-to learn how to build your package with fpm, and the <a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/manifest-reference.md">manifest reference</a>
-to learn what are all the things that you can specify in the fpm.toml file.</p></li>
+<li><p>使用它并告诉我们你的想法！阅读<a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/PACKAGING.md">fpm 打包指南</a> 了解如何使用 fpm 构建软件包，并阅读<a class="reference external" href="https://github.com/fortran-lang/fpm/blob/main/manifest-reference.md">清单参考</a> 了解可以在 fpm.toml 文件中指定哪些内容。</p></li>
 <li><p>在 <a class="reference external" href="https://fortran-lang.org/packages/fpm">fortran-lang 网站</a> 上浏览现有的 <em>fpm</em> 包</p></li>
 <li><p>浏览 <a class="reference external" href="https://github.com/fortran-lang/fpm/issues">开启的 issues</a>，看看你是否可以帮助实施任何修复或功能。</p></li>
 <li><p>为 fpm 调整 Fortran 包并将其提交到 <a class="reference external" href="https://github.com/fortran-lang/fpm-registry">Registry</a>。</p></li>
@@ -758,19 +756,19 @@ to learn what are all the things that you can specify in the fpm.toml file.</p><
 <ul class="simple">
 <li><p>Runtime</p>
 <ul>
-<li><p>Front-end and runtime support for CALL EXIT and ABORT</p></li>
-<li><p>Fix formatted real input regression w/ spaces</p></li>
-<li><p>Add runtime interface for GET_ENVIRONMENT_VARIABLE</p></li>
-<li><p>More work on SYSTEM_CLOCK runtime API and implementation</p></li>
-<li><p>Implement GET_ENVIRONMENT_VARIABLE(LENGTH)</p></li>
+<li><p>前端和运行时支持 CALL EXIT 和 ABORT</p></li>
+<li><p>修复带空格的格式化实数输入回归问题</p></li>
+<li><p>为 GET_ENVIRONMENT_VARIABLE 添加运行时接口</p></li>
+<li><p>更多关于 SYSTEM_CLOCK 运行时应用程序接口和实现的工作</p></li>
+<li><p>实现 GET_ENVIRONMENT_VARIABLE(LENGTH)</p></li>
 </ul>
 </li>
 <li><p>OpenMP</p>
 <ul>
-<li><p>Added OpenMP 5.0 specification based semantic checks for sections construct and test case for simd construct</p></li>
-<li><p>Added test case for OpenMP 5.0 specification based semantic checks for parallel sections construct</p></li>
-<li><p>Added OpenMP 5.0 specification based semantic checks for CRITICAL construct name resolution</p></li>
-<li><p>Checks for THREADPRIVATE and DECLARE TARGET Directives</p></li>
+<li><p>为段（sections）构造添加了基于 OpenMP 5.0 规范的语义检查，并为 simd 构造添加了测试用例</p></li>
+<li><p>为并行段（sections）构造添加了基于 OpenMP 5.0 规范语义检查的测试用例</p></li>
+<li><p>为 CRITICAL 结构名解析添加了基于 OpenMP 5.0 规范的语义检查</p></li>
+<li><p>检查 THREADPRIVATE 和 DECLARE TARGET 指令</p></li>
 <li><p>Initial parsing/sema for append_args clause for ‘declare variant’</p></li>
 </ul>
 </li>
