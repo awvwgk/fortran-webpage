@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2024-03-30T03:33:17.508735+00:00</updated>
+  <updated>2024-03-31T03:05:00.511687+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -11,7 +11,7 @@
     <title>Fortran newsletter: June 2022</title>
     <updated>2022-06-09T00:00:00+00:00</updated>
     <author>
-      <name>Henil Panchal</name>
+      <name>Milan Curcic</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the June edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -183,7 +183,7 @@ Fortran news from the previous month.Here’s what’s new and ongoing in the fo
     <title>Fortran newsletter: November 2021</title>
     <updated>2021-11-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Sebastian Ehlert</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the November 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
@@ -278,7 +278,7 @@ Fortran news from the previous month.This month we’ve had several updates to t
     <title>Fortran newsletter: June 2021</title>
     <updated>2021-06-01T00:00:00+00:00</updated>
     <author>
-      <name>Milan Curcic</name>
+      <name>Sebastian Ehlert</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the June 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
