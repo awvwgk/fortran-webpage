@@ -411,6 +411,13 @@
     </span>
   
   
+  <a href="../../author/giannis-nikiteas/">Giannis Nikiteas</a>
+  
+  ,
+  
+  
+  
+  
   <a href="../../author/gagandeep-singh/">Gagandeep Singh</a>
   
   ,
@@ -426,13 +433,6 @@
   
   
   <a href="../../author/alexis-perry-holby/">Alexis Perry-Holby</a>
-  
-  ,
-  
-  
-  
-  
-  <a href="../../author/giannis-nikiteas/">Giannis Nikiteas</a>
   
   
   
@@ -713,8 +713,7 @@ Please try it out and let us know how it works, if there are any issues, or if t
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/fortran-lang/fpm/pull/688">#688</a>:
 Small fix for fpm_model</p></li>
-<li><p><a class="reference external" href="https://github.com/fortran-lang/fpm/pull/665">#665</a>:
-add clean command</p></li>
+<li><p><a class="reference external" href="https://github.com/fortran-lang/fpm/pull/665">#665</a>: Adiciona comando «clean»</p></li>
 </ul>
 <p>Trabalhos em andamento:</p>
 <ul class="simple">
@@ -775,7 +774,7 @@ environment in which new open source Fortran projects are created and published 
 <li><p>Declaração de função de baixo nível</p></li>
 <li><p>Lower length on character storage</p></li>
 <li><p>Lower select case statement</p></li>
-<li><p>Add OpenMP Conversion patterns</p></li>
+<li><p>Adiciona padrões OpenMP Conversion</p></li>
 <li><p>Designador de processo de baixo nível</p></li>
 <li><p>Procedimento boxed de baixo nível</p></li>
 <li><p>Flush and master constructs</p></li>
@@ -797,7 +796,7 @@ environment in which new open source Fortran projects are created and published 
 <li><p>Driver</p>
 <ul>
 <li><p>Make –version and -version consistent with clang</p></li>
-<li><p>Add support for -mmlir</p></li>
+<li><p>Adiciona suporte para -mmlir</p></li>
 <li><p>Make the plugin API independent of the driver internals</p></li>
 <li><p>Add support for generating executables</p></li>
 </ul>
@@ -808,11 +807,11 @@ environment in which new open source Fortran projects are created and published 
 <li><p>Added assembly format for omp.wsloop and remove parseClauses</p></li>
 <li><p>Added lowering support for sections construct</p></li>
 <li><p>Adicionado ReductionClauseInterface</p></li>
-<li><p>Added parallel sections translation</p></li>
+<li><p>Adiciona seções de tradução em paralelo</p></li>
 <li><p>Revert «[Flang][openmp] Add semantic check for OpenMP Private, Firstprivate and Lastprivate clauses.»</p></li>
 <li><p>Added allocate clause translation for OpenMP block constructs</p></li>
 <li><p>Support export/import OpenMP Threadprivate Flag</p></li>
-<li><p>Add implementation of privatisation</p></li>
+<li><p>Adiciona implementação de privatização</p></li>
 <li><p>Add checks and tests for hint clause and fix empty hint</p></li>
 </ul>
 </li>
@@ -862,10 +861,10 @@ environment in which new open source Fortran projects are created and published 
 <li><p>Fix cycle-catcher in procedure characterization</p></li>
 <li><p>Fix bogus error from assignment to CLASS(*)</p></li>
 <li><p>Mark C_ASSOCIATED specific procedures as PURE</p></li>
-<li><p>Catch bad OPEN(STATUS=) cases</p></li>
+<li><p>Capturar casos OPEN(STATUS=) ruins</p></li>
 <li><p>Fold NEAREST() and its relatives</p></li>
 <li><p>Prevent undefined behavior in character MAXLOC folding</p></li>
-<li><p>Fix invalid overflow check</p></li>
+<li><p>Corrige checagem inválida de overflow</p></li>
 <li><p>Skip D when including D debug line</p></li>
 <li><p>Allow user to recover from bad edit descriptor with INTEGER</p></li>
 <li><p>Fold instantiated PDT character component length when needed</p></li>
@@ -881,7 +880,7 @@ environment in which new open source Fortran projects are created and published 
 <li><p>Allow IMPLICIT NONE(EXTERNAL) with GenericDetails</p></li>
 <li><p>Do not ICE on out-of-range data statement designator</p></li>
 <li><p>Fix ICE for sqrt(0.0) evaluation</p></li>
-<li><p>Fix float-number representation bug</p></li>
+<li><p>Corrige bug de representação de número de ponto flutuante</p></li>
 <li><p>Fix intrinsic interface for DIMAG/DCONJG</p></li>
 <li><p>Improve appearance of message attachments</p></li>
 <li><p>Fix combining cases of USE association &amp; generic interfaces</p></li>
@@ -938,7 +937,7 @@ environment in which new open source Fortran projects are created and published 
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1720">AST-&gt;ASR: Remove current_body</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1717">Added support keyword argument in class procedures</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1715">Implementing ArrayBound node to replace <code class="docutils literal notranslate"><span class="pre">lbound</span></code>, <code class="docutils literal notranslate"><span class="pre">ubound</span></code> as function calls</a></p></li>
-<li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1714">Implementing <code class="docutils literal notranslate"><span class="pre">Block</span></code> and <code class="docutils literal notranslate"><span class="pre">BlockCall</span></code></a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1714">Implementando <code class="docutils literal notranslate"><span class="pre">Block</span></code> e <code class="docutils literal notranslate"><span class="pre">BlockCall</span></code></a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1711">Made scope private in SymbolTable struct and added interface methods to modify scope</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1710">Removing dead code which treats size intrinsic as function</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1708">Implementing <code class="docutils literal notranslate"><span class="pre">ArraySize</span></code> node to replace function call to <code class="docutils literal notranslate"><span class="pre">size</span></code></a></p></li>
@@ -953,7 +952,7 @@ environment in which new open source Fortran projects are created and published 
 <p><strong>WASM</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1713">backend Wasm</a></p></li>
-<li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1704">draft: Wasm Intial Base</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1704">rascunho: Base inicial Wasm</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1705">draft: Compiling LFortran to WASM</a></p></li>
 </ul>
 <p><strong>Miscelânea</strong></p>
@@ -962,7 +961,7 @@ environment in which new open source Fortran projects are created and published 
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1722">bind(c): Add tests for i64, f32, f64</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1721">Fix a bug in a test</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1716">Add a test for calling Fortran from C</a></p></li>
-<li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1712">Update ASR from LPython</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1712">Atualiza ASR do LPython</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1702">CI: add git safe.directory</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1701">Update ASR from LPython</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/lfortran/lfortran/-/merge_requests/1696">Update ASR from LPython</a></p></li>
