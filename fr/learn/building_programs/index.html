@@ -502,7 +502,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="include_files/">
-     Include files and modules
+     Fichiers d'inclusion et modules
     </a>
    </li>
    <li class="toctree-l2">
@@ -517,7 +517,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="project_make/">
-     An introduction to make
+     Une introduction à make
     </a>
    </li>
    <li class="toctree-l2">
@@ -717,13 +717,7 @@
                 
 <section class="tex2jax_ignore mathjax_ignore" id="building-programs">
 <h1>Building programs<a class="headerlink" href="#building-programs" title="Link to this heading">#</a></h1>
-<p>Languages like Fortran, C, C++ and Java, to name but a few, share
-certain characteristics: you write code in your language of choice but
-then you have to build an executable program from that source code.
-Other languages are interpreted — the source code is analysed by a
-special program and taken as direct instructions. Two very simple
-examples of that type of language: Windows batch files and Linux shell
-scripts.</p>
+<p>Des langages comme Fortran, C, C++ et Java, pour n’en nommer que quelques-uns, partage certaines caractéristiques : vous écrivez du code dans le langage de votre choix mais vous devez ensuite compiler à partir de ce code source. D’autres langages sont interprétés — le code source est analysé par un programme spécial et est considéré comme des instructions directes. Deux exemples très simples de ce type de langage : les fichiers batch sur Windows et les scripts shell sur Linux.</p>
 <p>In this tutorial we concentrate on the first type of languages, with
 Fortran as the main example. One advantage of compiled languages is that
 the build process that you need to build an executable program, is used
@@ -732,17 +726,14 @@ that can be run on the computer.</p>
 <p>Remark: this tutorial gives examples for the Windows and Linux operating
 systems, however the workflow and general principles still apply to macOS.</p>
 <section id="compiled-languages">
-<h2>Compiled languages<a class="headerlink" href="#compiled-languages" title="Link to this heading">#</a></h2>
-<p>Let us have a look at a simple example:</p>
+<h2>Langages compilés<a class="headerlink" href="#compiled-languages" title="Link to this heading">#</a></h2>
+<p>Voyons un exemple simple :</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">hello</span>
 <span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Hello!&#39;</span>
 <span class="k">end program </span><span class="n">hello</span>
 </pre></div>
 </div>
-<p>This is just about the simplest program you can write in Fortran and it
-is certainly a variation on one of the most famous programs. Even though
-it is simple to express in source code, a lot of things actually happen
-when the executable that is built from this code runs:</p>
+<p>C’est le programme le plus simple que vous puissiez écrire en Fortan et certainement une variation d’un de programmes les plus connus. Même si c’est simple à exprimer dans le code source, beaucoup de choses se passent lorsqu’on lance l’exécutable construit à partir de ce code :</p>
 <ul class="simple">
 <li><p>A process is started on the computer in such a way that it can write
 to the console — the window (DOS-box, xterm, …) at which you type the
