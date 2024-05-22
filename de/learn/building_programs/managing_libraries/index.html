@@ -32,7 +32,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script src="../../../_static/documentation_options.js?v=d84e59a1"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -740,7 +740,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="managing-libraries-static-and-dynamic-libraries">
-<h1>Managing libraries (static and dynamic libraries)<a class="headerlink" href="#managing-libraries-static-and-dynamic-libraries" title="Link to this heading">#</a></h1>
+<h1>Managing libraries (static and dynamic libraries)<a class="headerlink" href="#managing-libraries-static-and-dynamic-libraries" title="Link to this heading">¶</a></h1>
 <p>If you need to manage a program built of dozens of source files (and
 that is not uncommon!), the command-line needed to specify all the
 object files will be very long indeed. This soon becomes tedious or
@@ -787,7 +787,7 @@ every library.</p></li>
 <p>Using libraries you can build very large programs without
 having to resort to extremely long command lines.</p>
 <section id="static-versus-dynamic-libraries">
-<h2>Static versus dynamic libraries<a class="headerlink" href="#static-versus-dynamic-libraries" title="Link to this heading">#</a></h2>
+<h2>Static versus dynamic libraries<a class="headerlink" href="#static-versus-dynamic-libraries" title="Link to this heading">¶</a></h2>
 <p>The above discussion is tacitly assuming that you are using the so-called
 static libraries. Static libraries (or at least parts of their
 contents) become an integral part of the executable program. The only
@@ -843,7 +843,7 @@ gfortran on Cygwin and Intel Fortran on Windows. In both cases
 we look at the <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> program in the file „tabulate.f90“.</p>
 </section>
 <section id="gnu-linux-and-gfortran">
-<h2>GNU/Linux and gfortran<a class="headerlink" href="#gnu-linux-and-gfortran" title="Link to this heading">#</a></h2>
+<h2>GNU/Linux and gfortran<a class="headerlink" href="#gnu-linux-and-gfortran" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> program requires a user-defined routine <code class="docutils literal notranslate"><span class="pre">f</span></code>. If we
 let it reside in a dynamic library, say „functions.dll“, we can simply
 replace the implementation of the function by putting another dynamic
@@ -884,7 +884,7 @@ interface for this function. The compiler/linker are not invoked anymore, so the
 can do no checking.</p>
 </section>
 <section id="windows-and-intel-fortran">
-<h2>Windows and Intel Fortran<a class="headerlink" href="#windows-and-intel-fortran" title="Link to this heading">#</a></h2>
+<h2>Windows and Intel Fortran<a class="headerlink" href="#windows-and-intel-fortran" title="Link to this heading">¶</a></h2>
 <p>The setup is the same as with Linux, but on Windows it is necessary
 to explicitly export the routines. And an import library is generated —
 this is the library that should be used in the link step.</p>

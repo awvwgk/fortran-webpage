@@ -32,7 +32,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script src="../../../_static/documentation_options.js?v=33a0c708"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -734,7 +734,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="an-introduction-to-make">
-<h1>An introduction to make<a class="headerlink" href="#an-introduction-to-make" title="Link to this heading">#</a></h1>
+<h1>An introduction to make<a class="headerlink" href="#an-introduction-to-make" title="Link to this heading">¶</a></h1>
 <p>We briefly discussed the basics of <code class="docutils literal notranslate"><span class="pre">make</span></code>. This chapter gives ideas
 and strategies to scale <code class="docutils literal notranslate"><span class="pre">make</span></code> for larger projects.</p>
 <p>Before going into detail with <code class="docutils literal notranslate"><span class="pre">make</span></code>, consider a few points:</p>
@@ -764,7 +764,7 @@ than <code class="docutils literal notranslate"><span class="pre">make</span></c
 <p>Even if you find <code class="docutils literal notranslate"><span class="pre">make</span></code> unsuitable to build your project, it is <em>the</em> tool to automate workflows defined by files. Maybe you can leverage its power in a different context.</p>
 </div>
 <section id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
 <p>For this part we will work with
 <a href="https://github.com/jacobwilliams/fortran-csv-module/tree/1.2.0" target="_blank" rel="noopener"> the Fortran CSV module (v1.2.0)</a>.
 Our goal is to write a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> to compile this project to a static library.
@@ -888,7 +888,7 @@ Also, right now the the source files and dependencies are specified explicitly,
 which results in several additional lines even for such a simple project.</p>
 </section>
 <section id="automatically-generated-dependencies">
-<h2>Automatically generated dependencies<a class="headerlink" href="#automatically-generated-dependencies" title="Link to this heading">#</a></h2>
+<h2>Automatically generated dependencies<a class="headerlink" href="#automatically-generated-dependencies" title="Link to this heading">¶</a></h2>
 <p>The main drawback of <code class="docutils literal notranslate"><span class="pre">make</span></code> for Fortran is the missing capability to
 determine module dependencies. This is usually solved by either adding those
 by hand or automatically scanning the source code with an external tool.

@@ -32,7 +32,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script src="../../../_static/documentation_options.js?v=aaa2236b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -740,7 +740,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="managing-libraries-static-and-dynamic-libraries">
-<h1>Управление библиотеками (статические и динамические библиотеки)<a class="headerlink" href="#managing-libraries-static-and-dynamic-libraries" title="Link to this heading">#</a></h1>
+<h1>Управление библиотеками (статические и динамические библиотеки)<a class="headerlink" href="#managing-libraries-static-and-dynamic-libraries" title="Link to this heading">¶</a></h1>
 <p>Если вам нужно управлять программой, собранной из десятков файлов исходного кода (а это не редкость!), то командная строка, необходимая для указания всех объектных файлов будет очень длинной. Очень скоро поддержка такого списка станет утомительной или даже невозможной. Поэтому необходимо другое решение: создание собственных библиотек.</p>
 <p>Библиотеки содержат любое количество объектных файлов в компактной форме, так что командная строка для сборки программы становится короче:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-o<span class="w"> </span>tabulate<span class="w"> </span>tabulate.f90<span class="w"> </span>functions.o<span class="w"> </span>supportlib.a
@@ -770,7 +770,7 @@ c:<span class="se">\.</span>..&gt;<span class="w"> </span>lib<span class="w"> </
 </ul>
 <p>Используя библиотеки, вы можете создавать очень большие программы, не прибегая к чрезвычайно длинным командным строкам для описания процесса сборки.</p>
 <section id="static-versus-dynamic-libraries">
-<h2>Статические библиотеки в сравнении с динамическими<a class="headerlink" href="#static-versus-dynamic-libraries" title="Link to this heading">#</a></h2>
+<h2>Статические библиотеки в сравнении с динамическими<a class="headerlink" href="#static-versus-dynamic-libraries" title="Link to this heading">¶</a></h2>
 <p>Приведённые выше рассуждения негласно предполагают, что вы используете так называемые статические библиотеки. Статические библиотеки (или, по крайней мере, часть их содержимого) становятся неотъемлемой частью исполняемого файла программы. Единственный способ изменить встроенные в программу подпрограммы – это пересобрать программу с новой версией библиотеки.</p>
 <p>Гибкой альтернативой является использование так называемых динамических библиотек. Эти библиотеки остаются снаружи исполняемого файла программы и, как следствие, могут быть заменены без пересборки всей программы. Компиляторы и сама операционная система в значительной степени полагаются на такие динамические библиотеки. Можно рассматривать динамические библиотеки как своего рода исполняемые программы, которым для запуска требуется небольшая помощь.</p>
 <p>Создание динамических библиотек происходит немного иначе, чем создание статических: вы используете компилятор/компоновщик вместо таких инструментов как <code class="docutils literal notranslate"><span class="pre">ar</span></code> или <code class="docutils literal notranslate"><span class="pre">lib</span></code>.</p>
@@ -805,7 +805,7 @@ $<span class="w"> </span>ifort<span class="w"> </span>-dll<span class="w"> </spa
 <p>Поскольку детали отличаются в зависимости от компилятора, приведём два примера: gfortran в оболочке Cygwin и Intel Fortran в Windows. В обоих случаях мы рассматриваем программу <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> из файла «tabulate.f90».</p>
 </section>
 <section id="gnu-linux-and-gfortran">
-<h2>GNU/Linux и gfortran<a class="headerlink" href="#gnu-linux-and-gfortran" title="Link to this heading">#</a></h2>
+<h2>GNU/Linux и gfortran<a class="headerlink" href="#gnu-linux-and-gfortran" title="Link to this heading">¶</a></h2>
 <p>Для программы <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> требуется пользовательская подпрограмма <code class="docutils literal notranslate"><span class="pre">f</span></code>. Если мы поместим её в динамическую библиотеку, например, «functions.dll», мы можем просто заменить реализацию функции, поместив в каталог другую динамическую библиотеку. Пересобирать саму программу при этом не нужно.</p>
 <p>В оболочке Cygwin нет необходимости явно экспортировать подпрограмму – все публично видимые подпрограммы экспортируются при создании динамической библиотеки. При этом не создаётся импортируемая библиотека.</p>
 <p>Так как наша динамическая библиотека может быть собрана из одного файла исходного кода, мы можем использовать простой способ её создания:</p>
@@ -833,7 +833,7 @@ $<span class="w"> </span>ifort<span class="w"> </span>-dll<span class="w"> </spa
 <p>Вы можете заменить разделяемую библиотеку «functions.dll» на другую, реализующую другую функцию «f». Конечно, нужно быть осторожным, чтобы использовать правильный интерфейс для этой функции. Компилятор и компоновщик не вызываются повторно, поэтому они не могут сделать никаких проверок.</p>
 </section>
 <section id="windows-and-intel-fortran">
-<h2>Windows и Intel Fortran<a class="headerlink" href="#windows-and-intel-fortran" title="Link to this heading">#</a></h2>
+<h2>Windows и Intel Fortran<a class="headerlink" href="#windows-and-intel-fortran" title="Link to this heading">¶</a></h2>
 <p>Настройка в этом случае такая же, как и в случае с Linux, но в Windows необходимо явно экспортировать подпрограммы. При этом создаётся импортируемая библиотека (import library) – именно эта библиотека должна использоваться на этапе компоновки.</p>
 <p>Файл исходного кода должен содержать директиву компилятора, иначе функция <code class="docutils literal notranslate"><span class="pre">f</span></code> не будет экспортирована:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real </span><span class="k">function </span><span class="n">f</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span>

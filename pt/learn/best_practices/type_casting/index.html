@@ -32,7 +32,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script src="../../../_static/documentation_options.js?v=aa4fbcf8"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -765,11 +765,11 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="type-casting-in-callbacks">
-<h1>Conversão de Tipos em Callbacks<a class="headerlink" href="#type-casting-in-callbacks" title="Link to this heading">#</a></h1>
+<h1>Conversão de Tipos em Callbacks<a class="headerlink" href="#type-casting-in-callbacks" title="Link to this heading">¶</a></h1>
 <p>Há essencialmente cinco jeitos diferentes de fazer a conversão de tipo, cada qual com suas vantagens e desvantagens.</p>
 <p>Os métodos, I, II e V são usados em C e Fortran. Os métodos III e IV estão disponíveis somente em Fortran. O método VI é obsoleto e não deve ser usado.</p>
 <section id="work-arrays">
-<h2>Arrays de Trabalho<a class="headerlink" href="#work-arrays" title="Link to this heading">#</a></h2>
+<h2>Arrays de Trabalho<a class="headerlink" href="#work-arrays" title="Link to this heading">¶</a></h2>
 <p>Passar uma «matriz de trabalho» a qual é empacotada com tudo que é necessária pelo invocador e desempacotado pela rotina invocada. Esse é o modo antigo – p.ex.:, como o LAPACK faz isso.</p>
 <p>Cálculo de Integrais:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
@@ -831,7 +831,7 @@
 </div>
 </section>
 <section id="general-structure">
-<h2>Estrutura Geral<a class="headerlink" href="#general-structure" title="Link to this heading">#</a></h2>
+<h2>Estrutura Geral<a class="headerlink" href="#general-structure" title="Link to this heading">¶</a></h2>
 <p>Define uma estrutura geral que engloba as variações que você de fato precisa (ou que irá precisar futuramente). Esse tipo de estrutura único pode então ser mudado caso necessário se futuras ideias/necessidades permitirem mas que não precise passar, digamos, números reais para, por exemplo, uma instanciação de um editor de texto.</p>
 <p>Cálculo de Integrais:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
@@ -904,7 +904,7 @@
 <p>O ponto é: não é necessário ser «um tipo abstrato que engloba tudo» ou tal. Há opções naturais e viáveis entre «tudo» e «nada».</p>
 </section>
 <section id="private-module-variables">
-<h2>Variáveis Privadas do Módulo<a class="headerlink" href="#private-module-variables" title="Link to this heading">#</a></h2>
+<h2>Variáveis Privadas do Módulo<a class="headerlink" href="#private-module-variables" title="Link to this heading">¶</a></h2>
 <p>Esconde completamente os argumentos das variáveis ao passar variáveis de módulos.</p>
 <p>Cálculo de Integrais:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
@@ -962,7 +962,7 @@
 <p>Contudo é melhor evitar variáveis globais – embora seja apenas semi-global – se possível. Mas algumas vezes é a forma mais simples e limpa. Contudo, com um pouco de avaliação, há geralmente uma forma melhor, mais seguro e mais explícita ao longo das linhas II ou IV.</p>
 </section>
 <section id="nested-functions">
-<h2>Funções Aninhadas<a class="headerlink" href="#nested-functions" title="Link to this heading">#</a></h2>
+<h2>Funções Aninhadas<a class="headerlink" href="#nested-functions" title="Link to this heading">¶</a></h2>
 <p>Cálculo de Integrais:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
@@ -1007,7 +1007,7 @@
 </div>
 </section>
 <section id="using-type-c-ptr-pointer">
-<h2>Usando Ponteiro type(c_ptr)<a class="headerlink" href="#using-type-c-ptr-pointer" title="Link to this heading">#</a></h2>
+<h2>Usando Ponteiro type(c_ptr)<a class="headerlink" href="#using-type-c-ptr-pointer" title="Link to this heading">¶</a></h2>
 <p>Em C, usa-se o ponteiro <code class="docutils literal notranslate"><span class="pre">void*</span></code>. Em Fortran, pode-se usar <code class="docutils literal notranslate"><span class="pre">type(c_ptr)</span></code> para o mesmo propósito.</p>
 <p>Cálculo de Integrais:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
@@ -1077,7 +1077,7 @@
 <p>Geralmente, no contexto de programação científica, onde o foco principal é representar e solucionar formulações matemáticas (em oposição à criar GUIs com vários butões, drop-downs, e outros elementos de interface), mais simples, menos suscetível a erros, e mais rápido é usar uma das abordagens anteriores.</p>
 </section>
 <section id="transfer-intrinsic-function">
-<h2>Função Intrínseca transfer()<a class="headerlink" href="#transfer-intrinsic-function" title="Link to this heading">#</a></h2>
+<h2>Função Intrínseca transfer()<a class="headerlink" href="#transfer-intrinsic-function" title="Link to this heading">¶</a></h2>
 <p>Antes do Fortran 2003, a única forma de realizar conversão de tipos era usando a função intrínseca <code class="docutils literal notranslate"><span class="pre">transfer</span></code>. É funcionalmente equivalente ao método V, mas mais verboso e mais suscetível à erros. Esse método é agora obsoleto e deve-se usar o método V.</p>
 <p>Exemplos:</p>
 <p><a class="reference external" href="http://jblevins.org/log/transfer">http://jblevins.org/log/transfer</a></p>
@@ -1085,7 +1085,7 @@
 <p><a class="reference external" href="http://www.macresearch.org/advanced_fortran_90_callbacks_with_the_transfer_function">http://www.macresearch.org/advanced_fortran_90_callbacks_with_the_transfer_function</a></p>
 </section>
 <section id="object-oriented-approach">
-<h2>Abordagem Orientada à Objetos<a class="headerlink" href="#object-oriented-approach" title="Link to this heading">#</a></h2>
+<h2>Abordagem Orientada à Objetos<a class="headerlink" href="#object-oriented-approach" title="Link to this heading">¶</a></h2>
 <p>O módulo:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
 
@@ -1161,7 +1161,7 @@
 </div>
 </section>
 <section id="complete-example-of-void-vs-type-c-ptr-and-transfer">
-<h2>Exemplo completo do void * vs type(c_ptr) e transfer()<a class="headerlink" href="#complete-example-of-void-vs-type-c-ptr-and-transfer" title="Link to this heading">#</a></h2>
+<h2>Exemplo completo do void * vs type(c_ptr) e transfer()<a class="headerlink" href="#complete-example-of-void-vs-type-c-ptr-and-transfer" title="Link to this heading">¶</a></h2>
 <p>Aqui há três códigos equivalente: um em C usando <code class="docutils literal notranslate"><span class="pre">void*</span></code> e dois códigos em Fortran usando <code class="docutils literal notranslate"><span class="pre">type(c_ptr)</span></code> e <code class="docutils literal notranslate"><span class="pre">transfer()</span></code>:</p>
 <table class="docutils align-default">
 <thead>

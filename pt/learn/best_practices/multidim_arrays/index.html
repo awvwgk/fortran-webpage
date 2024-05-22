@@ -32,7 +32,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script src="../../../_static/documentation_options.js?v=aa4fbcf8"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -720,7 +720,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="multidimensional-arrays">
-<h1>Arrays Multidimensionais<a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">#</a></h1>
+<h1>Arrays Multidimensionais<a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">¶</a></h1>
 <p>Matrizes multidimensionais são armazenadas em ordem de maior coluna. Isso significa que o índice mais à esquerda (mais interno) endereça elementos continuamente. De um ponto de vista prático, isso significa que a parte da matriz <code class="docutils literal notranslate"><span class="pre">V(:,1)</span></code> é continua, enquanto que o passo entre os elementos da parte <code class="docutils literal notranslate"><span class="pre">V(1,:)</span></code> é a dimensão das colunas. Isso é importante ao passar pedaços da matriz para procedimentos que esperam trabalhar em dados contínuos.</p>
 <p>É importante considerar a localização da memória na sua aplicação, normalmente quando realizando operações multidimensionais o acesso sequencial deve sempre avançar em passos unitários.</p>
 <p>No exemplo à seguir a distância inversa entre dois conjuntos de ponto é calculada. Note que os pontos são guardados continuamente nas matrizes <code class="docutils literal notranslate"><span class="pre">xyz1</span></code>/<code class="docutils literal notranslate"><span class="pre">xyz2</span></code>, enquanto que o laço mais interno está avançando o índice mais externo da matriz <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>

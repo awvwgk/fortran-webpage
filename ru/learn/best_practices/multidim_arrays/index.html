@@ -32,7 +32,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script src="../../../_static/documentation_options.js?v=aaa2236b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -720,7 +720,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="multidimensional-arrays">
-<h1>Многомерные массивы<a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">#</a></h1>
+<h1>Многомерные массивы<a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">¶</a></h1>
 <p>Многомерные массивы хранятся в памяти по столбцам. Это означает, что крайний левый (внутренний) индекс обращается к элементам последовательно. С практической точки зрения это означает, что срез массива <code class="docutils literal notranslate"><span class="pre">V(:,</span> <span class="pre">1)</span></code> непрерывен, а расстояние между элементами в срезе <code class="docutils literal notranslate"><span class="pre">V(1,</span> <span class="pre">:)</span></code> равно размерности столбцов. Это важно при передаче срезов массива процедурам, которые работают с непрерывными в памяти данными.</p>
 <p>Локальность памяти важно учитывать в зависимости от вашего приложения, обычно при выполнении операций с многомерной памятью последовательный доступ всегда должен осуществляться шаг за шагом.</p>
 <p>В следующем примере оценивается величина обратная расстоянию между двумя наборами точек. Обратите внимание, что точки хранятся последовательно в массивах <code class="docutils literal notranslate"><span class="pre">xyz1</span></code>/<code class="docutils literal notranslate"><span class="pre">xyz2</span></code>, а внутренний цикл продвигается по крайнему левому индексу массива <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
