@@ -461,38 +461,38 @@
 <p>Większość treści na stronie jest napisana w języku <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>, prostym języku znaczników do formatowania tekstu. Nie przejmuj się jeżeli nie używałeś go wcześniej, bardzo łatwo się go nauczyć!</p>
 <p><strong>Jak strona jest tworzona?</strong></p>
 <p>Strona Fortran-lang używa <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Generatora stron statycznych Sphinx</a> opartego na Pythonie do kompilowania plików RST, Markdown i HTML. Kontrybutorom zaleca się zainstalowanie Pythona na komputerze, tak aby można było wyświetlać podgląd zmian lokalnie. Nie jest to jednak obowiązkowe, ponieważ podgląd strony może zostać wygenerowany podczas żądania ściągnięcia (patrz poniżej). Sprawdź <a class="reference external" href="https://github.com/fortran-lang/webpage/blob/HEAD/README.md">README.md</a>, aby zobaczyć jak ustawić Sphinx i skompilować stronę.</p>
-<p>The GitHub repository default branch only ever contains the «source code» for the website, not the final compiled result; an automated service compiles this source code every time an update is pushed and stores the compiled result on the <a class="reference external" href="https://github.com/fortran-lang/webpage/tree/gh-pages"><code class="docutils literal notranslate"><span class="pre">gh-pages</span></code></a> branch which is served up at <a class="reference external" href="https://fortran-lang.org">https://fortran-lang.org</a>.</p>
-<p>Therefore, as a contributor you only need to upload changes to the site source code and not the compiled result, because this is built automatically from the source code on the default branch.</p>
+<p>Domyślna gałąź repozytorium Github zawiera tylko «kod źródłowy» strony, a nie jej końcowy skompilowany wynik; zautomatyzowana usługa kompiluje ten kod źródłowy za każdym razem, gdy nowa aktualizacja jest przesyłana i przechowuje skompilowany wynik w gałęzi <a class="reference external" href="https://github.com/fortran-lang/webpage/tree/gh-pages"><code class="docutils literal notranslate"><span class="pre">gh-pages</span></code></a>, która jest dostępna pod adresem <a class="reference external" href="https://fortran-lang.org">https://fortran-lang.org</a>.</p>
+<p>Zatem, jako kontrybutor musisz tylko przesłać zmiany w kodzie źródłowym witryny, a nie skompilowanym wyniku, ponieważ jest on budowany automatycznie na podstawie kodu źródłowego gałęzi domyślnej.</p>
 </section>
 <section id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
-<p>Contributions to the site are made by pull request to the github repository: <a class="reference external" href="https://github.com/fortran-lang/webpage/">https://github.com/fortran-lang/webpage/</a>.</p>
-<p>The workflow for doing so takes the following form:</p>
+<h2>Przepływ pracy<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
+<p>Kontrybucje do strony są tworzone poprzez prośbę o ściągnięcie wysyłaną do repozytorium github: <a class="reference external" href="https://github.com/fortran-lang/webpage/">https://github.com/fortran-lang/webpage/</a>.</p>
+<p>Przepływ pracy w tym celu przyjmuje następującą formę:</p>
 <ol class="arabic simple">
-<li><p>Create/update a personal fork of webpage</p>
+<li><p>Stwórz/zaktualizuj osobiste rozgałęzienie strony</p>
 <ul class="simple">
-<li><p>(See <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">github help: syncing a fork</a> )</p></li>
+<li><p>(Zobacz <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">Github pomoc: synchronizowanie rozwidlenia</a> )</p></li>
 </ul>
 </li>
-<li><p>Create a new branch in your fork</p>
+<li><p>Stwórz nową gałąź w rozgałęzieniu</p>
 <ul class="simple">
-<li><p>The branch name should concisely describe your contribution, <em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">fix-spelling-homepage</span></code>, <code class="docutils literal notranslate"><span class="pre">update-compiler-info</span></code></p></li>
+<li><p>Nazwa gałęzi powinna treściwie opisywać twoją kontrybucję, <em>np.</em><code class="docutils literal notranslate"> <span class="pre">naprawa-pisowni-strona-główna</span></code>, <code class="docutils literal notranslate"><span class="pre">zaktualizowanie-informacji-kompilatora</span></code></p></li>
 </ul>
 </li>
-<li><p>Perform your changes on the local branch</p></li>
-<li><p>Push your modified branch to your fork</p>
+<li><p>Wykonaj swoje zmiany w gałęzi lokalnej</p></li>
+<li><p>Prześlij swoją zmodyfikowaną gałąź do twojego rozgałęzienia</p>
 <ul class="simple">
-<li><p><em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">fix-spelling-homepage</span></code></p></li>
+<li><p><em>n.p.</em><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">naprawa-pisowni-strona-główna</span></code></p></li>
 </ul>
 </li>
-<li><p>Create a pull request in the fortran-lang/webpage from your modified fork branch</p>
+<li><p>Stwórz prośbę o ściągnięcie na stronie fortran-lang/webpage z swojego zmodyfikowanego rozgałęzienia</p>
 <ul class="simple">
-<li><p>(See <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">github help: creating a pull request</a> )</p></li>
+<li><p>(Zobacz <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">Github pomoc: tworzenia prośby o ściągnięcie</a> )</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Note: Before opening a pull request you must build your changes locally using Sphinx (see <a class="reference external" href="https://github.com/fortran-lang/webpage/blob/HEAD/README.md">README.md</a>) to verify that your changes build correctly and render as you expect.</strong></p>
-<p><strong>Note: You can continue to push changes to your fork branch after you open a pull request - the pull request will update accordingly</strong></p>
+<p><strong>Uwaga: Możesz kontynuować przesyłania zmian do swojej gałęzi po stworzeniu żądania o ściągnięcie - to żądanie zostanie odpowiednio zaktualizowane</strong></p>
 <p>Your pull request will be reviewed by other members of the community who may request changes.
 GitHub provides an easy interface on its website to apply (or reject) any reviewer-suggested changes with a click of a button.
 This avoids having to manually copy suggestions to your local copy and push back again.
