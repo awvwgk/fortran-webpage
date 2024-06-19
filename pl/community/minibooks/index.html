@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="256x256" href="../../_static/images/favicon.ico" type="image/x-icon">
-    <title>Mini-book Tutorials on fortran-lang.org &#8212; Fortran Programming Language</title>
+    <title>Poradniki do mini-książek na fortran-lang.org &#8212; Fortran Programming Language</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -406,7 +406,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Mini-book Tutorials on fortran-lang.org
+   Poradniki do mini-książek na fortran-lang.org
   </a>
  </li>
  <li class="toctree-l1">
@@ -445,43 +445,39 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="mini-book-tutorials-on-fortran-lang-org">
-<h1>Mini-book Tutorials on fortran-lang.org<a class="headerlink" href="#mini-book-tutorials-on-fortran-lang-org" title="Link to this heading">¶</a></h1>
-<p>This guide will cover how to write mini-book tutorials for the <a class="reference external" href="https://fortran-lang.org/learn">Learn</a>
-section of <a class="reference external" href="https://fortran-lang.org">https://fortran-lang.org</a>.</p>
-<p>See <a class="reference internal" href="../contributing/"><span class="doc std std-doc">contributing guidelines</span></a> for general guidance on contributing to <a class="reference external" href="https://fortran-lang.org">https://fortran-lang.org</a>.</p>
+<h1>Poradniki do mini-książek na fortran-lang.org<a class="headerlink" href="#mini-book-tutorials-on-fortran-lang-org" title="Link to this heading">¶</a></h1>
+<p>W tym poradniku wyjaśniono jak pisać samouczki w formie mini-książek dla sekcji <a class="reference external" href="https://fortran-lang.org/learn">Naucz się</a> na stronie <a class="reference external" href="https://fortran-lang.org">https://fortran-lang.org</a>.</p>
+<p>Ogólne wskazówki dotyczące współtworzenia strony <a class="reference external" href="https://fortran-lang.org">https://fortran-lang.org</a> znajdziesz w <a class="reference internal" href="../contributing/"><span class="doc std std-doc">poradniki współtworzenia</span></a>.</p>
 <section id="mini-book-formats">
 <h2>0. Mini-book formats<a class="headerlink" href="#mini-book-formats" title="Link to this heading">¶</a></h2>
-<p>Mini-books are designed to be mostly self-contained tutorials on a particular feature of the Fortran language.</p>
-<p>There are two types of mini-book format:</p>
+<p>Mini-książki zaprojektowano tak, aby w większości samodzielnie wyjaśniały daną funkcję języka Fortran.</p>
+<p>Istnieją dwa rodzaje formatów mini-książek:</p>
 <ul class="simple">
-<li><p><strong>Single-page:</strong> all content is written within a single markdown file and displayed
-on a single webpage;</p></li>
-<li><p><strong>Multi-page:</strong> tutorial content is written across multiple markdown files and displayed
-as a collection of webpages.</p></li>
+<li><p><strong>Jednostronicowy:</strong> cała zawartość napisana jest w jednym pliku typu Markdown i wyświetla się na pojedynczej stronie internetowej;</p></li>
+<li><p><strong>Wielostronicowy:</strong> zawartość poradnika zapisana jest w wielu plikach typu Markdown i wyświetla się jako kolekcja stron internetowych.</p></li>
 </ul>
-<p>The choice of book type depends on the length of your content and how you intend to structure it.</p>
-<p>Consider the table of contents that will be produced:</p>
+<p>Wybór formatu poradnika zależy od długości jego treści i planowanej struktury.</p>
+<p>Rozważ spis treści, który zostanie utworzony:</p>
 <ul class="simple">
-<li><p>Single-page books have <strong>one level</strong> of navigation: a link for each heading in the tutorial in inpage-toc (toc on the right hand side of the page).</p></li>
-<li><p>Multi-page books have <strong>two levels</strong> of navigation: a link for each heading in the tutorial in inpage-toc (toc on the right hand side of the page) and sidebar-toc (toc on the left hand side of the page showing different pages in directory).</p></li>
+<li><p>Jednostronicowe poradniki mają <strong>jeden poziom</strong> nawigacji: link do każdego nagłówka samouczka w spisie treści na stronie (spis treści po prawej stronie witryny).</p></li>
+<li><p>Wielostronicowe poradniki mają <strong>dwa poziomy</strong> nawigacji: link do każdego nagłówka samouczka w spisie treści na stronie (spis treści po prawej stronie witryny) oraz spis treści na pasku bocznym (spis treści po lewej stronie witryny pokazujący listę wszystkich stron w katalogu).</p></li>
 </ul>
-<p>Single-page mini-books are simpler to produce and should be used for brief topics or short tutorials that will
-eventually be subsumed into a more-comprehensive multi-page book.</p>
-<p>Multi-page books are recommended for more-comprehensive tutorials that can be structured with one subtopic per page.</p>
-<p>The rest of this guide is split into two sections, one each for the single-page and multi-page book types.</p>
+<p>Jednostronicowe mini-książki są łatwiejsze w tworzeniu i powinny być używane do krótszych tematów lub poradników, które ostatecznie zostaną ujęte w bardziej obszernych wielostronicowych książkach.</p>
+<p>Wielostronicowe książki rekomendowane są do bardziej obszernych poradników, gdzie jeden podtemat może być przedstawiony na jednej stronie.</p>
+<p>Pozostała część tego poradniki podzielona jest na dwie części, po jednej dla jednostronicowych i wielostronicowych mini-książek.</p>
 </section>
 <section id="single-page-mini-book">
 <h2>1. Single-page mini-book<a class="headerlink" href="#single-page-mini-book" title="Link to this heading">¶</a></h2>
-<p>The steps required for publishing a single-page mini-book are:</p>
+<p>Kroki wymagane do opublikowania jednostronnicowej mini-książki:</p>
 <ul class="simple">
-<li><p>Create a new markdown document in the <code class="docutils literal notranslate"><span class="pre">./learn</span></code> directory</p></li>
-<li><p>Write your tutorial content</p></li>
-<li><p>Add an entry to <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> for your new mini-book</p></li>
-<li><p>Open a pull request</p></li>
+<li><p>Utwórz nowy dokument typu Markdown w katalogu <code class="docutils literal notranslate"><span class="pre">./learn</span></code></p></li>
+<li><p>Napisz zawartość twojego poradnika</p></li>
+<li><p>Dodaj wpis do <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> dla twojej nowej mini-książki</p></li>
+<li><p>Otwórz żądanie ściągnięcia</p></li>
 </ul>
 <section id="writing-your-mini-book-in-markdown">
-<h3>1.1 Writing your mini-book in markdown<a class="headerlink" href="#writing-your-mini-book-in-markdown" title="Link to this heading">¶</a></h3>
-<p>For single-page mini-books your tutorial will be entirely contained within a single markdown document.</p>
+<h3>1.1 Pisanie twojej mini-książki w pliku typu markdown<a class="headerlink" href="#writing-your-mini-book-in-markdown" title="Link to this heading">¶</a></h3>
+<p>W przypadku mini-książek jednostronicowych twój poradnik będzie w całości zawarty w jednym dokumencie typu markdown.</p>
 <p>First create a new markdown document in the <code class="docutils literal notranslate"><span class="pre">./learn/{{name_of_minibook}}/</span></code> directory with the <code class="docutils literal notranslate"><span class="pre">.md</span></code> file extension
 and a short name that concisely describes the topic of your tutorial, <em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">./learn/{{name_of_minibook}}/file_io.md</span></code>.</p>
 <p>Open your new markdown file and append an entry in the toc of <code class="docutils literal notranslate"><span class="pre">learn.md</span></code> in the following format:</p>
@@ -576,8 +572,8 @@ at <a class="reference external" href="https://github.com/fortran-lang/webpage">
 <li><p>Create a new folder in the <code class="docutils literal notranslate"><span class="pre">./learn/</span></code> directory</p></li>
 <li><p>Create an <code class="docutils literal notranslate"><span class="pre">index.md</span></code> file in your new folder</p></li>
 <li><p>Write your tutorial content in markdown files in your new folder</p></li>
-<li><p>Add an entry to <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> for your new mini-book</p></li>
-<li><p>Open a pull request</p></li>
+<li><p>Dodaj wpis do <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> dla twojej nowej mini-książki</p></li>
+<li><p>Otwórz żądanie ściągnięcia</p></li>
 </ul>
 <section id="create-a-new-folder-for-your-mini-book">
 <h3>2.1 Create a new folder for your mini-book<a class="headerlink" href="#create-a-new-folder-for-your-mini-book" title="Link to this heading">¶</a></h3>
