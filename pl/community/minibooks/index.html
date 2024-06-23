@@ -41,7 +41,7 @@
     <link rel="canonical" href="https://fortran-lang.org/en/community/minibooks.html" />
     <link rel="index" title="Indeks" href="../../genindex/" />
     <link rel="search" title="Szukaj" href="../../search/" />
-    <link rel="next" title="Fortran-lang.org package index" href="../packages/" />
+    <link rel="next" title="Spis pakietów Fortran-lang.org" href="../packages/" />
     <link rel="prev" title="Wspieranie fortran-lang.org" href="../contributing/" />
 
 <meta
@@ -411,7 +411,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../packages/">
-   Fortran-lang.org package index
+   Spis pakietów Fortran-lang.org
   </a>
  </li>
 </ul>
@@ -457,7 +457,7 @@
 <li><p><strong>Wielostronicowy:</strong> zawartość poradnika zapisana jest w wielu plikach typu Markdown i wyświetla się jako kolekcja stron internetowych.</p></li>
 </ul>
 <p>Wybór formatu poradnika zależy od długości jego treści i planowanej struktury.</p>
-<p>Rozważ spis treści, który zostanie utworzony:</p>
+<p>Przemyśl strukturę oraz spis treści, który zostanie utworzony:</p>
 <ul class="simple">
 <li><p>Jednostronicowe poradniki mają <strong>jeden poziom</strong> nawigacji: link do każdego nagłówka samouczka w spisie treści na stronie (spis treści po prawej stronie witryny).</p></li>
 <li><p>Wielostronicowe poradniki mają <strong>dwa poziomy</strong> nawigacji: link do każdego nagłówka samouczka w spisie treści na stronie (spis treści po prawej stronie witryny) oraz spis treści na pasku bocznym (spis treści po lewej stronie witryny pokazujący listę wszystkich stron w katalogu).</p></li>
@@ -532,49 +532,42 @@
 <section id="add-your-mini-book-to-the-learn-page">
 <h3>1.3 Dodaj swoją mini-książkę do strony Ucz się<a class="headerlink" href="#add-your-mini-book-to-the-learn-page" title="Link to this heading">¶</a></h3>
 <p>Aby dodać swoją mini-książkę do strony <em>Ucz się</em>, musisz stworzyć nowy wpis w pliku <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a>.</p>
-<p>Open this file and create a new entry under the <code class="docutils literal notranslate"><span class="pre">books:</span></code> field in the following format:</p>
+<p>Otwórz ten plik i stwórz nowy wpis pod polem <code class="docutils literal notranslate"><span class="pre">books:</span></code> w następującym formacie:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">book-title</span><span class="p p-Indicator">}}</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">book-description</span><span class="p p-Indicator">}}</span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">book-category</span><span class="p p-Indicator">}}</span>
 <span class="w">  </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/learn/{{book-filename}}</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> field is what will be displayed on the <em>Learn</em> page for your mini-book
-and should generally be the same as the <code class="docutils literal notranslate"><span class="pre">title</span></code> field in your markdown file, but this isn’t required.</p>
-<p>The contents of the <code class="docutils literal notranslate"><span class="pre">description</span></code> field is also displayed on the <em>Learn</em> page
-and should briefly summarise the contents of your mini-book tutorial.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">category</span></code> field should match one of the categories listed at the top of the data file (under
-the <code class="docutils literal notranslate"><span class="pre">categories:</span></code> field) and is used to group tutorials on the Learn page.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">link</span></code> field should exactly match the <code class="docutils literal notranslate"><span class="pre">permalink</span></code> field in your markdown document.</p>
-<p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code> book entry</p>
+<p>To co wpiszesz pod polem <code class="docutils literal notranslate"><span class="pre">title</span></code> będzie nazwą twojego poradnika, która będzie się wyświetlać na stronie _Ucz się _ i z reguły powinna być taka sama jak pole <code class="docutils literal notranslate"><span class="pre">title</span></code> w twoim pliku markdown, jednak nie jest to wymagane.</p>
+<p>Zawartość pola <code class="docutils literal notranslate"><span class="pre">description</span></code> (opis) jest także wyświetlana na stronie _Ucz się _ i powinna krótko streszczać zawartość twojego poradnika.</p>
+<p>Pole <code class="docutils literal notranslate"><span class="pre">category</span></code> (kategoria) powinno odpowiadać jednej z kategorii wymienionych na górze pliku danych (pod polem <code class="docutils literal notranslate"><span class="pre">categories:</span></code>) i służy do grupowania poradników na stronie Ucz się.</p>
+<p>Pole <code class="docutils literal notranslate"><span class="pre">link</span></code> powinno dokładnie odpowiadać polu <code class="docutils literal notranslate"><span class="pre">permalink</span></code> w twoim dokumencie markdown.</p>
+<p><strong>Przykład:</strong> wpis <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code></p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File input and output</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A tutorial on reading and writing files in Fortran</span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Getting started</span>
 <span class="w">  </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/learn/file/file_io</span>
 </pre></div>
 </div>
-<p>Save the modified <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code> data file and run fortran_package.py and rebuild the website on your local machine to check the results.
-If successful, a new link should appear on the _Learn* page with the title of your new mini-book.</p>
-<p>Once you have completed your mini-book and added an entry to the <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code> data file, open a pull request
-at <a class="reference external" href="https://github.com/fortran-lang/webpage">https://github.com/fortran-lang/webpage</a> (see <a class="reference internal" href="#./CONTRIBUTING.md"><span class="xref myst">CONTRIBUTING</span></a>).</p>
+<p>Zapisz zmodyfikowany plik <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code>, następnie uruchom fortran_package.py i skompiluj ponownie stronę na swoim komputerze lokalnym. Jeśli wszystko się powiodło, nowy link z tytułem twojego poradnika powinien pojawić się na stronie _Learn* (Ucz się).</p>
+<p>Po ukończeniu swojej mini-książki i dodaniu wpisu do <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code>, utwórz żądanie ściągnięcia na <a class="reference external" href="https://github.com/fortran-lang/webpage">https://github.com/fortran-lang/webpage</a> (zobacz <a class="reference internal" href="#./CONTRIBUTING.md"><span class="xref myst">KONTRYBUCJE</span></a>).</p>
 </section>
 </section>
 <section id="multi-page-mini-books">
 <h2>2. Multi-page mini-books<a class="headerlink" href="#multi-page-mini-books" title="Link to this heading">¶</a></h2>
-<p>The steps required for publishing a multi-page mini-book are:</p>
+<p>Kroki wymagane do opublikowania wielostronicowej mini-książki:</p>
 <ul class="simple">
-<li><p>Create a new folder in the <code class="docutils literal notranslate"><span class="pre">./learn/</span></code> directory</p></li>
-<li><p>Create an <code class="docutils literal notranslate"><span class="pre">index.md</span></code> file in your new folder</p></li>
-<li><p>Write your tutorial content in markdown files in your new folder</p></li>
+<li><p>Utwórz nowy folder w katalogu <code class="docutils literal notranslate"><span class="pre">./learn/</span></code></p></li>
+<li><p>Utwórz plik <code class="docutils literal notranslate"><span class="pre">index.md</span></code> w twoim nowym folderze</p></li>
+<li><p>Napisz zawartość twojego poradnika w plikach typu markdown w twoim nowym folderze</p></li>
 <li><p>Dodaj wpis do <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> dla twojej nowej mini-książki</p></li>
 <li><p>Otwórz żądanie ściągnięcia</p></li>
 </ul>
 <section id="create-a-new-folder-for-your-mini-book">
-<h3>2.1 Create a new folder for your mini-book<a class="headerlink" href="#create-a-new-folder-for-your-mini-book" title="Link to this heading">¶</a></h3>
-<p>Create a new folder in the <code class="docutils literal notranslate"><span class="pre">./learn/</span></code> directory with a short name that concisely describes the topic of your tutorial, <em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">./learn/coarrays/</span></code>.
-All pages of your mini-book will be contained within this folder.</p>
-<p>The first page of your mini-book should be called <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, so create a new markdown file in
-your mini-book folder called <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, and add a toc in the following format in all the markdown files:</p>
+<h3>2.1 Utwórz nowy folder dla swojego poradnika<a class="headerlink" href="#create-a-new-folder-for-your-mini-book" title="Link to this heading">¶</a></h3>
+<p>Utwórz nowy folder w katalogu <code class="docutils literal notranslate"><span class="pre">./learn/</span></code>, z tytułem który będzie zwięźle opisywał treść twojego poradnika <em>np.</em><code class="docutils literal notranslate"><span class="pre">./learn/coarrays/</span></code>. Wszystkie strony twojej mini-książki będą znajdowały się w tym folderze.</p>
+<p>Pierwsza strona twojej mini-książki powinna mieć nazwę <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, dlatego utwórz nowy plik typu markdown o nazwie <code class="docutils literal notranslate"><span class="pre">index.md</span></code> w folderze twojej mini-książki oraz do twoich wszystkich plików markdown dodaj spis treści w następującym formacie:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">toctree</span><span class="p">}</span>
 <span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
 
@@ -583,8 +576,8 @@ your mini-book folder called <code class="docutils literal notranslate"><span cl
 <span class="p">:::</span>
 </pre></div>
 </div>
-<p><strong>There should be no trailing slash.</strong></p>
-<p><strong>Example:</strong> toc for <code class="docutils literal notranslate"><span class="pre">index.md</span></code></p>
+<p><strong>Na końcu nie powinno być żadnego ukośnika.</strong></p>
+<p><strong>Przykład:</strong> spis treści dla <code class="docutils literal notranslate"><span class="pre">index.md</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">toctree</span><span class="p">}</span>
 <span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
 
@@ -596,20 +589,18 @@ your mini-book folder called <code class="docutils literal notranslate"><span cl
 <span class="p">:::</span>
 </pre></div>
 </div>
-<p><strong>NOT:</strong> <code class="docutils literal notranslate"><span class="pre">permalink:</span> <span class="pre">/learn/coarrays/</span></code></p>
-<p>you should populate the remainder of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> with an introduction to your mini-book tutorial which may include: a summary of the concepts covered; any prerequisites; and any references to other related mini-books or useful third-party resources.</p>
+<p><strong>NIE:</strong> <code class="docutils literal notranslate"><span class="pre">link</span> <span class="pre">bezpośredni:</span> <span class="pre">/learn/coarrays/</span></code></p>
+<p>Powinieneś wypełnić pozostałą część pliku <code class="docutils literal notranslate"><span class="pre">index.md</span></code> wprowadzeniem do twojego samouczka, które może zawierać: podsumowanie omawianych pojęć; wszelkie niezbędne wymogi; oraz odniesienia do innych powiązanych mini-książek lub przydatnych zasobów stron trzecich.</p>
 </section>
 <section id="add-pages-to-your-mini-book">
-<h3>2.2 Add pages to your mini-book<a class="headerlink" href="#add-pages-to-your-mini-book" title="Link to this heading">¶</a></h3>
-<p>For each new page in your mini-book, create a new markdown file in your mini-book folder.</p>
-<p>As with single-page mini-books, you should use headings to break-up each
-page into a logical structure.
-Each heading on the current page will show up in the inpage table-of-contents.</p>
+<h3>2.2 Dodaj strony do twojej mini-książki<a class="headerlink" href="#add-pages-to-your-mini-book" title="Link to this heading">¶</a></h3>
+<p>Dla każdej nowej strony twojego poradnika stwórz nowy plik typu markdown w folderze twojej mini-książki.</p>
+<p>Tak jak w przypadku jednostronicowych mini-książek, powinieneś używać nagłówków, aby nadać każdej stronie logiczną strukturę. Każdy nagłówek pojawi się w spisie treści na stronie.</p>
 </section>
 <section id="id1">
-<h3>2.3 Add your mini-book to the Learn page<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<h3>2.3 Dodaj swoją mini-książkę do strony Ucz się<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <p>Aby dodać swoją mini-książkę do strony <em>Ucz się</em>, musisz stworzyć nowy wpis w pliku <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a>.</p>
-<p>Open this file and create a new entry under the <code class="docutils literal notranslate"><span class="pre">books:</span></code> field in the following format:</p>
+<p>Otwórz ten plik i stwórz nowy wpis pod polem <code class="docutils literal notranslate"><span class="pre">books:</span></code> w następującym formacie:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">book-title</span><span class="p p-Indicator">}}</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">book-description</span><span class="p p-Indicator">}}</span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">book-category</span><span class="p p-Indicator">}}</span>
@@ -620,15 +611,12 @@ Each heading on the current page will show up in the inpage table-of-contents.</
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/learn/{{book-folder}}/{{page3-filename}}</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> field is what will be displayed on the <em>Learn</em> page for your mini-book
-and should generally be the same as the <code class="docutils literal notranslate"><span class="pre">title</span></code> field in your <code class="docutils literal notranslate"><span class="pre">index.md</span></code> markdown file, but this isn’t required.</p>
-<p>The contents of the <code class="docutils literal notranslate"><span class="pre">description</span></code> field is also displayed on the <em>Learn</em> page
-and should briefly summarise the contents of your mini-book tutorial.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">category</span></code> field should match one of the categories listed at the top of the data file (under
-the <code class="docutils literal notranslate"><span class="pre">categories:</span></code> field) and is used to group tutorials on the Learn page.</p>
-<p>The top-level <code class="docutils literal notranslate"><span class="pre">link</span></code> field should exactly match the <code class="docutils literal notranslate"><span class="pre">permalink</span></code> field in your <code class="docutils literal notranslate"><span class="pre">index.md</span></code> file.</p>
-<p>Each <code class="docutils literal notranslate"><span class="pre">link</span></code> field under <code class="docutils literal notranslate"><span class="pre">pages</span></code> should exactly match the <code class="docutils literal notranslate"><span class="pre">permalink</span></code> field in each of your subsequent mini-book pages.</p>
-<p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code> book entry</p>
+<p>To co wpiszesz pod polem <code class="docutils literal notranslate"><span class="pre">title</span></code> będzie nazwą twojego poradnika, która będzie się wyświetlać na stronie _Ucz się _ i z reguły powinna być taka sama jak pole <code class="docutils literal notranslate"><span class="pre">title</span></code> w pliku markdown <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, jednak nie jest to wymagane.</p>
+<p>Zawartość pola <code class="docutils literal notranslate"><span class="pre">description</span></code> (opis) jest także wyświetlana na stronie _Ucz się _ i powinna krótko streszczać zawartość twojego poradnika.</p>
+<p>Pole <code class="docutils literal notranslate"><span class="pre">category</span></code> (kategoria) powinno odpowiadać jednej z kategorii wymienionych na górze pliku danych (pod polem <code class="docutils literal notranslate"><span class="pre">categories:</span></code>) i służy do grupowania poradników na stronie Ucz się.</p>
+<p>Pierwsze pole <code class="docutils literal notranslate"><span class="pre">link</span></code> powinno dokładnie odpowiadać polu <code class="docutils literal notranslate"><span class="pre">permalink</span></code> w pliku <code class="docutils literal notranslate"><span class="pre">index.md</span></code>.</p>
+<p>Każde pole <code class="docutils literal notranslate"><span class="pre">link</span></code> w sekcji <code class="docutils literal notranslate"><span class="pre">pages</span></code> powinno dokładnie odpowiadać polu <code class="docutils literal notranslate"><span class="pre">permalink</span></code> na każdej kolejnej stronie miniksiążki.</p>
+<p><strong>Przykład:</strong> wpis <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code></p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parallel programming with Coarrays</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A tutorial on parallel programming using coarrays</span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parallel programming</span>
@@ -639,10 +627,8 @@ the <code class="docutils literal notranslate"><span class="pre">categories:</sp
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/learn/coarrays/examples</span>
 </pre></div>
 </div>
-<p>Save the modified <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code> data file and run fortran<em>package.py and rebuild the website on your local machine to check the results.
-If successful, a new link should appear on the _Learn</em> page with the title of your new mini-book.</p>
-<p>Once you have completed your mini-book and added an entry to the <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code> data file, open a pull request
-at <a class="reference external" href="https://github.com/fortran-lang/fortran-lang.org">https://github.com/fortran-lang/fortran-lang.org</a> (see <a class="reference internal" href="#./CONTRIBUTING.md"><span class="xref myst">CONTRIBUTING</span></a>).</p>
+<p>Zapisz zmodyfikowany plik <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code>, a następnie uruchom fortran<em>package.py i skompiluj ponownie stronę na swoim komputerze lokalnym. Jeśli wszystko się powiodło, nowy link z tytułem twojego poradnika powinien pojawić się na stronie _Learn</em> (Ucz się).</p>
+<p>Po ukończeniu swojej mini-książki i dodaniu wpisu do <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code>, utwórz żądanie ściągnięcia na <a class="reference external" href="https://github.com/fortran-lang/fortran-lang.org">https://github.com/fortran-lang/fortran-lang.org</a> (zobacz <a class="reference internal" href="#./CONTRIBUTING.md"><span class="xref myst">KONTRYBUCJE</span></a>).</p>
 </section>
 </section>
 </section>
