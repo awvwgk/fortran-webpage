@@ -559,7 +559,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../arrays/">
-     Arrays
+     Tablice
     </a>
    </li>
    <li class="toctree-l2">
@@ -721,19 +721,13 @@
                 
 <section class="tex2jax_ignore mathjax_ignore" id="allocatable-arrays">
 <h1>Tablice możliwe do przydzielenia<a class="headerlink" href="#allocatable-arrays" title="Link to this heading">¶</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> attribute provides a safe way for memory handling.
-In comparison to variables with <code class="docutils literal notranslate"><span class="pre">pointer</span></code> attribute the memory is managed
-automatically and will be deallocated automatically once the variable goes
-out-of-scope. Using <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> variables removes the possibility to
-create memory leaks in an application.</p>
-<p>They can be used in subroutines to create scratch or work arrays, where
-automatic arrays would become too large to fit on the stack.</p>
+<p>Atrybut <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> pozwala na bezpieczną obsługę pamięci. W porównaniu z atrybutem zmiennych <code class="docutils literal notranslate"><span class="pre">pointer</span></code> pamięć jest obsługiwana automatycznie i zostanie zwolniona w momencie, gdy zmienna wyjdzie poza zakres. Używanie atrybutu <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> dla zmiennych zmniejsza prawdopodobieństwo powstania przecieków pamięci w aplikacji.</p>
+<p>Mogą być używane w podprogramach, aby stworzyć tablice podstawowe lub robocze, gdzie automatyczne tablice mogłyby stać się zbyt duże, aby zmieścić się na stosie.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">temp</span><span class="p">(:)</span>
 <span class="k">allocate</span><span class="p">(</span><span class="n">temp</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The allocation status can be checked using the <code class="docutils literal notranslate"><span class="pre">allocated</span></code> intrinsic
-to avoid uninitialized access</p>
+<p>Status przydziału można sprawdzić za pomocą funkcji <code class="docutils literal notranslate"><span class="pre">allocated</span></code>, aby uniknąć niezainicjowanego dostępu</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">show_arr</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 <span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">arr</span><span class="p">(:)</span>
 
@@ -743,29 +737,24 @@ to avoid uninitialized access</p>
 <span class="k">end subroutine </span><span class="n">show_arr</span>
 </pre></div>
 </div>
-<p>To allocate variables inside a procedure the dummy argument has to carry
-the <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> attribute. Using it in combination with <code class="docutils literal notranslate"><span class="pre">intent(out)</span></code>
-will deallocate previous allocations before entering the procedure:</p>
+<p>Aby przydzielić zmienne wewnątrz procedury fikcyjny argument musi posiadać atrybut <code class="docutils literal notranslate"><span class="pre">allocatable</span></code>. Użycie go w połączeniu z <code class="docutils literal notranslate"><span class="pre">intent(out)</span></code> zwolni poprzednie przydziały zanim rozpocznie się wykonywanie procedury:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">foo</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
 <span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lam</span><span class="p">(:)</span>
 <span class="w">  </span><span class="k">allocate</span><span class="p">(</span><span class="n">lam</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="k">end subroutine </span><span class="n">foo</span>
 </pre></div>
 </div>
-<p>The allocated array can be used afterwards like a normal array</p>
+<p>Przydzielona tablica może być później używana jak normalna tablica</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lam</span><span class="p">(:)</span>
 <span class="k">call </span><span class="n">foo</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>An already allocated array cannot be allocated again without prior deallocation.
-Similarly, deallocation can only be invoked for allocated arrays. To reallocate
-an array use</p>
+<p>Przydzielona już tablica nie może zostać przydzielona ponownie bez wcześniejszego zwolnienia przydziału. Zwolnienie przydziału również może być rozpoczęte tylko dla przydzielonych już tablic. Aby zmienić przydział tablicy użyj</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">lam</span><span class="p">))</span><span class="w"> </span><span class="k">deallocate</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
 <span class="k">allocate</span><span class="p">(</span><span class="n">lam</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Passing allocated arrays to procedures does not require the <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> attribute
-for the dummy arguments anymore.</p>
+<p>Przekazywanie przydzielonych tablic do procedur nie wymaga już użycia atrybutu <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> dla fikcyjnego argumentu.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">show_arr</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 <span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">arr</span><span class="p">(:)</span>
 
@@ -785,13 +774,8 @@ for the dummy arguments anymore.</p>
 <span class="k">end subroutine </span><span class="n">proc</span>
 </pre></div>
 </div>
-<p>Passing an unallocated array in this context will lead to an invalid memory access.
-Allocatable arrays can be passed to <code class="docutils literal notranslate"><span class="pre">optional</span></code> dummy arguments – if they are unallocated
-the argument will not be present. The <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> attribute is not limited to
-arrays and can also be associated with scalars, which can be useful in combination
-with <code class="docutils literal notranslate"><span class="pre">optional</span></code> dummy arguments.</p>
-<p>Allocations can be moved between different arrays with <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> attribute
-using the <code class="docutils literal notranslate"><span class="pre">move_alloc</span></code> intrinsic subroutine.</p>
+<p>Przekazywanie nieprzydzielonej tablicy w tym kontekście doprowadzi do niepoprawnego dostępu do pamięci. Przydzielone tablice mogą być przekazywane do opcjonalnych (<code class="docutils literal notranslate"><span class="pre">optional</span></code>) argumentów fikcyjnych - w przypadku nieprzydzielenia tablicy argument nie będzie obecny. Atrybut <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> nie jest ograniczony tylko do tablic i może być używany również do wielkości skalarnych, co może być przydatne w połączeniu z opcjonalnymi ( <code class="docutils literal notranslate"><span class="pre">optional</span></code>) argumentami fikcyjnymi.</p>
+<p>Przydziały mogą być zmieniane pomiędzy różnymi tablicami przy użyciu atrybutu <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> oraz wewnętrznego podprogramu <code class="docutils literal notranslate"><span class="pre">move_alloc</span></code>.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">resize</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var</span><span class="p">(:)</span>
 <span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
@@ -820,14 +804,12 @@ using the <code class="docutils literal notranslate"><span class="pre">move_allo
 <span class="k">end subroutine </span><span class="n">resize</span>
 </pre></div>
 </div>
-<p>Finally, allocations do not initialize the array. The content of the uninitialized
-array is most likely just the bytes of whatever was previously at the respective address.
-The allocation supports initialization using the source attribute:</p>
+<p>Na koniec, przydziały nie inicjują tablic. Zawartością niezainicjowanej tablicy są prawdopodobnie bajty tego, co poprzednio znajdowało się pod tym adresem. Przydziały obsługują inicjalizację przy użyciu atrybutu source:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">arr</span><span class="p">(:)</span>
 <span class="k">allocate</span><span class="p">(</span><span class="n">arr</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="mf">0.0_dp</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">source</span></code> keyword supports scalar and array valued variables and constants.</p>
+<p>Słowo kluczowe <code class="docutils literal notranslate"><span class="pre">source</span></code> obsługuje wartości skalarne, zmienne oraz stałe.</p>
 </section>
 
 <div class="section ablog__blog_comments">
