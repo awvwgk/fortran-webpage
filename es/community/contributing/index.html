@@ -507,8 +507,7 @@
 <h3>Markdown<a class="headerlink" href="#markdown" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Coloque fragmentos de código en <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code-and-syntax-highlighting">bloques de código</a>, señalados con marcas de verificación (<code class="docutils literal notranslate"><span class="pre">```</span></code> ). Use el estilo de código en línea (<code class="docutils literal notranslate"><span class="pre">`code`</span></code>) para extractos de código en línea, palabras clave de lenguaje de programación, nombres de variables y nombres de archivos.</p></li>
-<li><p>Have no more than one sentence per source-code line, and break-up long sentences across multiples lines -
-this is important to avoid large git diffs and code review blocks on github.</p></li>
+<li><p>Para evitar git diffs enormes y revisiones de código en blocks en Github, por favor no escribir más de una oración por línea de código fuente y oraciones largas, deberán ser separadas en varias líneas.</p></li>
 </ul>
 </section>
 <section id="external-links">
@@ -524,7 +523,7 @@ this is important to avoid large git diffs and code review blocks on github.</p>
 <section id="internal-site-links">
 <h3>Enlaces internos del sitio web<a class="headerlink" href="#internal-site-links" title="Link to this heading">¶</a></h3>
 <p>Los hipervínculos que apuntan a otras partes del sitio web fortran-lang.org deben tener el prefijo <code class="docutils literal notranslate"><span class="pre">{{pathto('index',1)[:-5]}}</span></code>; esto es importante para generar vistas previas de solicitudes de integración (consulte <a class="reference external" href="https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/">aquí </a> para obtener una explicación).</p>
-<p><strong>Example:</strong> markdown link</p>
+<p><strong>Ejemplo</strong> link en markdown</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Fortran</span><span class="o">-</span><span class="n">lang</span> <span class="n">news</span><span class="p">]({{</span><span class="n">pathto</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]}}</span><span class="n">News</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -545,7 +544,7 @@ this is important to avoid large git diffs and code review blocks on github.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fas fa-info-circle&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p><strong>Example:</strong> Sphinx design Myst directives</p>
+<p><strong>Ejemplo</strong> Diseño de directivas Myst en Sphinx</p>
 <div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{octicon}`book;1em;sd-text-info`
 </pre></div>
 </div>
@@ -555,7 +554,7 @@ this is important to avoid large git diffs and code review blocks on github.</p>
 <h3>Contenido de la página<a class="headerlink" href="#page-contents" title="Link to this heading">¶</a></h3>
 <p>A veces es útil mostrar contenidos de páginas con hipervínculos para páginas extensas. El árbol TOC de la página se ha automatizado y generará el TOC de la página actual. Mientras que el método para generar TOC de todo el directorio en <code class="docutils literal notranslate"><span class="pre">Fortran-lang.org</span></code> es:</p>
 <p><strong>Para páginas en MD:</strong></p>
-<p>add the toc tree directive in md at the end of the index page of the directory with the names of the all files in that directory.</p>
+<p>añadir la directiva «toc tree» en Markdown (md) al final de la página índice del directorio con los nombres de todos los archivos en ese directorio.</p>
 <pre>
 ````{toctree}  
 :hidden:
@@ -666,10 +665,10 @@ ARRAY_index
 </section>
 <section id="text">
 <h3>Texto<a class="headerlink" href="#text" title="Link to this heading">¶</a></h3>
-<p>Use sentence case (as opposed to title case) for page and section titles.</p>
-<p>Use <em>emphasis</em> (<code class="docutils literal notranslate"><span class="pre">*emphasis*</span></code>/<code class="docutils literal notranslate"><span class="pre">_emphasis_</span></code>, rendered as italic) for key words/phrases when they are first introduced, for emphasis, …</p>
-<p>Avoid use of <strong>strong</strong> (<code class="docutils literal notranslate"><span class="pre">**strong**</span></code>, rendered as bold) within paragraphs, since bold style is used for headings, drawing attention to examples (<strong>Example:</strong>), admonition/aside titles, etc.</p>
-<p>Make use of the admonition/aside (<em>note</em>, <em>tip</em>, <em>important</em>) where appropriate.</p>
+<p>Por favor capitalice los títulos de sección y páginas usando reglas de capitalización de oraciones, esto es: «Hola, soy Pedro» y no usando reglas de Títulos, esto es: «Hola, Soy Pedro».</p>
+<p><em>Enfatice</em> (<code class="docutils literal notranslate"><span class="pre">*enfatice*</span></code>/<code class="docutils literal notranslate"><span class="pre">_enfatice_</span></code>, mostrado en cursiva) al utilizar palabras clave por primera vez, para resaltar…</p>
+<p>Evite el uso del formato <strong>fuerte</strong> (<code class="docutils literal notranslate"><span class="pre">**fuerte**</span></code>, se muestra en negritas) en párrafos, ya que el uso de negritas está reservado para encabezados, llamar la atención a ejemplos (<strong>Ejemplo:</strong>), títulos de advertencia, etc.</p>
+<p>Utilice símbolos de advertencia (<em>nota</em>, <em>tip</em>, <em>importante</em>) donde sean apropriados.</p>
 <ul class="simple">
 <li><p>para agregar una <strong>nota</strong> al documento md use:</p></li>
 </ul>

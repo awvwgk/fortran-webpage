@@ -453,8 +453,7 @@
 <p>Los minilibros están diseñados para ser en su mayoría tutoriales autónomos sobre una característica particular del lenguaje Fortran.</p>
 <p>Hay dos tipos de formato de minilibro:</p>
 <ul class="simple">
-<li><p><strong>Single-page:</strong> all content is written within a single markdown file and displayed
-on a single webpage;</p></li>
+<li><p><strong>Página única:</strong> todo el contenido se escribe en un solo archivo markdown y se muestra en una sola página web;</p></li>
 <li><p><strong>Multipágina:</strong> el contenido del tutorial se escribe en varios archivos Markdown y se muestra como una colección de páginas web.</p></li>
 </ul>
 <p>La elección del tipo de libro depende de la extensión de su contenido y de cómo pretenda estructurarlo.</p>
@@ -471,17 +470,16 @@ on a single webpage;</p></li>
 <h2>1. Single-page mini-book<a class="headerlink" href="#single-page-mini-book" title="Link to this heading">¶</a></h2>
 <p>Los pasos necesarios para publicar un minilibro de una sola página son:</p>
 <ul class="simple">
-<li><p>Create a new markdown document in the <code class="docutils literal notranslate"><span class="pre">./learn</span></code> directory</p></li>
+<li><p>Crear un nuevo documento en markdown en el directorio <code class="docutils literal notranslate"><span class="pre">./learn</span></code></p></li>
 <li><p>Escriba el contenido de su tutorial</p></li>
 <li><p>Agregue una entrada a <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> para su nuevo minilibro</p></li>
 <li><p>Abrir una solicitud de integración</p></li>
 </ul>
 <section id="writing-your-mini-book-in-markdown">
-<h3>1.1 Writing your mini-book in markdown<a class="headerlink" href="#writing-your-mini-book-in-markdown" title="Link to this heading">¶</a></h3>
-<p>For single-page mini-books your tutorial will be entirely contained within a single markdown document.</p>
-<p>First create a new markdown document in the <code class="docutils literal notranslate"><span class="pre">./learn/{{name_of_minibook}}/</span></code> directory with the <code class="docutils literal notranslate"><span class="pre">.md</span></code> file extension
-and a short name that concisely describes the topic of your tutorial, <em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">./learn/{{name_of_minibook}}/file_io.md</span></code>.</p>
-<p>Open your new markdown file and append an entry in the toc of <code class="docutils literal notranslate"><span class="pre">learn.md</span></code> in the following format:</p>
+<h3>1.1 Escribiendo tu mini-libro en markdown<a class="headerlink" href="#writing-your-mini-book-in-markdown" title="Link to this heading">¶</a></h3>
+<p>En mini-libros de una sola página, su tutorial estará enteramente en un solo documento de markdown.</p>
+<p>Primero, cree un nuevo documento en markdown en el directorio <code class="docutils literal notranslate"><span class="pre">./learn/{{nombre_del_mini_libro}}</span></code> con la extensión <code class="docutils literal notranslate"><span class="pre">.md</span></code> y un nombre corta que describa el tema de su tutorial de manera concisa, <em>por ejemplo</em>: <code class="docutils literal notranslate"><span class="pre">./learn/{{nombre_del_mini_libro}}/rutinas_input_output.md</span></code>.</p>
+<p>Abra el nuevo archivo markdown y añada una entrada en el índice de contenidos en <code class="docutils literal notranslate"><span class="pre">aprender.md</span></code> utilizando el siguiente formato:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">toctree</span><span class="p">}</span>
 <span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
 
@@ -494,8 +492,7 @@ and a short name that concisely describes the topic of your tutorial, <em>e.g.</
 <span class="p">:::</span>
 </pre></div>
 </div>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">{{book-filename}}</span></code> with the filename of your markdown file
-but <strong>excluding the <code class="docutils literal notranslate"><span class="pre">.md</span></code> extension</strong>. There should also be no trailing slash.</p>
+<p>Reemplace <code class="docutils literal notranslate"><span class="pre">{{nombre-del-libro}}</span></code> con el nombre de su archivo markdown <strong>excluyendo la extensión <code class="docutils literal notranslate"><span class="pre">.md</span></code></strong>. No debe de haber una diagonal (<code class="docutils literal notranslate"><span class="pre">/</span></code>) al final .</p>
 <p><strong>Ejemplo:</strong> encabezado</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">toctree</span><span class="p">}</span>
 <span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
@@ -509,16 +506,14 @@ but <strong>excluding the <code class="docutils literal notranslate"><span class
 <span class="p">:::</span>
 </pre></div>
 </div>
-<p><strong>NOT:</strong> <code class="docutils literal notranslate"><span class="pre">permalink:</span> <span class="pre">/learn/file_io.md</span></code></p>
-<p><strong>NOT:</strong> <code class="docutils literal notranslate"><span class="pre">permalink:</span> <span class="pre">/learn/file_io/</span></code></p>
-<p>You can now fill the rest of the file with your tutorial content written in markdown;
-see <a class="reference external" href="https://kramdown.gettalong.org/syntax.html">Kramdown syntax</a> for documentation on
-the markdown implementation.</p>
+<p><strong>INCORRECTO:</strong> <code class="docutils literal notranslate"><span class="pre">permalink:</span> <span class="pre">/aprender/es_datos.md</span></code></p>
+<p><strong>INCORRECTO:</strong> <code class="docutils literal notranslate"><span class="pre">permalink:</span> <span class="pre">/aprender/es_datos/</span></code></p>
+<p>Ya puede escribir el resto del tutorial en markdown; vea cómo implementar el estilo markdown en <a class="reference external" href="https://kramdown.gettalong.org/syntax.html">Sintaxis Kramdown</a>.</p>
 </section>
 <section id="structuring-your-mini-book-with-headings">
-<h3>1.2 Estructurar tu minilibro con encabezados<a class="headerlink" href="#structuring-your-mini-book-with-headings" title="Link to this heading">¶</a></h3>
+<h3>1.2 Estructurando tu minilibro con encabezados<a class="headerlink" href="#structuring-your-mini-book-with-headings" title="Link to this heading">¶</a></h3>
 <p>Debe usar encabezados para dividir su minilibro de una sola página en una estructura lógica. Cada encabezado aparecerá en la tabla de contenido con hipervínculos.</p>
-<p>In markdown, headings can be written as:</p>
+<p>En markdown, los encabezados se pueden escribir:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Heading level 1</span>
 
 <span class="gu">## Heading level 2</span>
@@ -544,11 +539,10 @@ the markdown implementation.</p>
 <span class="w">  </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/learn/{{book-filename}}</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> field is what will be displayed on the <em>Learn</em> page for your mini-book
-and should generally be the same as the <code class="docutils literal notranslate"><span class="pre">title</span></code> field in your markdown file, but this isn’t required.</p>
+<p>El campo de <code class="docutils literal notranslate"><span class="pre">título</span></code> es lo que será mostrado en la página <em>Aprende</em> en su mini-libro y, normalmente, debería ser el mismo que el campo de <code class="docutils literal notranslate"><span class="pre">título</span></code> en su archivo de Markdown, sin embargo esto no es obligatorio.</p>
 <p>El contenido del campo <code class="docutils literal notranslate"><span class="pre">descripción</span></code> también se muestra en la página <em>Aprender</em> y debe resumir brevemente el contenido del tutorial de su mini libro.</p>
 <p>El campo <code class="docutils literal notranslate"><span class="pre">categoría</span></code> debe coincidir con una de las categorías enumeradas en la parte superior del archivo de datos (bajo el campo <code class="docutils literal notranslate"><span class="pre">categorías:</span></code>) y se usa para agrupar tutoriales en la página de aprendizaje.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">link</span></code> field should exactly match the <code class="docutils literal notranslate"><span class="pre">permalink</span></code> field in your markdown document.</p>
+<p>El campo <code class="docutils literal notranslate"><span class="pre">link</span></code> debe de corresponder exactamente con el campo <code class="docutils literal notranslate"><span class="pre">permalink</span></code> en su documento de Markdown.</p>
 <p><strong>Ejemplo:</strong> entrada de libro <code class="docutils literal notranslate"><span class="pre">learning.yml</span></code></p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File input and output</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A tutorial on reading and writing files in Fortran</span>
@@ -563,16 +557,16 @@ at <a class="reference external" href="https://github.com/fortran-lang/webpage">
 </section>
 <section id="multi-page-mini-books">
 <h2>2. Multi-page mini-books<a class="headerlink" href="#multi-page-mini-books" title="Link to this heading">¶</a></h2>
-<p>The steps required for publishing a multi-page mini-book are:</p>
+<p>Los pasos necesarios para publicar un mini-libro de varias páginas son:</p>
 <ul class="simple">
-<li><p>Create a new folder in the <code class="docutils literal notranslate"><span class="pre">./learn/</span></code> directory</p></li>
-<li><p>Create an <code class="docutils literal notranslate"><span class="pre">index.md</span></code> file in your new folder</p></li>
-<li><p>Write your tutorial content in markdown files in your new folder</p></li>
+<li><p>Crear un nuevo fólder en el directorio <code class="docutils literal notranslate"><span class="pre">./learn/</span></code></p></li>
+<li><p>Cree un archivo <code class="docutils literal notranslate"><span class="pre">index.md</span></code> en el fólder nuevo</p></li>
+<li><p>Escriba el contenido de su tutorial en archivos markdown en el fólder nuevo</p></li>
 <li><p>Agregue una entrada a <a class="reference internal" href="#./data/learning.yml"><span class="xref myst">data/learning.yml</span></a> para su nuevo minilibro</p></li>
 <li><p>Abrir una solicitud de integración</p></li>
 </ul>
 <section id="create-a-new-folder-for-your-mini-book">
-<h3>2.1 Create a new folder for your mini-book<a class="headerlink" href="#create-a-new-folder-for-your-mini-book" title="Link to this heading">¶</a></h3>
+<h3>2.1 Crear un nuevo fólder para su mini-libro<a class="headerlink" href="#create-a-new-folder-for-your-mini-book" title="Link to this heading">¶</a></h3>
 <p>Create a new folder in the <code class="docutils literal notranslate"><span class="pre">./learn/</span></code> directory with a short name that concisely describes the topic of your tutorial, <em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">./learn/coarrays/</span></code>.
 All pages of your mini-book will be contained within this folder.</p>
 <p>The first page of your mini-book should be called <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, so create a new markdown file in

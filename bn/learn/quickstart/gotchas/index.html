@@ -828,18 +828,16 @@ Error: Symbol &#39;nbofchildrem&#39; at (1) has no IMPLICIT type; did you mean &
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">integer</span> <span class="pre">::</span> <span class="pre">c=0</span></code> is actually a one-shot <strong>compile time initialization</strong>, and it makes the variable persistent between calls to <code class="docutils literal notranslate"><span class="pre">foo()</span></code>. It is actually equivalent to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">integer</span><span class="p">,</span> <span class="n">save</span> <span class="p">::</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>integer, save :: c=0   ! &quot;save&quot; can be omitted, but it&#39;s clearer with it
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">save</span></code> attribute is equivalent to the C <code class="docutils literal notranslate"><span class="pre">static</span></code> attribute to make a variable persistent, and it is <em>implied</em> in the case the variable is initialized. This is a modernized syntax (introduced in Fortran 90) compared to the legacy (and still valid) syntax:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">save</span></code> attribute is equivalent to the C <code class="docutils literal notranslate"><span class="pre">static</span></code> attribute used inside a function to make a variable persistent, and it is <em>implied</em> in the case the variable is initialized. This is a modernized syntax (introduced in Fortran 90) compared to the legacy (and still valid) syntax:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">integer</span> <span class="n">c</span>
 <span class="n">data</span> <span class="n">c</span> <span class="o">/</span><span class="mi">0</span><span class="o">/</span>
+<span class="n">save</span> <span class="n">c</span>
 </pre></div>
 </div>
-<p>Old fortraners just know that the modernized syntax is equivalent to the legacy one, even when <code class="docutils literal notranslate"><span class="pre">save</span></code> is not specified. But as a matter of fact the <em>implied save</em> can be misleading to newcomers who are used to the C logic. That's why it is generally recommended to <strong>always</strong> specify the <code class="docutils literal notranslate"><span class="pre">save</span></code> attribute:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>integer, save :: c=0   ! save could be omitted, but it&#39;s clearer with it
-</pre></div>
-</div>
+<p>Old fortraners just know that the modernized syntax is equivalent to the legacy one, even when <code class="docutils literal notranslate"><span class="pre">save</span></code> is not specified. But as a matter of fact the <em>implied save</em> can be misleading to newcomers who are used to the C logic. That's why it is generally recommended to <strong>always</strong> specify the <code class="docutils literal notranslate"><span class="pre">save</span></code> attribute.</p>
 <p><em>Note: an initialization expression of a derived type component is a fully different case:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">bar</span>
     <span class="n">integer</span> <span class="p">::</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
