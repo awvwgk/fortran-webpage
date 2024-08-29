@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="256x256" href="../../../_static/images/favicon.ico" type="image/x-icon">
-    <title>File Input/Output &#8212; Fortran Programming Language</title>
+    <title>Informacje wejściowe/wyjściowe pliku &#8212; Fortran Programming Language</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -579,7 +579,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     File Input/Output
+     Informacje wejściowe/wyjściowe pliku
     </a>
    </li>
    <li class="toctree-l2">
@@ -720,30 +720,23 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="file-input-output">
-<h1>File Input/Output<a class="headerlink" href="#file-input-output" title="Link to this heading">¶</a></h1>
-<p>In Fortran files are managed by unit identifiers. Interaction with the filesystem
-mainly happens through the <code class="docutils literal notranslate"><span class="pre">open</span></code> and <code class="docutils literal notranslate"><span class="pre">inquire</span></code> built-in procedures.
-Generally, the workflow is to open a file to a unit identifier, read and/or write
-to it and close it again.</p>
+<h1>Informacje wejściowe/wyjściowe pliku<a class="headerlink" href="#file-input-output" title="Link to this heading">¶</a></h1>
+<p>W Fortranie plikami można zarządzać przed identyfikatory jednostek. Interakcje z systemem plików wykonywane są głównie przez wbudowane procedury <code class="docutils literal notranslate"><span class="pre">open</span></code> oraz <code class="docutils literal notranslate"><span class="pre">inquire</span></code>. Zazwyczaj przepływ pracy polega na otwarciu pliku dzięki identyfikatorowi jednostki, odczytaniu lub/i zapisaniu go, a następnie jego ponownym zamknięciu.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">io</span>
 <span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;log.txt&quot;</span><span class="p">)</span>
 <span class="c">! ...</span>
 <span class="k">close</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>By default the file will be created if it is not existing already and opened for
-both reading and writing. Writing to an existing file will start in the first
-record (line) and therefore overwrite the file by default.</p>
-<p>To create a read-only access to a file the <code class="docutils literal notranslate"><span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">action</span></code> have to be
-specified with</p>
+<p>Domyślnie, plik zostanie utworzony jeśli jeszcze nie istnieje, a następnie otworzony do odczytu oraz zmodyfikowania. Pisanie w istniejącym pliku rozpocznie się w pierwszym rejestrze (wersie), a więc plik domyślnie zostanie nadpisany.</p>
+<p>Aby plik mógł zostać otwarty tylko do odczytu pola <code class="docutils literal notranslate"><span class="pre">status</span></code> oraz <code class="docutils literal notranslate"><span class="pre">action</span></code> muszą zostać określone</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">io</span>
 <span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;old&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;read&quot;</span><span class="p">)</span>
 <span class="k">read</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
 <span class="k">close</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In case the file is not present a runtime error will occur. To check for the existence
-of a file prior to opening it the <code class="docutils literal notranslate"><span class="pre">inquire</span></code> function can be used</p>
+<p>W przypadku kiedy plik nie istnieje pojawi się błąd czasu wykonania. Aby sprawdzić czy dany plik istnieje przed otwarciem go funkcja <code class="docutils literal notranslate"><span class="pre">inquire</span></code> może zostać użyta</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">exists</span>
 <span class="k">inquire</span><span class="p">(</span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">exist</span><span class="o">=</span><span class="n">exists</span><span class="p">)</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exists</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -751,7 +744,7 @@ of a file prior to opening it the <code class="docutils literal notranslate"><sp
 <span class="k">end if</span>
 </pre></div>
 </div>
-<p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">open</span></code> procedure can return an optional <em>iostat</em> and <em>iomsg</em>:</p>
+<p>Ewentualnie, procedura <code class="docutils literal notranslate"><span class="pre">open</span></code> może opcjonalnie zwrócić <em>iostat</em> i <em>iomsg</em>:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
 <span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;old&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
@@ -761,20 +754,15 @@ of a file prior to opening it the <code class="docutils literal notranslate"><sp
 <span class="k">end if</span>
 </pre></div>
 </div>
-<p>Note that <em>iomsg</em> requires a fixed-length character variable with sufficient storage
-size to hold the error message.</p>
-<p>Similarly, writing to a file happens by using the <em>status</em> and <em>action</em> keyword.
-To create a new file use</p>
+<p>Należy pamiętać, że <em>iomsg</em> wymaga zmiennej o stałej długości i wystarczającej pojemności do przechowywaniu komunikatu błędu.</p>
+<p>Podobnie, pisanie w pliku dzieje się poprzez użycie słów kluczowych <em>status</em> oraz <em>action</em>. Aby stworzyć nowy plik użyj</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">io</span>
 <span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;new&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;write&quot;</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
 <span class="k">close</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">status=&quot;replace&quot;</span></code> can be used to overwrite an existing file.
-It is highly recommended to first check for the existence of a file before deciding
-on the <em>status</em> to use.
-To append to an output file the <em>position</em> keyword can be specified explicitly with</p>
+<p>Ewentualnie, <code class="docutils literal notranslate"><span class="pre">status=&quot;replace&quot;</span></code> może zostać użyty do nadpisania istniejącego pliku. Zaleca się jednak najpierw sprawdzić czy dany plik istnieje przed zdecydowaniem się na użycie <em>status</em>. Aby dołączyć do pliku wyjściowego, słowo kluczowe <em>position</em> może zostać określone jawnie za pomocą</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">io</span>
 <span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">  </span><span class="p">&amp;</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;old&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;write&quot;</span><span class="p">)</span>
