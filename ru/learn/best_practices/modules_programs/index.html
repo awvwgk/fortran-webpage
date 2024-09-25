@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=96a48853" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -36,7 +36,7 @@
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/translations.js?v=29b1f277"></script>
+    <script src="../../../_static/translations.js?v=9bfe3ffa"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <link rel="canonical" href="https://fortran-lang.org/en/learn/best_practices/modules_programs.html" />
     <link rel="index" title="Алфавитный указатель" href="../../../genindex/" />
@@ -720,7 +720,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="modules-and-programs">
-<h1>Модули и программы<a class="headerlink" href="#modules-and-programs" title="Link to this heading">¶</a></h1>
+<h1>Модули и программы<a class="headerlink" href="#modules-and-programs" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Использование модулей является предпочтительным способом создания современных библиотек и приложений на языке Fortran. По соглашению, один файл исходного кода всегда должен содержать только один модуль, а имя модуля должно соответствовать относительному пути к файлу, чтобы обеспечить удобную навигацию в больших проектах. Также рекомендуется добавлять к имени модуля префикс в виде имени библиотеки, чтобы избежать конфликта имён при использовании библиотеки в качестве зависимости в других проектах.</p>
 <p>Пример такого файла модуля приведён здесь</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">!&gt; Interface to TOML processing library.</span>

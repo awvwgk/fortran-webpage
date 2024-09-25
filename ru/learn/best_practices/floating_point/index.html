@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=96a48853" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -36,7 +36,7 @@
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/translations.js?v=29b1f277"></script>
+    <script src="../../../_static/translations.js?v=9bfe3ffa"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <link rel="canonical" href="https://fortran-lang.org/en/learn/best_practices/floating_point.html" />
     <link rel="index" title="Алфавитный указатель" href="../../../genindex/" />
@@ -720,7 +720,7 @@
               <article class="bd-article" role="main">
                 
 <section class="tex2jax_ignore mathjax_ignore" id="floating-point-numbers">
-<h1>Числа с плавающей точкой<a class="headerlink" href="#floating-point-numbers" title="Link to this heading">¶</a></h1>
+<h1>Числа с плавающей точкой<a class="headerlink" href="#floating-point-numbers" title="Ссылка на этот заголовок">¶</a></h1>
 <p>По умолчанию для представления чисел с плавающей точкой используется одинарная точность (обычно 32 бита / 4 байта). Для большинства задач требуется более высокая точность. Для этой цели может быть определён пользовательский параметр kind. Рекомендуемый способ определения параметров kind – использовать запись</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>

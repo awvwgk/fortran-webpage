@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=96a48853" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -36,12 +36,12 @@
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/translations.js?v=a186e9ce"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <link rel="canonical" href="https://fortran-lang.org/en/learn/best_practices/integer_division.html" />
     <link rel="index" title="Indeks" href="../../../genindex/" />
     <link rel="search" title="Szukaj" href="../../../search/" />
-    <link rel="next" title="Moduły i Programy" href="../modules_programs/" />
+    <link rel="next" title="Moduły i programy" href="../modules_programs/" />
     <link rel="prev" title="Liczby zmiennoprzecinkowe" href="../floating_point/" />
 
 <meta
@@ -554,7 +554,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../modules_programs/">
-     Moduły i Programy
+     Moduły i programy
     </a>
    </li>
    <li class="toctree-l2">
@@ -721,13 +721,7 @@
                 
 <section class="tex2jax_ignore mathjax_ignore" id="integer-division">
 <h1>Dzielenie całkowite<a class="headerlink" href="#integer-division" title="Link to this heading">¶</a></h1>
-<p>Fortran distinguishes between floating point and integer arithmetic. It is
-important to note that division for integers is always using integer
-arithmetic. Furthermore, while Fortran uses the standard order-of-operations
-(e.g. multiplication and division preceed addition and subtraction, in the
-absence of parenthesis), operations of the same precedence are evaluated from
-left to right. Consider the following example for integer division of an odd
-number:</p>
+<p>Fortran rozróżnia arytmetykę zmiennoprzecinkową oraz całkowitą. Ważne jest, aby zauważyć, że dzielenie liczb całkowitych zawsze odbywa się za pomocą arytmetyki całkowitej. Co więcej, Fortran używa standardowej kolejności wykonywania działań (np. mnożenie i dzielenie przed dodawaniem i odejmowaniem w przypadku braku nawiasów), działania tego samego priorytetu wykonywane są od lewej do prawej. Rozważ poniższy przykład przedstawiający dzielenie liczby nieparzystej przez liczbę całkowitą:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
 <span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="c">! prints 1</span>
@@ -737,10 +731,7 @@ number:</p>
 <span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="c">! prints -1</span>
 </pre></div>
 </div>
-<p>Be careful about whether you want to actually use integer arithmetic
-in this context. If you want to use floating point arithmetic instead
-make sure to cast to reals before using the division operator, or separate
-the integers by multiplying by <code class="docutils literal notranslate"><span class="pre">1.0_dp</span></code>:</p>
+<p>Zwróć uwagę czy na pewno chcesz użyć arytmetyki całkowitej w poniższym przykładzie. Jeśli zamiast tego chcesz użyć arytmetyki zmiennoprzecinkowej upewnij się, że przed użyciem operatora dzielenia dokonałeś rzutowania liczb rzeczywistych lub oddzielileś liczby całkowite poprzez pomnożenie ich przez <code class="docutils literal notranslate"><span class="pre">1.0_dp</span></code>:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
 <span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="c">! prints 1.5</span>
