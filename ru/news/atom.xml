@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ru">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2024-09-29T03:15:54.214667+00:00</updated>
+  <updated>2024-09-29T14:29:42.093274+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.11">ABlog</generator>
   <entry>
     <id>https://fortran-lang.org/en/news/2022/06-09-Fortran-Newsletter-June-2022/</id>
     <title>Fortran newsletter: June 2022</title>

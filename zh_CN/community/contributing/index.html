@@ -1,49 +1,62 @@
+
 <!DOCTYPE html>
 
-<html lang="zh-CN" data-content_root="../../">
+
+<html lang="zh-CN" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="256x256" href="../../_static/images/favicon.ico" type="image/x-icon">
     <title>参与 fortran-lang.org 贡献 &#8212; Fortran Programming Language</title>
-<script>
-  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
-</script>
-
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=96a48853" />
-
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=eaa92f49" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=20ebe441"></script>
+    <script src="../../_static/documentation_options.js?v=5eee97a6"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=beaddf03"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <link rel="canonical" href="https://fortran-lang.org/en/community/contributing.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'community/contributing';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = '_static/data.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'zh_CN';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://fortran-lang.org/en/community/contributing/" />
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="fortran-lang.org 上的迷你书教程" href="../minibooks/" />
-    <link rel="prev" title="Fortran-lang history" href="../history/" />
-
+    <link rel="prev" title="Fortran-lang history" href="../history/" /> 
 <meta
   name="description"
   content="Fortran : High-performance parallel programming language"
@@ -90,36 +103,81 @@
     <b>Site preview: </b>you are previewing unpublished changes for
     <a id="pr"></a>
   </h3>
-</div>
-
+</div> 
 <link
   rel="alternate"
   type="application/atom+xml"
   href="../../news/atom.xml"
   title="Blog"
 />
-
-
-<link href="True" rel="stylesheet"/>
-
-
+ 
+<link href="True" rel="stylesheet" />
+ 
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
-    <div class="bd-header-announcement container-fluid" id="banner">
-      
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    </div>
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search"
+         aria-label="Search"
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
     
-    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+      <div class="navbar-item">
 
-  <div id="navbar-start">
-    
+  
     
   
-
 
 <a class="navbar-brand logo" href="../../">
   
@@ -127,332 +185,452 @@
   
   
   
-    <p class="title logo__title">Fortran Programming Language</p>
+    
+    
+      
+    
+    
+    <img src="../../_static/fortran-logo-256x256.png" class="logo__image only-light" alt="Fortran Programming Language - Home"/>
+    <script>document.write(`<img src="../../_static/fortran-logo-256x256.png" class="logo__image only-dark" alt="Fortran Programming Language - Home"/>`);</script>
   
-</a>
+  
+</a></div>
     
-    <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
-    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
-</span>
-    
-    <div class="dropdown" id="version_switcher">
-  <button
-    type="button"
-    class="btn btn-sm navbar-btn dropdown-toggle"
-    id="version_switcher_button"
-    data-toggle="dropdown"
-  >
-    zh_CN
-    <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
+      <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
-  <div
-    id="version_switcher_menu"
-    class="dropdown-menu list-group-flush py-0"
-    aria-labelledby="version_switcher_button"
-  >
-    <!-- dropdown will be populated by javascript on page load -->
-  </div>
-</div>
-
-<!-- NOTE: this JS must live here (not in our global JS file) because it relies
-     on being processed by Jinja before it is run (specifically for replacing
-     variables community/contributing and {'json_url': 'https://fortran-lang.org/', 'version_match': 'zh_CN'}.
--->
-
-<script type="text/javascript">
-  // Check if corresponding page path exists in other version of docs
-  // and, if so, go there instead of the homepage of the other docs version
-  function checkPageExistsAndRedirect(event) {
-    const currentFilePath = "community/contributing",
-      tryUrl = event.target.getAttribute("href");
-    location.href = tryUrl;
-    // this prevents the browser from following the href of the clicked node
-    // (which is fine because this function takes care of redirecting)
-    return false;
-  }
-
-  // Populate the version switcher from the JSON config file
-  (function () {
-    const currentFilePath = "community/contributing";
-    const indexFilePath = "../../";
-    let btn = document.getElementById("version_switcher_button");
-    // Set empty strings by default so that these attributes exist and can be used in CSS selectors
-    btn.dataset["activeVersionName"] = "";
-    btn.dataset["activeVersion"] = "";
-    // create links to the corresponding page in the other docs versions
-    data = [
-      {
-        name: "English",
-        version: "en",
-        url: "",
-      },
-      {
-        name: "bn",
-        version: "bn",
-        url: "bn/",
-      },
-      {
-        name: "cs",
-        version: "cs",
-        url: "cs/",
-      },
-      {
-        name: "Deutsch",
-        version: "de",
-        url: "de/",
-      },
-      {
-        name: "Español",
-        version: "es",
-        url: "es/",
-      },
-      {
-        name: "Français",
-        version: "fr",
-        url: "fr/",
-      },
-      {
-        name: "ja",
-        version: "ja",
-        url: "ja/",
-      },
-      {
-        name: "Nederlands",
-        version: "nl",
-        url: "nl/",
-      },
-      {
-        name: "pl",
-        version: "pl",
-        url: "pl/",
-      },
-      {
-        name: "Português",
-        version: "pt",
-        url: "pt/",
-      },
-      {
-        name: "Русский",
-        version: "ru",
-        url: "ru/",
-      },
-      {
-        name: "简体中文",
-        version: "zh_CN",
-        url: "zh_CN/",
-      },
-    ];
-    // console.log(data);
-    $.each(data, function (index, entry) {
-      // if no custom name specified (e.g., "latest"), use version string
-      if (!("name" in entry)) {
-        entry.name = entry.version;
-      }
-      // create the node
-      const node = document.createElement("a");
-      node.setAttribute("class", "list-group-item list-group-item-action py-1");
-      node.textContent = `${entry.name}`;
-
-
-      node.setAttribute(
-        "href",
-        `https://fortran-lang.org/${entry.url}${currentFilePath}`,
-      );
-
-      // on click, AJAX calls will check if the linked page exists before
-      // trying to redirect, and if not, will redirect to the homepage
-      // for that version of the docs.
-      node.onclick = checkPageExistsAndRedirect;
-      // Add dataset values for the version and name in case people want
-      // to apply CSS styling based on this information.
-      node.dataset["versionName"] = entry.name;
-      node.dataset["version"] = entry.version;
-
-      $("#version_switcher_menu").append(node);
-      // replace dropdown button text with the preferred display name of
-      // this version, rather than using sphinx's  variable.
-      // also highlight the dropdown entry for the currently-viewed
-      // version's entry
-      if (entry.version == "zh_CN") {
-        node.classList.add("active");
-        btn.innerText = btn.dataset["activeVersionName"] = entry.name;
-        btn.dataset["activeVersion"] = entry.version;
-      }
-    });
-  })();
-</script>
+`);
+</script></div>
     
   </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://dev.lfortran.org/">
+    Play
+  </a>
+</li>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fas fa-bars"></span>
-  </button>
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../learn/">
+    学习
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../roadmap/">
+    Roadmap <!-- omit in toc -->
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../compilers/">
+    编译器
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../">
+    社区
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../packages/">
+    源码包
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../news/">
+    新闻
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fortran-lang.org/en/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">RSS</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
 
   
-  <div id="navbar-collapsible" class=" collapse navbar-collapse">
-    <div id="navbar-center" class="ml-auto">
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference external nav-link" href="https://dev.lfortran.org/">
-  Play
- </a>
-</li>
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../learn/">
-  学习
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../roadmap/">
-  Roadmap
-  <!-- omit in toc -->
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../compilers/">
-  编译器
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../">
-  社区
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../packages/">
-  源码包
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../news/">
-  新闻
- </a>
-</li>
-
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://dev.lfortran.org/">
+    Play
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../learn/">
+    学习
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../roadmap/">
+    Roadmap <!-- omit in toc -->
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../compilers/">
+    编译器
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../">
+    社区
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../packages/">
+    源码包
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../news/">
+    新闻
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fortran-lang.org/en/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">RSS</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../history/">Fortran-lang history</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">参与 fortran-lang.org 贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minibooks/">fortran-lang.org 上的迷你书教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages/">Fortran-lang.org 包索引</a></li>
 </ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-        <li class="nav-item">
-          <a class="nav-link" href="https://fortran-lang.discourse.group/" rel="noopener" target="_blank" title="Discourse"><span><i class="fab fa-discourse"></i></span>
-            <label class="sr-only">Discourse</label></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/fortranlang" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter"></i></span>
-            <label class="sr-only">Twitter</label></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/fortran-lang" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github"></i></span>
-            <label class="sr-only">GitHub</label></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://fortran-lang.org/en/news/atom.xml" rel="noopener" target="_blank" title="RSS"><span><i class="fas fa-rss"></i></span>
-            <label class="sr-only">RSS</label></a>
-        </li>
-      </ul>
-      </div>
-      
-      <div class="navbar-end-item">
-        <form class="bd-search d-flex align-items-center" action="../../search/" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索" aria-label="Search" autocomplete="off" >
-</form>
-      </div>
-      
-    </div>
-  </div>
 </div>
-    </nav>
-    
-
-    <div class="bd-container container-xl">
-      <div class="bd-container__inner row">
-          
-
-<!-- Only show if we have sidebars configured, else just a small margin  -->
-<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
-  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search/" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索" aria-label="Search" autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../history/">
-   Fortran-lang history
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   参与 fortran-lang.org 贡献
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../minibooks/">
-   fortran-lang.org 上的迷你书教程
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../packages/">
-   Fortran-lang.org 包索引
-  </a>
- </li>
-</ul>
-
-  </div>
-</nav>
-  </div>
-  <div class="sidebar-end-items">
-  </div>
-</div>
-
-
-          
-
-
-<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+</nav></div>
+    </div>
   
-    
-    <div class="toc-item">
-         
-    </div>
-    
   
-</div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-          
-          <div class="bd-content col-12 col-md-9 col-xl-7">
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
               
-              <article class="bd-article" role="main">
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../" class="nav-link">社区</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">参与...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
                 
-<section class="tex2jax_ignore mathjax_ignore" id="contributing-to-fortran-lang-org">
-<h1>参与 fortran-lang.org 贡献<a class="headerlink" href="#contributing-to-fortran-lang-org" title="Link to this heading">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="contributing-to-fortran-lang-org">
+<h1>参与 fortran-lang.org 贡献<a class="headerlink" href="#contributing-to-fortran-lang-org" title="Link to this heading">#</a></h1>
 <p>Fortran-lang.org 是开源的，欢迎参与进来！</p>
 <ul class="simple">
 <li><p>有关如何将条目添加到 <a class="reference internal" href="../../packages/"><span class="doc std std-doc">包索引</span></a> 的信息，请参阅 <a class="reference internal" href="../packages/"><span class="doc std std-doc">包索引指南</span></a></p></li>
 <li><p>请参阅 <a class="reference internal" href="../minibooks/"><span class="doc std std-doc">minibook guide</span></a>，了解如何为 <a class="reference internal" href="../../learn/"><span class="doc std std-doc">Learn</span></a> 部分编写和构建迷你书教程</p></li>
 </ul>
 <section id="introduction">
-<h2>入门<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>入门<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p><strong>网站内容是如何编写的？</strong></p>
 <p>该网站的内容主要是用 Markdown（Myst 风格）、HTML 和 YAML（用于数据）的组合编写的。 该源代码经过编译以生成纯 HTML，这就是你在最终网站上看到的内容。</p>
 <p>这个网站是_静态_的，这意味着一旦建立，网站上的内容对所有用户都是一样的；而许多_动态_网站与之不同，它们可以根据用户和用户提供的输入提供不同的内容。</p>
@@ -465,8 +643,8 @@
 <p>因此，作为贡献者，你只需上传对站点源码的更改而非编译结果，因为它将通过默认分支上的源码自动构建。</p>
 </section>
 <section id="workflow">
-<h2>工作流程<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
-<p>通过对 Github 仓库<a class="reference external" href="https://github.com/fortran-lang/webpage/">https://github.com/fortran-lang/webpage/</a>发起「拉取请求」来提交你的贡献。</p>
+<h2>工作流程<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
+<p>通过对 Github 仓库<a class="github reference external" href="https://github.com/fortran-lang/webpage/">fortran-lang/webpage</a>发起「拉取请求」来提交你的贡献。</p>
 <p>工作流程的形式如下：</p>
 <ol class="arabic simple">
 <li><p>创建/更新 <code class="docutils literal notranslate"><span class="pre">webpage</span></code> 的个人分支</p>
@@ -502,16 +680,16 @@
 <p>**注意：**如果根据你的「拉取请求」所生成的预览链接未能正常工作，或是在重新构建后内容仍未更新，请尝试在 URL 末尾添加一个随机参数，<em>例如</em> <code class="docutils literal notranslate"><span class="pre">https://fortran-lang.org</span> <span class="pre">/pr/98?v=2</span></code> —— 参数的名称和值无关紧要，但每次更新须使用不同的值。这会迫使 GitHub 的内容分发网络为你提供更新后的版本，而非过时的缓存版本。</p>
 </section>
 <section id="style-guide">
-<h2>风格指引<a class="headerlink" href="#style-guide" title="Link to this heading">¶</a></h2>
+<h2>风格指引<a class="headerlink" href="#style-guide" title="Link to this heading">#</a></h2>
 <section id="markdown">
-<h3>Markdown<a class="headerlink" href="#markdown" title="Link to this heading">¶</a></h3>
+<h3>Markdown<a class="headerlink" href="#markdown" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>代码片段放在<a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code-and-syntax-highlighting">代码块</a>环境中，用反引号（<code class="docutils literal notranslate"><span class="pre">```</span></code>）包裹。对行内代码片段、编程语言关键字、变量名和文件名则使用行内代码样式（<code class="docutils literal notranslate"><span class="pre">`code`</span></code>）。</p></li>
 <li><p>每行源代码不应该超过一个句子，且应将长句分成多行——这能有效避免出现庞大的<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>块，有利于代码审查。</p></li>
 </ul>
 </section>
 <section id="external-links">
-<h3>外部链接<a class="headerlink" href="#external-links" title="Link to this heading">¶</a></h3>
+<h3>外部链接<a class="headerlink" href="#external-links" title="Link to this heading">#</a></h3>
 <p>我们建议在新标签页中打开非本站点的超链接。在 <code class="docutils literal notranslate"><span class="pre">Fortran-lang.org</span></code> 上，此类链接都会自动在后面标记一个新标签的图标；用户可以提前知道该链接将跳出本站，同时 fortran-lang.org 会在之前的标签页中保持开启。</p>
 <p><strong>示例：</strong> 在新标签页中打开链接（HTML 或 markdown）</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fortran-lang.discourse.group/&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;noopener&quot;</span>
@@ -521,7 +699,7 @@
 </div>
 </section>
 <section id="internal-site-links">
-<h3>内部站点链接<a class="headerlink" href="#internal-site-links" title="Link to this heading">¶</a></h3>
+<h3>内部站点链接<a class="headerlink" href="#internal-site-links" title="Link to this heading">#</a></h3>
 <p>指向 fortran-lang.org 网站其它部分的超链接应以 <code class="docutils literal notranslate"><span class="pre">{{pathto('index',1)[:-5]}}</span></code> 为前缀，这对于生成拉取请求的预览很重要（请参阅 <a class="reference external" href="https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/">此处</a> 的解释）。</p>
 <p><strong>示例：</strong> markdown 链接</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Fortran</span><span class="o">-</span><span class="n">lang</span> <span class="n">news</span><span class="p">]({{</span><span class="n">pathto</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]}}</span><span class="n">News</span><span class="p">)</span>
@@ -533,7 +711,7 @@
 </div>
 </section>
 <section id="icon-packs">
-<h3>图标集<a class="headerlink" href="#icon-packs" title="Link to this heading">¶</a></h3>
+<h3>图标集<a class="headerlink" href="#icon-packs" title="Link to this heading">#</a></h3>
 <p>图标可以打破单调的文本段落，将读者的注意力引导到标题或关键信息上，提升页面的审美。</p>
 <p>在 <code class="docutils literal notranslate"><span class="pre">fortran-lang.org</span></code> 上可以使用以下三个图标集：</p>
 <ul class="simple">
@@ -551,7 +729,7 @@
 <p>你可以访问相应的网站以浏览可用的图标。</p>
 </section>
 <section id="page-contents">
-<h3>页面内容<a class="headerlink" href="#page-contents" title="Link to this heading">¶</a></h3>
+<h3>页面内容<a class="headerlink" href="#page-contents" title="Link to this heading">#</a></h3>
 <p>为冗长的页面提供页面内容的超链接有助于读者阅读。每个当前页面的目录都能够自动生成。而控制生成 <code class="docutils literal notranslate"><span class="pre">fortran-lang.org</span></code> 中的整个文件夹的目录的方法是：</p>
 <p><strong>对于 MD 格式的页面：</strong></p>
 <p>在 md 格式的索引页末尾添加 <code class="docutils literal notranslate"><span class="pre">toctree</span></code> 指令，其中包含该文件夹中所有文件的名称。</p>
@@ -564,15 +742,15 @@ ARRAY_index
 </section>
 </section>
 <section id="tutorials">
-<h2>教程<a class="headerlink" href="#tutorials" title="Link to this heading">¶</a></h2>
+<h2>教程<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h2>
 <p>迷你书内容指引。</p>
 <section id="general">
-<h3>一般情况<a class="headerlink" href="#general" title="Link to this heading">¶</a></h3>
+<h3>一般情况<a class="headerlink" href="#general" title="Link to this heading">#</a></h3>
 <p>使用 <code class="docutils literal notranslate"><span class="pre">book</span></code> 布局。</p>
 <p>遵循 <a class="reference internal" href="#markdown">Markdown 指南</a>。</p>
 </section>
 <section id="code-style">
-<h3>代码风格<a class="headerlink" href="#code-style" title="Link to this heading">¶</a></h3>
+<h3>代码风格<a class="headerlink" href="#code-style" title="Link to this heading">#</a></h3>
 <p>缩进使用两个空格，代码单元内部都需要缩进，但是 <code class="docutils literal notranslate"><span class="pre">contains</span></code> 语句与其所在的 <code class="docutils literal notranslate"><span class="pre">module</span></code> 或 <code class="docutils literal notranslate"><span class="pre">type</span></code> 保持同一层级。尽量将一行代码限制在 90 个字符以内。这些考量能让代码更具可读性，也容易在宽度较小的设备上浏览。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">m</span>
 <span class="w">  </span><span class="k">implicit none</span>
@@ -664,7 +842,7 @@ ARRAY_index
 <p>你可以在 <a class="reference external" href="https://dftbplus-develguide.readthedocs.io/en/latest/fortranstyle.html">DFTB+ 格式指南</a> 中找到类似的代码风格建议。</p>
 </section>
 <section id="text">
-<h3>文本<a class="headerlink" href="#text" title="Link to this heading">¶</a></h3>
+<h3>文本<a class="headerlink" href="#text" title="Link to this heading">#</a></h3>
 <p>页面和小节的标题仅句首字母大写，而非所有实词首字母大写。</p>
 <p>使用 <em>emphasis</em> 强调（<code class="docutils literal notranslate"><span class="pre">*emphasis*</span></code>/<code class="docutils literal notranslate"><span class="pre">_emphasis_</span></code>，呈现为斜体）首次引入的关键字/短语。</p>
 <p>避免在段落中使用 <strong>strong</strong> 强调（<code class="docutils literal notranslate"><span class="pre">**strong**</span></code>，呈现为粗体），因为粗体样式被应用于标题、示例（<strong>Example:</strong>)、告诫/旁白等。</p>
@@ -702,33 +880,71 @@ warnings, things to avoid, etc.
 </section>
 
 <div class="section ablog__blog_comments">
-  
-  
+   
 </div>
 
-              </article>
+                </article>
               
-
               
+              
+              
+              
+            </div>
+            
+            
+              
+            
           </div>
-          
-      </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
-
-  
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
-
-<footer class="bd-footer"><div class="bd-footer__inner container">
-  
-  <div class="footer-item">
-    <p class="copyright">
-    &copy; Copyright 2020-2024, Fortran Community.<br>
-</p>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020-2024, Fortran Community.
+      <br/>
+    
+  </p>
 </div>
-</footer>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2创建。
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
   </body>
 </html>
