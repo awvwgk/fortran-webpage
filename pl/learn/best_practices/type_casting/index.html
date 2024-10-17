@@ -701,10 +701,8 @@ document.write(`
 <p>Istnieje zasadniczo pięć różnych sposobów na przeprowadzenie rzutowania typów, z których każdy ma swoje plusy i minusy.</p>
 <p>Metody I, II i V mogą być używane zarówno w języku C, jak i Fortranie. Metody III i IV dostępne są tylko w Fortranie. Metoda VI przestarzała i nie powinna być używana.</p>
 <section id="work-arrays">
-<h2>Work Arrays<a class="headerlink" href="#work-arrays" title="Link to this heading">#</a></h2>
-<p>Pass a „work array” which is packed with everything needed by
-the caller and unpacked by the called routine. This is the old way –
-e.g., how LAPACK does it.</p>
+<h2>Tablice robocze<a class="headerlink" href="#work-arrays" title="Link to this heading">#</a></h2>
+<p>Podaj „tablicę roboczą”, która jest spakowana ze wszystkim, czego potrzebuje funkcja wywołująca i rozpakowana przez wywołaną procedurę. Jest to stary sposób - np. tak jak robi to LAPACK.</p>
 <p>Integrator:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
@@ -732,7 +730,7 @@ e.g., how LAPACK does it.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>Usage:</p>
+<p>Użycie:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">test</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
 <span class="w">  </span><span class="k">use </span><span class="n">integrals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">simpson</span>
@@ -765,12 +763,8 @@ e.g., how LAPACK does it.</p>
 </div>
 </section>
 <section id="general-structure">
-<h2>General Structure<a class="headerlink" href="#general-structure" title="Link to this heading">#</a></h2>
-<p>Define a general structure which encompass the variations you
-actually need (or are even remotely likely to need going forward). This
-single structure type can then change if needed as future
-needs/ideas permit but won’t likely need to change from passing, say,
-real numbers to, say, and instantiation of a text editor.</p>
+<h2>Ogólna struktura<a class="headerlink" href="#general-structure" title="Link to this heading">#</a></h2>
+<p>Zdefiniuj strukturę generalną, która zawiera wariację, których faktycznie potrzebujesz (lub, których będziesz potrzebował w przyszłości). Ten pojedynczy typ struktury może się później zmienić jeśli będzie to koniecznie i gdy pozwolą na to przyszłe potrzeby/pomysły, jednak prawdopodobnie nie trzeba będzie zmieniać np. przekazywania liczb rzeczywistych i instancji edytora tekstu.</p>
 <p>Integrator:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
@@ -807,7 +801,7 @@ real numbers to, say, and instantiation of a text editor.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>Usage:</p>
+<p>Użycie:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">test</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
 <span class="w">  </span><span class="k">use </span><span class="n">integrals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">simpson</span><span class="p">,</span><span class="w"> </span><span class="n">context</span>
@@ -838,16 +832,12 @@ real numbers to, say, and instantiation of a text editor.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>There is only so much flexibility really needed. For example, you could
-define two structure types for this purpose, one for Schroedinger and
-one for Dirac. Each would then be sufficiently general and contain all
-the needed pieces with all the right labels.</p>
-<p>Point is: it needn’t be „one abstract type to encompass all” or bust.
-There are natural and viable options between „all” and „none”.</p>
+<p>Potrzebna jest tylko elastyczność. Na przykład, możesz zdefiniować w tym celu dwa typy struktur, jeden dla Schroedingera i jeden dla Diraca. Każdy z nich byłby wtedy wystarczająco ogólny i zawierałby wszystkie potrzebne elementy ze właściwymi etykietami.</p>
+<p>Chodzi o to, że nie musi to być „jeden abstrakcyjny typ obejmujący wszystko” lub totalna porażka. Istnieją naturalne i wykonalne opcje między „wszystkim” a „niczym”.</p>
 </section>
 <section id="private-module-variables">
-<h2>Private Module Variables<a class="headerlink" href="#private-module-variables" title="Link to this heading">#</a></h2>
-<p>Hide the variable arguments completely by passing in module variables.</p>
+<h2>Prywatne zmienne modułu<a class="headerlink" href="#private-module-variables" title="Link to this heading">#</a></h2>
+<p>Ukryj całkowicie zmienne argumenty poprzez przekazanie zmiennych modułu.</p>
 <p>Integrator:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">integrals</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
@@ -873,7 +863,7 @@ There are natural and viable options between „all” and „none”.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>Usage:</p>
+<p>Użycie:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">test</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
 <span class="w">  </span><span class="k">use </span><span class="n">integrals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">simpson</span>
@@ -901,10 +891,7 @@ There are natural and viable options between „all” and „none”.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>However it is best to avoid such global variables – even though really
-just semi-global – if possible. But sometimes it may be the simplest
-cleanest way. However, with a bit of thought, usually there is a better,
-safer, more explicit way along the lines of II or IV.</p>
+<p>Najlepiej jest jednak unikać takich zmiennych globalnych (nawet jeśli są tylko pół-globalne) jeśli to możliwe. Czasami jednak może to być najbardziej przejrzysty i najprostszy sposób. Często z odrobiną namysłu istnieje lepsza, bezpieczniejsza i bardziej bezpośrednia droga dzięki sposobom II lub IV.</p>
 </section>
 <section id="nested-functions">
 <h2>Nested functions<a class="headerlink" href="#nested-functions" title="Link to this heading">#</a></h2>
@@ -933,7 +920,7 @@ safer, more explicit way along the lines of II or IV.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>Usage:</p>
+<p>Użycie:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
 <span class="k">use </span><span class="n">integrals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">simpson</span>
 <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">k</span>
@@ -983,7 +970,7 @@ safer, more explicit way along the lines of II or IV.</p>
 <span class="k">end module</span>
 </pre></div>
 </div>
-<p>Usage:</p>
+<p>Użycie:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">test</span>
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
 <span class="w">  </span><span class="k">use </span><span class="n">integrals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">simpson</span>
@@ -1083,7 +1070,7 @@ namely a method to evaluate the function, but imposes nothing else on
 the user. The user extends this type, providing a concrete
 implementation of the eval type bound procedure and adding necessary
 context data as components of the extended type.</p>
-<p>Usage:</p>
+<p>Użycie:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">example_usage</span>
 
 <span class="w">  </span><span class="k">use </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span>
@@ -1184,9 +1171,9 @@ types. As such, the <code class="docutils literal notranslate"><span class="pre"
 </div>
 
 <nav id="bd-toc-nav" class="page-toc"><ul class="nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-arrays">Work Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-structure">General Structure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#private-module-variables">Private Module Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-arrays">Tablice robocze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-structure">Ogólna struktura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#private-module-variables">Prywatne zmienne modułu</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-functions">Nested functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-type-c-ptr-pointer">Using type(c_ptr) Pointer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-intrinsic-function">transfer() Intrinsic Function</a></li>
