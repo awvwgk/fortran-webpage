@@ -701,72 +701,41 @@ document.write(`
 <p>Kompilowanie twojego projektu Fortran ręcznie może być dość skomplikowane w zależności od liczby plików źródłowych i współzależności w module. Obsługa różnych kompilatorów i programów łączących lub różnych platform może stawać się coraz bardziej skomplikowana dopóki nie zostaną użyte odpowiednie narzędzia do automatycznego wykonania tych zadań.</p>
 <p>W zależności od rozmiaru twojego projektu i jego celu użyte mogą być różne narzędzia do automatyzacji kompilacji.</p>
 <p>Na początek, twoje zintegrowane środowisko programistyczne prawdopodobnie zapewnia sposób na skompilowanie twojego programu. Popularnym międzyplatformowym narzędziem jest Microsoft <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>, ale istnieją również inne, takie jak <a href="https://atom.io/" target="_blank" rel="noopener">Atom</a>, <a href="https://www.eclipse.org/photran/" target="_blank" rel="noopener">Eclipse Photran</a> oraz <a href="http://www.codeblocks.org/" target="_blank" rel="noopener">Code::Blocks</a>. Oferują one graficzny interfejs użytkownika, ale często są bardzo specyficzne dla kompilatora i platformy.</p>
-<p>For smaller projects, the rule based build system <code class="docutils literal notranslate"><span class="pre">make</span></code> is a common
-choice. Based on the rules defined it can perform task like (re)compiling
-object files from updated source files, creating libraries and linking
-executables.
-To use <code class="docutils literal notranslate"><span class="pre">make</span></code> for your project you have to encode those rules in <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>,
-which defines the interdependencies of all the final program, the intermediary
-object files or libraries and the actual source files.
-For a short introduction see <a class="reference internal" href="#using-make-as-build-tool">the guide on <code class="docutils literal notranslate"><span class="pre">make</span></code></a>.</p>
-<p>Maintenance tools like autotools and CMake can generate Makefiles or
-Visual Studio project files via a high-level description. They abstract
-away from the compiler and platform specifics.</p>
-<p>Which of those tools are the best choice for your projects depends on many factors.
-Choose a build tool you are comfortable working with, it should not get in your
-way while developing. Spending more time on working against your build tools
-than doing actual development work can quickly become frustrating.</p>
-<p>Also, consider the accessibility of your build tools.
-If it is restricted to a specific integrated development environment, can all
-developers on your project access it?
-If you are using a specific build system, does it work on all platforms you
-are developing for?
-How large is the entry barrier of your build tools? Consider the learning curve
-for the build tools, the perfect build tool will be of no use, if you have to
-learn a complex programming language first to add a new source file.
-Finally, consider what other project are using, those you are depending on and
-those that use (or will use) your project as dependency.</p>
+<p>Dla mniejszych projektów powszechnym wyborem kompilacji programu jest system regułowy <code class="docutils literal notranslate"><span class="pre">make</span></code>. Bazując na zdefiniowanych zasadach może wykonywać takie działania jak (re)kompilowanie plików obiektów z zaktualizowanych plików, tworzyć biblioteki oraz łączyć pliki wykonywalne. Aby użyć <code class="docutils literal notranslate"><span class="pre">make</span></code> w twoim projekcie musisz zakodować te reguły w <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, który definiuje współzależności finałowego programu, pośrednich obiektów oraz bibliotek i plików źródłowych. Krótkie wprowadzenie do tematu znajdziesz w <a class="reference internal" href="#using-make-as-build-tool">przewodniku po <code class="docutils literal notranslate"><span class="pre">make</span></code></a>.</p>
+<p>Narzędzia konserwacyjne takie jak autotools i CMake mogą generować Makefiles lub pliki Visual Studio za pośrednictwem opisów wysokiego poziomu. Odbiegają one od specyfiki kompilatora i platformy.</p>
+<p>To, na które z tych narzędzi będzie najlepsze dla twojego projektu zależy od wielu czynników. Wybierz narzędzie do kompilacji, z którym będzie ci się komfortowo pracować, nie powinno przeszkadzać ci podczas programowania. Poświęcanie większej ilości czasu na walkę z narzędziami do kompilacji niż na faktycznemu tworzeniu programu może szybko stać się frustrujące.</p>
+<p>Zwróć również uwagę na dostępność twoich narzędzi do kompilacji. Jeśli są ograniczone do specyficznego zintegrowanego środowiska, czy wszyscy deweloperzy w twoim projekcie będą mieć dostęp do nich? Jeśli używasz konkretnego systemu kompilacji, czy działa on na wszystkich platformach, na które tworzysz program? Jak duża jest bariera wejścia twoich narzędzi do kompilacji? Rozważ również krzywą uczenia się dla narzędzi do kompilacji, idealne narzędzie do kompilacji będzie bezużyteczne jeśli najpierw musisz nauczyć się skomplikowanego języka programowania, aby dodać nowy plik źródłowy. Na koniec, zobacz czego używają inne projekty, takie, których używasz jako zależności i te które używają (lub będą używać) twojego projektu jako zależności.</p>
 <section id="using-make-as-build-tool">
-<h2>Using make as build tool<a class="headerlink" href="#using-make-as-build-tool" title="Link to this heading">#</a></h2>
-<p>The most well-known and commonly used build system is called <code class="docutils literal notranslate"><span class="pre">make</span></code>.
-It performs actions following rules defined in a configuration file
-called <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> or <code class="docutils literal notranslate"><span class="pre">makefile</span></code>, which usually leads to compiling a program
-from the provided source code.</p>
+<h2>Korzystanie z make jako narzędzia do kompilacji<a class="headerlink" href="#using-make-as-build-tool" title="Link to this heading">#</a></h2>
+<p>Najbardziej znanym i powszechnie używanym systemem kompilacji jest system <code class="docutils literal notranslate"><span class="pre">make</span></code>. Wykonuje działania na podstawie zasad zdefiniowanych w pliku konfiguracyjnym nazywanym <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> lub <code class="docutils literal notranslate"><span class="pre">makefile</span></code>, który zazwyczaj prowadzi do skompilowania programu z dostarczonego kodu źródłowego.</p>
 <div class="admonition tip">
 <p class="admonition-title">Wskazówka</p>
-<p>For an in-depth <code class="docutils literal notranslate"><span class="pre">make</span></code> tutorial lookup its info page. There is an online version of this <a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="noopener">info page</a>, available.</p>
+<p>Aby zobaczyć szczegółowy poradnik do <code class="docutils literal notranslate"><span class="pre">make</span></code> odwiedź jego stronę informacyjną. Wersja online jego strony informacyjnej jest dostępna <a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="noopener">tutaj</a>.</p>
 </div>
-<p>We will start with the basics from your clean source directory. Create and open
-the file <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, we start with a simple rule called <em>all</em>:</p>
+<p>Zaczniemy od podstaw z początkowego folderu źródłowego. Utwórz i otwórz plik <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, zaczniemy od prostej zasady <em>all</em>:</p>
 <div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nf">all</span><span class="o">:</span>
 <span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>After saving the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> run it by executing <code class="docutils literal notranslate"><span class="pre">make</span></code> in the same directory.
-You should see the following output:</p>
+<p>Po zapisaniu <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> otwórz go poprzez wykonanie <code class="docutils literal notranslate"><span class="pre">make</span></code> w tym samym folderze. Powinieneś zobaczyć następujący wynik:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;all&quot;
 all
 </pre></div>
 </div>
-<p>First, we note that <code class="docutils literal notranslate"><span class="pre">make</span></code> is substituting <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> for the name of the rule,
-the second thing to note is that <code class="docutils literal notranslate"><span class="pre">make</span></code> is always printing the command it is
-running, finally, we see the result of running <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;all&quot;</span></code>.</p>
+<p>Po pierwsze zauważmy, że <code class="docutils literal notranslate"><span class="pre">make</span></code> zastępuje nazwę reguły <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code>. Po drugie, zauważmy, że <code class="docutils literal notranslate"><span class="pre">make</span></code> zawsze drukuje polecenie, które wykonuje. Na koniec widzimy rezultat wykonania <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;all&quot;</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p>We call the entry point of our <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> always <em>all</em> by convention, but you can choose whatever name you like.</p>
+<p>Zgodnie z konwencją punkt wejścia naszego pliku <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> powinien nazywać się <em>all</em>, ale możesz wybrać dowolną nazwę.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p>You should not have noticed it if your editor is working correctly,
-but you have to indent the content of a rule with a tab character.
-In case you have problems running the above <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> and see an error like</p>
+<p>Jeśli twój edytor tekstu działa poprawnie to nie powinieneś tego zauważyć, ale musisz wciąć zawartość znaku reguły za pomocą tabulatora. W przypadku problemów z uruchomieniem pliku <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> możesz zobaczyć taki błąd</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Makefile:2: *** missing separator.  Stop.
 </pre></div>
 </div>
-<p>The indentation is probably not correct. In this case replace the indentation
-in the second line with a tab character.</p>
+<p>Wcięcie jest prawdopodobnie niepoprawne. W tym przypadku zamień wcięcie w drugiej linii znakiem tabulacji.</p>
 </div>
-<p>Now we want to make our rules more complicated, therefore we add another rule:</p>
+<p>Teraz chcemy stworzyć bardziej skomplikowane zasady, więc dodajemy kolejną regułę:</p>
 <div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">PROG</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>my_prog
 
 <span class="nf">all</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">PROG</span><span class="k">)</span>
@@ -776,36 +745,21 @@ in the second line with a tab character.</p>
 <span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>Note how we declare variables in <code class="docutils literal notranslate"><span class="pre">make</span></code>, you should always declare your local
-variables with <code class="docutils literal notranslate"><span class="pre">:=</span></code>. To access the content of a variable we use the <code class="docutils literal notranslate"><span class="pre">$(...)</span></code>,
-note that we have to enclose the variable name in parenthesis.</p>
+<p>Zauważmy jak deklarujemy zmienne w <code class="docutils literal notranslate"><span class="pre">make</span></code>. Zmienne lokalne powinny być zawsze zadeklarowane poprzez <code class="docutils literal notranslate"><span class="pre">:=</span></code>. Aby zdobyć dostęp do zawartości zmiennej używamy <code class="docutils literal notranslate"><span class="pre">$(...)</span></code>, nazwa zmienniej musi być zawarta w nawiasach.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p>The declaration of variables is usually done with <code class="docutils literal notranslate"><span class="pre">:=</span></code>, but <code class="docutils literal notranslate"><span class="pre">make</span></code> does
-support <em>recursively expanded</em> variables as well with <code class="docutils literal notranslate"><span class="pre">=</span></code>.
-Normally, the first kind of declaration is wanted, as they are more predictable
-and do not have a runtime overhead from the recursive expansion.</p>
+<p>Deklaracja zmiennych zazwyczaj odbywa się za pomocą <code class="docutils literal notranslate"><span class="pre">:=</span></code>, jednak <code class="docutils literal notranslate"><span class="pre">make</span></code> pozwala zarówno na zmienne <code class="docutils literal notranslate"><span class="pre">=</span></code>, jak i na zmienne <em>rekursywnie rozbudowane</em>. Zwykle, pierwszy typ deklaracji jest bardziej pożądany, ponieważ jest bardziej przewidywalny i nie mają narzutu czasu wykonania wynikającego z rekurencyjnej rozbudowy.</p>
 </div>
-<p>We introduced a dependency of the rule all, namely the content of the variable
-<code class="docutils literal notranslate"><span class="pre">PROG</span></code>, also we modified the printout, we want to see all the dependencies
-of this rule, which are stored in the variable <code class="docutils literal notranslate"><span class="pre">$^</span></code>.
-Now for the new rule which we name after the value of the variable <code class="docutils literal notranslate"><span class="pre">PROG</span></code>,
-it does the same thing we did before for the rule <em>all</em>, note how the value
-of <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> is dependent on the rule it is used in.</p>
-<p>Again check by running the <code class="docutils literal notranslate"><span class="pre">make</span></code>, you should see:</p>
+<p>Wprowadziliśmy zależność dla reguły all, a mianowicie zawartość zmiennej <code class="docutils literal notranslate"><span class="pre">PROG</span></code>, zmodyfikowaliśmy również wydruk, a teraz chcemy zobaczyć wszystkie zależności tej reguły, które są przechowywane w zmiennej <code class="docutils literal notranslate"><span class="pre">$^</span></code>. Teraz dla nowej reguły, której nadajemy nazwę po wartości zmiennej <code class="docutils literal notranslate"><span class="pre">PROG</span></code>, która robi to samo, co zrobiliśmy wcześniej dla reguły <em>all</em>. Zwróćmy uwagę, jak wartość <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> jest zależna od reguły, w której jest używana.</p>
+<p>Ponownie sprawdzamy poprzez wykonanie <code class="docutils literal notranslate"><span class="pre">make</span></code> i powinniśmy zobaczyć:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;my_prog&quot;
 my_prog
 echo &quot;all depends on my_prog&quot;
 all depends on my_prog
 </pre></div>
 </div>
-<p>The dependency has been correctly resolved and evaluated before performing
-any action on the rule <em>all</em>.
-Let’s run only the second rule: type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">my_prog</span></code> and you will only find
-the first two lines in your terminal.</p>
-<p>The next step is to perform some real actions with <code class="docutils literal notranslate"><span class="pre">make</span></code>, we take
-the source code from the previous chapter here and add new rules to our
-<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>:</p>
+<p>Zależność została poprawnie rozwiązana i określona zanim jakakolwiek akcja na reguły <em>all</em> została wykonana. Teraz wykonajmy tylko drugą regułę: wpiszmy <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">my_prog</span></code>, a zobaczymy tylko dwa pierwsze wersy w terminalu.</p>
+<p>Następnym krokiem jest wykonanie prawdziwych akcji z <code class="docutils literal notranslate"><span class="pre">make</span></code>, weźmy kod źródłowy z poprzedniego rozdziału i dodajmy nowe reguły do naszego <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>:</p>
 <div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">OBJS</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>tabulate.o<span class="w"> </span>functions.o
 <span class="nv">PROG</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>my_prog
 
@@ -818,19 +772,9 @@ the source code from the previous chapter here and add new rules to our
 <span class="w">	</span>gfortran<span class="w"> </span>-c<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>$&lt;
 </pre></div>
 </div>
-<p>We define <code class="docutils literal notranslate"><span class="pre">OBJS</span></code> which stands for object files, our program depends on
-those <code class="docutils literal notranslate"><span class="pre">OBJS</span></code> and for each object file we create a rule to make them from
-a source file.
-The last rule we introduced is a pattern matching rule, <code class="docutils literal notranslate"><span class="pre">%</span></code> is the common
-pattern between <code class="docutils literal notranslate"><span class="pre">tabulate.o</span></code> and <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code>, which connects our object file
-<code class="docutils literal notranslate"><span class="pre">tabulate.o</span></code> to the source file <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code>.
-With this set, we run our compiler, here <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> and translate the source
-file into an object file, we do not create an executable yet due to the <code class="docutils literal notranslate"><span class="pre">-c</span></code>
-flag.
-Note the usage of the <code class="docutils literal notranslate"><span class="pre">$&lt;</span></code> for the first element of the dependencies here.</p>
-<p>After compiling all the object files we attempt to link the program, we do not
-use a linker directly, but <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> to produce the executable.</p>
-<p>Now we run the build script with <code class="docutils literal notranslate"><span class="pre">make</span></code>:</p>
+<p>Definiujemy <code class="docutils literal notranslate"><span class="pre">OBJS</span></code>, które jest skrótem od object files (pliki obiektów). Nasz program zależy od <code class="docutils literal notranslate"><span class="pre">OBJS</span></code> i dla każdego pliku obiektu tworzymy regułę, aby stworzyć je z pliku źródłowego. Ostatnia reguła, którą wprowadziliśmy to reguła dopasowania wzorca, <code class="docutils literal notranslate"><span class="pre">%</span></code> jest wspólnym wzorcem dla <code class="docutils literal notranslate"><span class="pre">tabulate.o</span></code> i <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code>, który łączy nasz plik obiektu <code class="docutils literal notranslate"><span class="pre">tabulate.o</span></code> z plikiem źródłowym <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code>. Mając to ustawione, uruchamiamy nasz kompilator ( <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> ) i tłumaczymy plik źródłowy na plik obiektu, nie tworzymy jeszcze pliku wykonywalnego z powodu flagi <code class="docutils literal notranslate"><span class="pre">-c</span></code>. Zwróćmy uwagę na użycie <code class="docutils literal notranslate"><span class="pre">$&lt;</span></code> dla pierwszego elementu zależności tutaj.</p>
+<p>Po skompilowaniu wszystkich plików obiektowych próbujemy połączyć program. Nie używamy bezpośredniego linkera, ale <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> do wygenerowania pliku wykonywalnego.</p>
+<p>Teraz uruchamiamy skrypt kompilacji poleceniem <code class="docutils literal notranslate"><span class="pre">make</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gfortran -c -o tabulate.o tabulate.f90
 tabulate.f90:2:7:
 
@@ -841,30 +785,22 @@ compilation terminated.
 make: *** [Makefile:10: tabulate.f90.o] Error 1
 </pre></div>
 </div>
-<p>We remember that we have dependencies between our source files, therefore we add
-this dependency explicitly to the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> with</p>
+<p>Pamiętamy, że mamy zależności pomiędzy naszymi plikami źródłowymi, dlatego dodajemy zależność jawnie do pliku <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> za pomocą</p>
 <div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nf">tabulate.o</span><span class="o">:</span><span class="w"> </span><span class="n">functions</span>.<span class="n">o</span>
 </pre></div>
 </div>
-<p>Now we can retry and find that the build is working correctly. The output should
-look like</p>
+<p>Teraz możemy ponowić próbę i zobaczyć, że kompilacja przebiegła pomyślnie. Rezultat powinien być następujący</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gfortran -c -o functions.o functions.f90
 gfortran -c -o tabulate.o tabulate.f90
 gfortran -o my_prog tabulate.o functions.o
 </pre></div>
 </div>
-<p>You should find <em>four</em> new files in the directory now.
-Run <code class="docutils literal notranslate"><span class="pre">my_prog</span></code> to make sure everything works as expected.
-Let’s run <code class="docutils literal notranslate"><span class="pre">make</span></code> again:</p>
+<p>Powinieneś teraz znaleźć <em>cztery</em> nowe pliki w twoim folderze. Uruchom <code class="docutils literal notranslate"><span class="pre">my_prog</span></code>, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. Teraz wykonajmy ponownie <code class="docutils literal notranslate"><span class="pre">make</span></code> :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make: Nothing to be done for &#39;all&#39;.
 </pre></div>
 </div>
-<p>Using the timestamps of the executable <code class="docutils literal notranslate"><span class="pre">make</span></code> was able to determine, it is
-newer than both <code class="docutils literal notranslate"><span class="pre">tabulate.o</span></code> and <code class="docutils literal notranslate"><span class="pre">functions.o</span></code>, which in turn are newer than
-<code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code> and <code class="docutils literal notranslate"><span class="pre">functions.f90</span></code>.
-Therefore, the program is already up-to-date with the latest code and no
-action has to be performed.</p>
-<p>In the end, we will have a look at a complete <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
+<p>Korzystając z sygnatur czasowych pliku wykonywalnego <code class="docutils literal notranslate"><span class="pre">make</span></code> udało się nam ustalić, że jest on nowszy niż <code class="docutils literal notranslate"><span class="pre">tabulate.o</span></code> i <code class="docutils literal notranslate"><span class="pre">functions.o</span></code>, które z kolei są nowsze niż <code class="docutils literal notranslate"><span class="pre">tabulate.f90</span></code> i <code class="docutils literal notranslate"><span class="pre">functions.f90</span></code>. Dlatego program jest już aktualny, zawiera najnowszy kod i nie trzeba wykonywać żadnych działań.</p>
+<p>Na koniec, spójrzmy na kompletny plik <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
 <div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="c"># Disable all of make&#39;s built-in rules (similar to Fortran&#39;s implicit none)</span>
 <span class="nv">MAKEFLAGS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>--no-builtin-rules<span class="w"> </span>--no-builtin-variables
 <span class="c"># configuration</span>
@@ -1287,7 +1223,7 @@ with extended description of various aspects how to handle the build process,
 </div>
 
 <nav id="bd-toc-nav" class="page-toc"><ul class="nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-make-as-build-tool">Using make as build tool</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-make-as-build-tool">Korzystanie z make jako narzędzia do kompilacji</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursively-expanded-variables">Recursively expanded variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-and-whitespace">Comments and whitespace</a></li>
 </ul>

@@ -874,6 +874,39 @@ explicit interface for us. This results in a much simpler subroutine interface.<
 <div><p>Каждый модуль должен быть написан в отдельном файле исходного кода <code class="docutils literal notranslate"><span class="pre">.f90</span></code>. Модули должны быть скомпилированы до компиляции любых программных блоков, которые их подключают оператором <code class="docutils literal notranslate"><span class="pre">use</span></code>.</p>
 </div></blockquote>
 </section>
+<section id="optional-arguments">
+<h2>Optional arguments<a class="headerlink" href="#optional-arguments" title="Ссылка на этот заголовок">#</a></h2>
+<p>An advantage of placing subroutines and functions in modules is that they can have <code class="docutils literal notranslate"><span class="pre">optional</span></code> arguments. In a procedure with an argument declared optional, the <code class="docutils literal notranslate"><span class="pre">present</span></code> function is used to test if the argument was set in the caller. Optional arguments that are not present may not be accessed within the procedure. Here is a generalization of the <code class="docutils literal notranslate"><span class="pre">vector_norm</span></code> function that can use powers other than 2 to compute the Lp norm.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module norm_mod
+  implicit none
+  contains
+  function vector_norm(vec,p) result(norm)
+    real, intent(in) :: vec(:)
+    integer, intent(in), optional :: p ! power
+    real :: norm
+    if (present(p)) then ! compute Lp norm
+      norm = sum(abs(vec)**p) ** (1.0/p)
+    else ! compute L2 norm
+      norm = sqrt(sum(vec**2))
+    end if
+  end function vector_norm
+end module norm_mod
+
+program run_fcn
+  use norm_mod
+  implicit none
+
+  real :: v(9)
+
+  v(:) = 9
+
+  print *, &#39;Vector norm = &#39;, vector_norm(v), vector_norm(v,2)
+  print *, &#39;L1 norm = &#39;, vector_norm(v,1)
+
+end program run_fcn
+</pre></div>
+</div>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -905,6 +938,7 @@ explicit interface for us. This results in a much simpler subroutine interface.<
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines">Процедуры</a><ul class="nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Функции</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Модули</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments">Optional arguments</a></li>
 </ul>
 </li>
 </ul>
