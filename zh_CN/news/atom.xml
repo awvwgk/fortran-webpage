@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://fortran-lang.org/en/</id>
   <title>Blog</title>
-  <updated>2025-01-03T03:13:22.672403+00:00</updated>
+  <updated>2025-01-19T18:31:32.363789+00:00</updated>
   <link href="https://fortran-lang.org/en/"/>
   <link href="https://fortran-lang.org/en/news/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.11">ABlog</generator>
@@ -80,13 +80,13 @@ Fortran news from the previous month.以下是 fortran-lang.org 仓库中的新�
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the February 2022 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.&lt;/p&gt;
-&lt;p&gt;Here’s what’s new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
+&lt;p&gt;Here's what's new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
     <link href="https://fortran-lang.org/en/news/2022/02-01-Fortran-Newsletter-February-2022/"/>
     <summary>Welcome to the February 2022 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
-Fortran news from the previous month.Here’s what’s new and ongoing in the fortran-lang.org repo:</summary>
+Fortran news from the previous month.Here's what's new and ongoing in the fortran-lang.org repo:</summary>
     <published>2022-02-01T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -100,14 +100,14 @@ Fortran news from the previous month.Here’s what’s new and ongoing in the fo
 newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.&lt;/p&gt;
-&lt;p&gt;Here’s what’s new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
+&lt;p&gt;Here's what's new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
     <link href="https://fortran-lang.org/en/news/2022/01-01-Fortran-Newsletter-January-2022/"/>
     <summary>Happy New Year and welcome to the January 2022 edition of the monthly Fortran
 newsletter.
 The newsletter comes out at the beginning of every month and details
-Fortran news from the previous month.Here’s what’s new and ongoing in the fortran-lang.org repo:</summary>
+Fortran news from the previous month.Here's what's new and ongoing in the fortran-lang.org repo:</summary>
     <published>2022-01-01T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -118,30 +118,30 @@ Fortran news from the previous month.Here’s what’s new and ongoing in the fo
       <name>Jérémie Vandenplas</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;=(Fortran-lang-2021-in-review)&lt;/p&gt;
-&lt;p&gt;With another year behind us, let’s review the progress that the
+&lt;p&gt;With another year behind us, let's review the progress that the
 Fortran-lang community has made.
-If you’re new to Fortran-lang, here’s a quick intro:
-We’re an open source community that aims to develop modern Fortran tooling and
+If you're new to Fortran-lang, here's a quick intro:
+We're an open source community that aims to develop modern Fortran tooling and
 nurture a rich ecosystem of libraries, as well as to provide a friendly,
 helpful, and inclusive space for newcomers and experienced Fortran programmers
 to work together.
 We started in late 2019 and have been going ever since.
-If you’re first discovering (or re-discovering) Fortran through this article,
+If you're first discovering (or re-discovering) Fortran through this article,
 welcome, and we hope it inspires you to try Fortran for one of your projects.
 In this article we summarize new developments from 2021,
 from flagship and new projects to community development and outreach.&lt;/p&gt;
 &lt;/p&gt;
 </content>
     <link href="https://fortran-lang.org/en/news/2021/12-29-Fortran-lang-2021-in-review/"/>
-    <summary>=(Fortran-lang-2021-in-review)With another year behind us, let’s review the progress that the
+    <summary>=(Fortran-lang-2021-in-review)With another year behind us, let's review the progress that the
 Fortran-lang community has made.
-If you’re new to Fortran-lang, here’s a quick intro:
-We’re an open source community that aims to develop modern Fortran tooling and
+If you're new to Fortran-lang, here's a quick intro:
+We're an open source community that aims to develop modern Fortran tooling and
 nurture a rich ecosystem of libraries, as well as to provide a friendly,
 helpful, and inclusive space for newcomers and experienced Fortran programmers
 to work together.
 We started in late 2019 and have been going ever since.
-If you’re first discovering (or re-discovering) Fortran through this article,
+If you're first discovering (or re-discovering) Fortran through this article,
 welcome, and we hope it inspires you to try Fortran for one of your projects.
 In this article we summarize new developments from 2021,
 from flagship and new projects to community development and outreach.</summary>
@@ -157,13 +157,13 @@ from flagship and new projects to community development and outreach.</summary>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Welcome to the December 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
 Fortran news from the previous month.&lt;/p&gt;
-&lt;p&gt;Here’s what’s new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
+&lt;p&gt;Here's what's new and ongoing in the fortran-lang.org repo:&lt;/p&gt;
 &lt;/p&gt;
 </content>
     <link href="https://fortran-lang.org/en/news/2021/12-01-Fortran-Newsletter-December-2021/"/>
     <summary>Welcome to the December 2021 edition of the monthly Fortran newsletter.
 The newsletter comes out at the beginning of every month and details
-Fortran news from the previous month.Here’s what’s new and ongoing in the fortran-lang.org repo:</summary>
+Fortran news from the previous month.Here's what's new and ongoing in the fortran-lang.org repo:</summary>
     <published>2021-12-01T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -283,18 +283,18 @@ Fortran news from the previous month.本月我们对网站进行了几次更新�
     <author>
       <name>Brad Richardson</name>
     </author>
-    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;We’re happy to announce six students that will work on Fortran projects under
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;We're happy to announce six students that will work on Fortran projects under
 the Google Summer of Code 2021 program:&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/aman-godara"&gt;Aman Godara&lt;/a&gt; will work on strings in the
-&lt;a class="reference external" href="https://github.com/fortran-lang/stdlib"&gt;Fortran Standard Library&lt;/a&gt;. Aman’s
+&lt;a class="reference external" href="https://github.com/fortran-lang/stdlib"&gt;Fortran Standard Library&lt;/a&gt;. Aman's
 mentors will be &lt;a class="reference external" href="https://github.com/awvwgk"&gt;Sebastian Ehlert&lt;/a&gt; and
 &lt;a class="reference external" href="https://github.com/milancurcic"&gt;Milan Curcic&lt;/a&gt;.&lt;/p&gt;
 &lt;/p&gt;
 </content>
     <link href="https://fortran-lang.org/en/news/2021/05-18-Welcome-GSoC-students/"/>
-    <summary>We’re happy to announce six students that will work on Fortran projects under
+    <summary>We're happy to announce six students that will work on Fortran projects under
 the Google Summer of Code 2021 program:Aman Godara will work on strings in the
-Fortran Standard Library. Aman’s
+Fortran Standard Library. Aman's
 mentors will be Sebastian Ehlert and
 Milan Curcic.</summary>
     <published>2021-05-18T00:00:00+00:00</published>

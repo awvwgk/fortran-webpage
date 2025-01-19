@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=eaa92f49" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=5eee97a6"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -47,10 +50,11 @@
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'learn/intrinsics/type';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '_static/data.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'zh_CN';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="canonical" href="https://fortran-lang.org/en/learn/intrinsics/type/" />
     <link rel="index" title="索引" href="../../../genindex/" />
@@ -120,27 +124,16 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">跳转至主要内容</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>回到顶部</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search/"
       method="get">
@@ -148,7 +141,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search"
          aria-label="Search"
          autocomplete="off"
@@ -156,17 +148,17 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="版本警告"></aside>
 </div>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="网页导航">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -191,22 +183,18 @@
     
     
     <img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-light" alt="Fortran Programming Language - Home"/>
-    <script>document.write(`<img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-dark" alt="Fortran Programming Language - Home"/>`);</script>
+    <img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-dark pst-js-only" alt="Fortran Programming Language - Home"/>
   
   
 </a></div>
     
       <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="亮色"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="暗色"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
     
   </div>
   
@@ -253,7 +241,9 @@ document.write(`
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -285,15 +275,11 @@ document.write(`
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">搜索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">搜索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
@@ -350,28 +336,24 @@ document.write(`
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -380,20 +362,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">搜索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">搜索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="当前页面">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -407,7 +385,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -533,28 +512,24 @@ document.write(`
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -563,8 +538,8 @@ document.write(`
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 <nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+     aria-label="章节导航">
+  <p class="bd-links__title" role="heading" aria-level="1">章节导航</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../os_setup/">设置操作系统</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../os_setup/choose_compiler/">选择编译器</a></li>
@@ -645,8 +620,6 @@ document.write(`
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -664,13 +637,11 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
-      <a href="../../../" class="nav-link" aria-label="Home">
+      <a href="../../../" class="nav-link" aria-label="初始页面">
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
@@ -680,7 +651,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../" class="nav-link">Fortran 内置函数</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">类型和种类</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">类型和种类</span></li>
   </ul>
 </nav>
 </div>
@@ -958,7 +929,7 @@ to have a different kind (and does not return an altered value):</p>
 </pre></div>
 </div>
 <p>If <strong>x</strong> is not <em>complex</em> <strong>x</strong> is only used to define the real component
-of the result but <strong>y</strong> is still optional – the imaginary part of the
+of the result but <strong>y</strong> is still optional -- the imaginary part of the
 result will just be assigned a value of zero.</p>
 <p>If <strong>y</strong> is present it is converted to the imaginary component.</p>
 <section id="cmplx-3-and-double-precision">
@@ -998,8 +969,8 @@ argument used to specify the desired kind of the complex result.</p>
 <span class="w">      </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;YES, Z8=&#39;</span><span class="p">,</span><span class="n">z8</span><span class="p">,</span><span class="kt">real</span><span class="p">(</span><span class="n">z8</span><span class="p">),</span><span class="nb">aimag</span><span class="p">(</span><span class="n">z8</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>A more recent alternative to using <strong>cmplx</strong>(3) is “F2018 component
-syntax” where real and imaginary parts of a complex entity can be
+<p>A more recent alternative to using <strong>cmplx</strong>(3) is &quot;F2018 component
+syntax&quot; where real and imaginary parts of a complex entity can be
 accessed independently:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">value</span><span class="p">%</span><span class="n">RE</span><span class="w">     </span><span class="c">! %RE specifies the real part</span>
 <span class="nb">or</span>
@@ -1023,8 +994,8 @@ complex value by default, unlike with <strong>cmplx</strong>.</p>
 <p>Note that if format statements are specified a complex value is
 treated as two real values.</p>
 <p>For list-directed I/O (ie. using an asterisk for a format) and NAMELIST
-output the values are expected to be delimited by “(” and “)” and of
-the form “(real<em>part,imaginary_part)”. For NAMELIST input parenthesized
+output the values are expected to be delimited by &quot;(&quot; and &quot;)&quot; and of
+the form &quot;(real<em>part,imaginary_part)&quot;. For NAMELIST input parenthesized
 values or lists of multiple _real</em> values are acceptable.</p>
 </section>
 </section>
@@ -2039,7 +2010,7 @@ as <strong>mold</strong>.</p>
 type, <strong>out_of_range(-128.5, 0_int8)</strong> will have the value false and
 <strong>out_of_range(-128.5, 0_int8, .true.)</strong> will have the value <em>.true.</em>
 because the value will be truncated when converted to an <em>integer</em>
-and -128 is a representable value on a two’s complement machine in
+and -128 is a representable value on a two's complement machine in
 eight bits even though +128 is not.</p>
 </section>
 <section id="id77">
@@ -2156,7 +2127,7 @@ difficulties on many processors.</p>
 <h2>selected_char_kind<a class="headerlink" href="#selected-char-kind" title="Link to this heading">#</a></h2>
 <section id="id82">
 <h3><strong>名称</strong><a class="headerlink" href="#id82" title="Link to this heading">#</a></h3>
-<p><strong>selected_char_kind</strong>(3) - [KIND] Select character kind such as “Unicode”</p>
+<p><strong>selected_char_kind</strong>(3) - [KIND] Select character kind such as &quot;Unicode&quot;</p>
 </section>
 <section id="id83">
 <h3><strong>Synopsis</strong><a class="headerlink" href="#id83" title="Link to this heading">#</a></h3>
@@ -2182,20 +2153,20 @@ difficulties on many processors.</p>
 character set named <strong>name</strong>.</p>
 <p>If a name is not supported, -1 is returned. Otherwise the result is a
 value equal to that kind type parameter value.</p>
-<p>The list of supported names is processor-dependent except for “DEFAULT”.</p>
+<p>The list of supported names is processor-dependent except for &quot;DEFAULT&quot;.</p>
 <ul class="simple">
-<li><p>If <strong>name</strong> has the value “DEFAULT”, then the result has a value equal to
+<li><p>If <strong>name</strong> has the value &quot;DEFAULT&quot;, then the result has a value equal to
 that of the kind type parameter of default character. This name is
 always supported.</p></li>
-<li><p>If <strong>name</strong> has the value “ASCII”, then the result has a value equal
+<li><p>If <strong>name</strong> has the value &quot;ASCII&quot;, then the result has a value equal
 to that of the kind type parameter of ASCII character.</p></li>
-<li><p>If <strong>name</strong> has the value “ISO_10646”, then the result has a value equal
+<li><p>If <strong>name</strong> has the value &quot;ISO_10646&quot;, then the result has a value equal
 to that of the kind type parameter of the ISO 10646 character kind
 (corresponding to UCS-4 as specified in ISO/IEC 10646).</p></li>
 <li><p>If <strong>name</strong> is a processor-defined name of some other character kind
 supported by the processor, then the result has a value equal to that
 kind type parameter value.
-Pre-defined names include “ASCII” and “ISO_10646”.</p></li>
+Pre-defined names include &quot;ASCII&quot; and &quot;ISO_10646&quot;.</p></li>
 </ul>
 <p>The NAME is interpreted without respect to case or trailing blanks.</p>
 </section>
@@ -2208,9 +2179,9 @@ if supported. <strong>name</strong>, interpreted without respect to case or
 trailing blanks.</p>
 </dd>
 </dl>
-<p>Currently, supported character sets include “ASCII” and “DEFAULT” and
-“ISO_10646” (Universal Character Set, UCS-4) which is commonly known as
-“Unicode”. Supported names other than “DEFAULT” are processor dependent.</p>
+<p>Currently, supported character sets include &quot;ASCII&quot; and &quot;DEFAULT&quot; and
+&quot;ISO_10646&quot; (Universal Character Set, UCS-4) which is commonly known as
+&quot;Unicode&quot;. Supported names other than &quot;DEFAULT&quot; are processor dependent.</p>
 </li>
 </ul>
 </section>
@@ -2575,14 +2546,15 @@ fulfillable</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">  
 <br />
 
 <div class="tocsection onthispage">
-  <i class="fas fa-list"></i> On this page
+  <i class="fas fa-list"></i> 当前页面
 </div>
 
 <nav id="bd-toc-nav" class="page-toc"><ul class="nav section-nav flex-column">
@@ -2764,8 +2736,8 @@ fulfillable</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2785,7 +2757,7 @@ fulfillable</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2创建。
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3创建。
     <br/>
   </p>
 </div>
@@ -2798,7 +2770,8 @@ fulfillable</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  使用 <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1构建.
 </p></div>
       
     </div>

@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=eaa92f49" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=5eee97a6"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -47,10 +50,11 @@
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'learn/intrinsics/bit';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '_static/data.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'zh_CN';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="canonical" href="https://fortran-lang.org/en/learn/intrinsics/bit/" />
     <link rel="index" title="索引" href="../../../genindex/" />
@@ -120,27 +124,16 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">跳转至主要内容</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>回到顶部</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search/"
       method="get">
@@ -148,7 +141,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search"
          aria-label="Search"
          autocomplete="off"
@@ -156,17 +148,17 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="版本警告"></aside>
 </div>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="网页导航">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -191,22 +183,18 @@
     
     
     <img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-light" alt="Fortran Programming Language - Home"/>
-    <script>document.write(`<img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-dark" alt="Fortran Programming Language - Home"/>`);</script>
+    <img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-dark pst-js-only" alt="Fortran Programming Language - Home"/>
   
   
 </a></div>
     
       <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="亮色"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="暗色"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
     
   </div>
   
@@ -253,7 +241,9 @@ document.write(`
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -285,15 +275,11 @@ document.write(`
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">搜索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">搜索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
@@ -350,28 +336,24 @@ document.write(`
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -380,20 +362,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">搜索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">搜索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="当前页面">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -407,7 +385,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -533,28 +512,24 @@ document.write(`
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -563,8 +538,8 @@ document.write(`
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 <nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+     aria-label="章节导航">
+  <p class="bd-links__title" role="heading" aria-level="1">章节导航</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../os_setup/">设置操作系统</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../os_setup/choose_compiler/">选择编译器</a></li>
@@ -645,8 +620,6 @@ document.write(`
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -664,13 +637,11 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
-      <a href="../../../" class="nav-link" aria-label="Home">
+      <a href="../../../" class="nav-link" aria-label="初始页面">
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
@@ -680,7 +651,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../" class="nav-link">Fortran 内置函数</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">位级别查询和操作</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">位级别查询和操作</span></li>
   </ul>
 </nav>
 </div>
@@ -732,7 +703,7 @@ current platform.</p></li>
 <p><strong>bge</strong>(3) Determines whether one <em>integer</em> is bitwise greater than
 or equal to another.</p>
 <p>The bit-level representation of a value is platform dependent. The
-endian-ness of a system and whether the system uses a “two’s complement”
+endian-ness of a system and whether the system uses a &quot;two's complement&quot;
 representation of signs can affect the results, for example.</p>
 <p>A BOZ constant (Binary, Octal, Hexadecimal) does not have a <em>kind</em>
 or <em>type</em> of its own, so be aware it is subject to truncation when
@@ -831,7 +802,7 @@ otherwise.</p>
 </div>
 <p>结果：</p>
 <p>How an integer value is represented at the bit level can vary. These
-are just the values expected on Today’s most common platforms …</p>
+are just the values expected on Today's most common platforms ...</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    &gt; bge(-127,127)= T
     &gt; bge(b&quot;0001&quot;,2)= F
     &gt; compare array of values [-128, -0, +0, 127] to 127
@@ -1490,7 +1461,7 @@ array that has the dynamic type and type parameters of <strong>a</strong>.</p>
 applies, the result is consistent with the named constants
 defined in the intrinsic module ISO_FORTRAN_ENV.</p>
 <p>NOTE1</p>
-<p>An array element might take “type” more bits to store than an isolated
+<p>An array element might take &quot;type&quot; more bits to store than an isolated
 scalar, since any hardware-imposed alignment requirements for array
 elements might not apply to a simple scalar variable.</p>
 <p>NOTE2</p>
@@ -1787,7 +1758,7 @@ bit to 1.</p>
 </section>
 <section id="id76">
 <h3><strong>说明</strong><a class="headerlink" href="#id76" title="Link to this heading">#</a></h3>
-<p><strong>poppar</strong>(3) returns the parity of an integer’s binary representation
+<p><strong>poppar</strong>(3) returns the parity of an integer's binary representation
 (i.e., the parity of the number of bits set).</p>
 <p>The parity is expressed as</p>
 <ul class="simple">
@@ -2040,7 +2011,7 @@ first converted as if by the intrinsic function <strong>int</strong>(3) to type
 <p><strong>dshiftl</strong>(3) combines bits of <strong>i</strong> and <strong>j</strong>. The rightmost <strong>shift</strong>
 bits of the result are the leftmost <strong>shift</strong> bits of <strong>j</strong>, and the
 remaining bits are the rightmost <strong>bitsize(i)-shift</strong> of <strong>i</strong>.</p>
-<p>Hence <strong>dshiftl</strong> is designated as a “combined left shift”, because
+<p>Hence <strong>dshiftl</strong> is designated as a &quot;combined left shift&quot;, because
 it is like we appended <strong>i</strong> and <strong>j</strong> together, shifted it <strong>shift</strong>
 bits to the left, and then kept the same number of bits as <strong>i</strong> or
 <strong>j</strong> had.</p>
@@ -2200,9 +2171,9 @@ bits of the result are the rightmost <strong>shift</strong> bits of <strong>i</s
 remaining bits are the leftmost bits of <strong>j</strong>.</p>
 <p>It may be thought of as appending the bits of <strong>i</strong> and <strong>j</strong>, dropping
 off the <strong>shift</strong> rightmost bits, and then retaining the same number
-of rightmost bits as an input value, hence the name “combined right
-shift”…</p>
-<p>Given two 16-bit values labeled alphabetically …</p>
+of rightmost bits as an input value, hence the name &quot;combined right
+shift&quot;...</p>
+<p>Given two 16-bit values labeled alphabetically ...</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   i=ABCDEFGHIJKLMNOP
    j=abcdefghijklmnop
 </pre></div>
@@ -3453,7 +3424,7 @@ bit-by-bit according to the following table:</p>
 </div>
 <p>So if both the bit in <strong>i</strong> and <strong>j</strong> are on the resulting bit is on
 (a one); else the resulting bit is off (a zero).</p>
-<p>This is commonly called the “bitwise logical AND” of the two values.</p>
+<p>This is commonly called the &quot;bitwise logical AND&quot; of the two values.</p>
 </section>
 <section id="id195">
 <h3><strong>示例</strong><a class="headerlink" href="#id195" title="Link to this heading">#</a></h3>
@@ -3646,10 +3617,10 @@ constant</p></li>
 <section id="id210">
 <h3><strong>说明</strong><a class="headerlink" href="#id210" title="Link to this heading">#</a></h3>
 <p><strong>ieor</strong>(3) returns a bitwise exclusive-<strong>or</strong> of <strong>i</strong> and <strong>j</strong>.</p>
-<p>An exclusive OR or “exclusive disjunction” is a logical operation that
+<p>An exclusive OR or &quot;exclusive disjunction&quot; is a logical operation that
 is true if and only if its arguments differ. In this case a one-bit
 and a zero-bit substitute for true and false.</p>
-<p>This is often represented with the notation “XOR”, for “eXclusive OR”.</p>
+<p>This is often represented with the notation &quot;XOR&quot;, for &quot;eXclusive OR&quot;.</p>
 <p>An alternate way to view the process is that the result has the value
 obtained by combining <strong>i</strong> and <strong>j</strong> bit-by-bit according to the
 following table:</p>
@@ -3802,7 +3773,7 @@ bit-by-bit according to the following table:</p>
 </div>
 <p>Where if the bit is set in either input value, it is set in the
 result. Otherwise the result bit is zero.</p>
-<p>This is commonly called the “bitwise logical inclusive OR” of the two values.</p>
+<p>This is commonly called the &quot;bitwise logical inclusive OR&quot; of the two values.</p>
 </section>
 <section id="id222">
 <h3><strong>示例</strong><a class="headerlink" href="#id222" title="Link to this heading">#</a></h3>
@@ -3870,7 +3841,7 @@ result. Otherwise the result bit is zero.</p>
 <section id="id228">
 <h3><strong>说明</strong><a class="headerlink" href="#id228" title="Link to this heading">#</a></h3>
 <p><strong>not</strong>(3) returns the bitwise Boolean inverse of <strong>i</strong>. This is also
-known as the “Bitwise complement” or “Logical negation” of the value.</p>
+known as the &quot;Bitwise complement&quot; or &quot;Logical negation&quot; of the value.</p>
 <p>If an input bit is a one, that position is a zero on output. Conversely
 any input bit that is zero is a one on output.</p>
 </section>
@@ -4011,7 +3982,7 @@ entire value <strong>i</strong>.</p>
 </section>
 <section id="id239">
 <h3><strong>结果</strong><a class="headerlink" href="#id239" title="Link to this heading">#</a></h3>
-<p>The result characteristics (kind, shape, size, rank, …) are the
+<p>The result characteristics (kind, shape, size, rank, ...) are the
 same as <strong>i</strong>.</p>
 <p>The result has the value obtained by shifting the <strong>size</strong> rightmost
 bits of <strong>i</strong> circularly by <strong>shift</strong> positions.</p>
@@ -4077,9 +4048,9 @@ bits of <strong>i</strong> circularly by <strong>shift</strong> positions.</p>
 <li><p><a class="reference internal" href="#ishft"><strong>ishft</strong>(3)</a> - Logical shift of bits in an integer</p></li>
 <li><p><a class="reference internal" href="#shifta"><strong>shifta</strong>(3)</a> - Right shift with fill</p></li>
 <li><p><a class="reference internal" href="#shiftl"><strong>shiftl</strong>(3)</a> - Shift bits left</p></li>
-<li><p><a class="reference internal" href="#shiftr"><strong>shiftr</strong>(3)</a> - Combined right shift of the bits of two int…</p></li>
-<li><p><a class="reference internal" href="#dshiftl"><strong>dshiftl</strong>(3)</a> - Combined left shift of the bits of two inte…</p></li>
-<li><p><a class="reference internal" href="#dshiftr"><strong>dshiftr</strong>(3)</a> - Combined right shift of the bits of two int…</p></li>
+<li><p><a class="reference internal" href="#shiftr"><strong>shiftr</strong>(3)</a> - Combined right shift of the bits of two int...</p></li>
+<li><p><a class="reference internal" href="#dshiftl"><strong>dshiftl</strong>(3)</a> - Combined left shift of the bits of two inte...</p></li>
+<li><p><a class="reference internal" href="#dshiftr"><strong>dshiftr</strong>(3)</a> - Combined right shift of the bits of two int...</p></li>
 <li><p><a class="reference internal" href="#cshift"><span class="xref myst"><strong>cshift</strong>(3)</span></a> - Circular shift elements of an array</p></li>
 <li><p><a class="reference internal" href="#eoshift"><span class="xref myst"><strong>eoshift</strong>(3)</span></a> - End-off shift elements of an array</p></li>
 </ul>
@@ -4242,7 +4213,7 @@ or the value is undefined. If <strong>shift</strong> is zero the result is <stro
 <h3><strong>结果</strong><a class="headerlink" href="#id257" title="Link to this heading">#</a></h3>
 <p>The result has the value obtained by shifting the bits of <strong>i</strong> to
 the right <strong>shift</strong> bits and replicating the leftmost bit of <strong>i</strong>
-in the left <strong>shift</strong> bits (Note the leftmost bit in “two’s complement”
+in the left <strong>shift</strong> bits (Note the leftmost bit in &quot;two's complement&quot;
 representation is the sign bit).</p>
 <p>Bits shifted out from the right end are lost.</p>
 <p>If <strong>shift</strong> is zero the result is <strong>i</strong>.</p>
@@ -4361,7 +4332,7 @@ bits shifted left by <strong>shift</strong> places.</p>
 the right end are set to <strong>0</strong>.</p>
 <p>If the absolute value of <strong>shift</strong> is greater than <strong>bit_size(i)</strong>,
 the value is undefined.</p>
-<p>For example, for a 16-bit integer left-shifted five …</p>
+<p>For example, for a 16-bit integer left-shifted five ...</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    &gt;  |a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p| &lt;- original 16-bit example
     &gt;  |f|g|h|i|j|k|l|m|n|o|p|           &lt;- left-shifted five
     &gt;  |f|g|h|i|j|k|l|m|n|o|p|0|0|0|0|0| &lt;- right-padded with zeros
@@ -4501,7 +4472,7 @@ bits shifted right by <strong>shift</strong> places.</p>
 the value is undefined.</p>
 <p>Bits shifted out from the right end are lost, and bits shifted in from
 the left end are set to 0.</p>
-<p>For example, for a 16-bit integer right-shifted five …</p>
+<p>For example, for a 16-bit integer right-shifted five ...</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    &gt;  |a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p| &lt;- original 16-bit example
     &gt;            |a|b|c|d|e|f|g|h|i|j|k| &lt;- right-shifted five
     &gt;  |0|0|0|0|0|f|g|h|i|j|k|l|m|n|o|p| &lt;- left-padded with zeros
@@ -4624,14 +4595,15 @@ Vacated positions on the left are filled with zeros.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">  
 <br />
 
 <div class="tocsection onthispage">
-  <i class="fas fa-list"></i> On this page
+  <i class="fas fa-list"></i> 当前页面
 </div>
 
 <nav id="bd-toc-nav" class="page-toc"><ul class="nav section-nav flex-column">
@@ -5041,8 +5013,8 @@ Vacated positions on the left are filled with zeros.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -5062,7 +5034,7 @@ Vacated positions on the left are filled with zeros.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2创建。
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3创建。
     <br/>
   </p>
 </div>
@@ -5075,7 +5047,8 @@ Vacated positions on the left are filled with zeros.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  使用 <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1构建.
 </p></div>
       
     </div>

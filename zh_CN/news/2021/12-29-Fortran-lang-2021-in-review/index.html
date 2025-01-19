@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=eaa92f49" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=5eee97a6"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -47,10 +50,11 @@
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'news/2021/12-29-Fortran-lang-2021-in-review';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '_static/data.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'zh_CN';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="canonical" href="https://fortran-lang.org/en/news/2021/12-29-Fortran-lang-2021-in-review/" />
     <link rel="index" title="索引" href="../../../genindex/" />
@@ -118,27 +122,16 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">跳转至主要内容</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>回到顶部</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search/"
       method="get">
@@ -146,7 +139,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search"
          aria-label="Search"
          autocomplete="off"
@@ -154,17 +146,17 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="版本警告"></aside>
 </div>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="网页导航">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -189,22 +181,18 @@
     
     
     <img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-light" alt="Fortran Programming Language - Home"/>
-    <script>document.write(`<img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-dark" alt="Fortran Programming Language - Home"/>`);</script>
+    <img src="../../../_static/fortran-logo-256x256.png" class="logo__image only-dark pst-js-only" alt="Fortran Programming Language - Home"/>
   
   
 </a></div>
     
       <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="亮色"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="暗色"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
     
   </div>
   
@@ -251,7 +239,9 @@ document.write(`
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -283,15 +273,11 @@ document.write(`
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">搜索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">搜索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
@@ -348,28 +334,24 @@ document.write(`
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -378,20 +360,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">搜索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">搜索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="当前页面">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -407,7 +385,8 @@ document.write(`
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -533,28 +512,24 @@ document.write(`
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -675,8 +650,6 @@ document.write(`
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -694,17 +667,15 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
-      <a href="../../../" class="nav-link" aria-label="Home">
+      <a href="../../../" class="nav-link" aria-label="初始页面">
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Fortran-lang...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Fortran-lang: 2021 in review</span></li>
   </ul>
 </nav>
 </div>
@@ -723,15 +694,15 @@ document.write(`
                    <p>=(Fortran-lang-2021-in-review)</p>
 <section class="tex2jax_ignore mathjax_ignore" id="fortran-lang-2021-in-review">
 <h1>Fortran-lang: 2021 in review<a class="headerlink" href="#fortran-lang-2021-in-review" title="Link to this heading">#</a></h1>
-<p>With another year behind us, let’s review the progress that the
+<p>With another year behind us, let's review the progress that the
 Fortran-lang community has made.
-If you’re new to Fortran-lang, here’s a quick intro:
-We’re an open source community that aims to develop modern Fortran tooling and
+If you're new to Fortran-lang, here's a quick intro:
+We're an open source community that aims to develop modern Fortran tooling and
 nurture a rich ecosystem of libraries, as well as to provide a friendly,
 helpful, and inclusive space for newcomers and experienced Fortran programmers
 to work together.
 We started in late 2019 and have been going ever since.
-If you’re first discovering (or re-discovering) Fortran through this article,
+If you're first discovering (or re-discovering) Fortran through this article,
 welcome, and we hope it inspires you to try Fortran for one of your projects.
 In this article we summarize new developments from 2021,
 from flagship and new projects to community development and outreach.</p>
@@ -749,7 +720,7 @@ to index an array based on a logical condition in a functional style</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stdlib_random</span></code>: Pseudo-random integer number generation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stdlib_selection</span></code>: Selection procedures for selecting elements from an array
 given a desired range</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">stdlib_sorting</span></code>: Sorting procedures based on Rust’s sorting algorithm and
+<li><p><code class="docutils literal notranslate"><span class="pre">stdlib_sorting</span></code>: Sorting procedures based on Rust's sorting algorithm and
 introsort by David Musser</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stdlib_specialfunctions</span></code>: Provides the Legendre function and its derivative
 in support of the Gaussian quadrature procedures</p></li>
@@ -775,17 +746,17 @@ key improvements in terms of stdlib delivery:</p>
 <li><p>You can now use stdlib as a dependency in your fpm projects,
 see <a class="reference external" href="https://github.com/fortran-lang/stdlib#build-with-fortran-langfpm">here</a>.
 This significantly lowers the bar for getting started with stdlib.</p></li>
-<li><p>We had our first stdlib release (0.1.0) on October 4. As of now we don’t have
+<li><p>We had our first stdlib release (0.1.0) on October 4. As of now we don't have
 a set release schedule, and plan to publish a new release when there is
 significant new functionality.
 As stdlib matures and becomes more widely used, we expect releases to become
 more frequent.</p></li>
 <li><p>We now maintain a
 <a class="reference external" href="https://github.com/fortran-lang/stdlib/blob/HEAD/CHANGELOG.md">change log</a> where every change to the API is documented.
-This is a useful document to reference when you want to know what’s been
+This is a useful document to reference when you want to know what's been
 added to the stdlib since the latest release.</p></li>
 </ol>
-<p>If you haven’t tried stdlib yet, please do and let us know what you think
+<p>If you haven't tried stdlib yet, please do and let us know what you think
 and how we can improve it.
 Our vision for stdlib is to provide basic utilities that most Fortran projects use,
 as well as wider numerical capabilities with the scope of NumPy and SciPy.</p>
@@ -828,13 +799,13 @@ Adds the <code class="docutils literal notranslate"><span class="pre">fpm</span>
 intrinsics and other language features.</p></li>
 </ul>
 <p>At the time of writing, there are almost 200 projects now using fpm.
-If you haven’t tried fpm yet, please do!
+If you haven't tried fpm yet, please do!
 It has truly been a game-changing tool for many of us.</p>
 <p>We have many ideas that we want to pursue, such as:</p>
 <ul class="simple">
 <li><p>First-class integration with other package managers such as Spack and Conda</p></li>
 <li><p>First-class integration with build systems like CMake and Meson</p></li>
-<li><p>Improving <a class="reference external" href="https://github.com/fortran-lang/fpm-registry">fpm’s package registry</a>, etc.</p></li>
+<li><p>Improving <a class="reference external" href="https://github.com/fortran-lang/fpm-registry">fpm's package registry</a>, etc.</p></li>
 </ul>
 <p>We are always looking for new contributors.
 If any of these projects interest you, please join us.</p>
@@ -856,9 +827,9 @@ LFortran has been developing rapidly this year and was released as a
 LFortran currently parses all of Fortran 2018 and compiles a significant
 subset of the language.
 16 people have contributed code so far, and many more have reported bugs or participated in discussions.
-If you haven’t tried LFortran yet, please do and let us know how it can best
+If you haven't tried LFortran yet, please do and let us know how it can best
 improve for your use case.
-You can help speed up LFortran’s development by contributing code and/or
+You can help speed up LFortran's development by contributing code and/or
 documentation directly, or by donating funds to the project via
 <a class="reference external" href="https://numfocus.org/project/lfortran">NumFOCUS</a>.</p>
 <p>Follow LFortran on Twitter at <a class="reference external" href="https://twitter.com/lfortranorg">&#64;lfortranorg</a>.</p>
@@ -875,7 +846,7 @@ a Fortran job opening, and discuss anything Fortran-related.</p>
 document the progress month-by-month, as well as post about any notable events
 in the Fortran world.
 This newsletter is a great way to stay up to date with Fortran-lang.
-If you’re also on Twitter, follow our account
+If you're also on Twitter, follow our account
 <a class="reference external" href="https://twitter.com/fortranlang">&#64;fortranlang</a> for daily bite-size news and
 updates, as well as the new <a class="reference external" href="https://twitter.com/FortranTip">&#64;FortranTip</a>
 account, managed by <a class="reference external" href="https://github.com/beliavsky">Beliavsky</a>, which brings
@@ -883,7 +854,7 @@ daily Fortran tips to your Twitter feed.</p>
 <p>Finally, we meet on monthly video calls to discuss issues and topics related to all
 Fortran-lang projects.
 The calls are advertised on Fortran Discourse and are open to everyone.
-Don’t hesitate to join the call to meet other Fortran-lang participants and take part
+Don't hesitate to join the call to meet other Fortran-lang participants and take part
 in different discussions.</p>
 </section>
 <section id="new-projects">
@@ -960,8 +931,8 @@ possible for students to participate.</p>
 <p>We plan to apply for Google Summer of Code in 2022 as well.
 The program is no longer limited to students and anybody 18 or older can apply
 to work on an open source project and get paid for it.
-If you’re interested participating in the program in 2022 with Fortran-lang,
-don’t hesitate to contact us and we’ll guide you toward applying.</p>
+If you're interested participating in the program in 2022 with Fortran-lang,
+don't hesitate to contact us and we'll guide you toward applying.</p>
 </section>
 <section id="conferences-and-papers">
 <h2>Conferences and papers<a class="headerlink" href="#conferences-and-papers" title="Link to this heading">#</a></h2>
@@ -987,7 +958,7 @@ You can watch all FortranCon 2021 talks <a class="reference external" href="http
 <p>Another big event for Fortran-lang was
 <a class="reference external" href="https://packaging-con.org/">PackagingCon 2021</a>, a conference dedicated to
 package management software and its community of developers.
-<a class="reference external" href="https://github.com/awvwgk">Sebastian Ehlert</a> presented fpm–you can watch the
+<a class="reference external" href="https://github.com/awvwgk">Sebastian Ehlert</a> presented fpm--you can watch the
 recording below:</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YG8zEM1lAVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -997,8 +968,8 @@ recording below:</p>
 <h3>Papers<a class="headerlink" href="#papers" title="Link to this heading">#</a></h3>
 <p>This year two papers have been written about Fortran-lang projects.
 The first paper documents the motivation and goals of
-Fortran-lang: “Toward Modern Fortran Tooling and a Thriving Developer
-Community” by Milan Curcic, Ondřej Čertík, Brad Richardson, Sebastian Ehlert,
+Fortran-lang: &quot;Toward Modern Fortran Tooling and a Thriving Developer
+Community&quot; by Milan Curcic, Ondřej Čertík, Brad Richardson, Sebastian Ehlert,
 Laurence Kedward, Arjen Markus, Ivan Pribec, and Jérémie Vandenplas
 (<a class="reference external" href="https://arxiv.org/abs/2109.07382">https://arxiv.org/abs/2109.07382</a>).</p>
 <center>
@@ -1007,7 +978,7 @@ Laurence Kedward, Arjen Markus, Ivan Pribec, and Jérémie Vandenplas
 </a>
 </center>
 <p>If Fortran-lang has been helpful in your work and if you want to cite this paper,
-here’s the citation info:</p>
+here's the citation info:</p>
 <div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">curcic2021toward</span><span class="p">,</span>
 <span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Toward Modern Fortran Tooling and a Thriving Developer Community}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Curcic, Milan and</span>
@@ -1023,9 +994,9 @@ here’s the citation info:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>We have also submitted a paper draft to IEEE’s
+<p>We have also submitted a paper draft to IEEE's
 <a class="reference external" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5992">Computing in Science &amp; Engineering (CiSE)</a>
-journal, titled “The State of Fortran” and led by
+journal, titled &quot;The State of Fortran&quot; and led by
 <a class="reference external" href="https://github.com/lkedward">Laurence Kedward</a>.
 For this paper, we have
 <a class="reference external" href="https://fortran-lang.discourse.group/t/fortran-lang-community-paper/1232">publicly invited on Discourse</a>
@@ -1063,7 +1034,7 @@ another is in review.</p></li>
 <p>We thank all people who contributed to Fortran-lang projects and discussions
 on GitHub, Fortran Discourse, Fortran-lang mailing list, Twitter, and
 elsewhere.
-It wouldn’t have been possible without you all.</p>
+It wouldn't have been possible without you all.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">end program </span><span class="n">fortran_lang_2021</span>
 </pre></div>
 </div>
@@ -1108,14 +1079,15 @@ It wouldn’t have been possible without you all.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">  
 <br />
 
 <div class="tocsection onthispage">
-  <i class="fas fa-list"></i> On this page
+  <i class="fas fa-list"></i> 当前页面
 </div>
 
 <nav id="bd-toc-nav" class="page-toc"><ul class="nav section-nav flex-column">
@@ -1153,8 +1125,8 @@ It wouldn’t have been possible without you all.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1174,7 +1146,7 @@ It wouldn’t have been possible without you all.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2创建。
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3创建。
     <br/>
   </p>
 </div>
@@ -1187,7 +1159,8 @@ It wouldn’t have been possible without you all.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  使用 <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1构建.
 </p></div>
       
     </div>
