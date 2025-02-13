@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="256x256" href="../../../_static/images/favicon.ico" type="image/x-icon">
-    <title>Compiling the source code &#8212; Fortran Programming Language</title>
+    <title>Kompilowanie kodu źródłowego &#8212; Fortran Programming Language</title>
   
   
   
@@ -565,7 +565,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../">Building programs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Compiling the source code</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kompilowanie kodu źródłowego</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../linking_pieces/">Linking the objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../runtime_libraries/">Run-time libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../include_files/">Include files and modules</a></li>
@@ -651,7 +651,7 @@
     
     <li class="breadcrumb-item"><a href="../" class="nav-link">Building programs</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Compiling the source code</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Kompilowanie kodu źródłowego</span></li>
   </ul>
 </nav>
 </div>
@@ -668,21 +668,15 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="compiling-the-source-code">
-<h1>Compiling the source code<a class="headerlink" href="#compiling-the-source-code" title="Link to this heading">#</a></h1>
-<p>The first step in the build process is to compile the source code. The
-output from this step is generally known as the object code — a set of
-instructions for the computer generated from the human-readable source
-code. Different compilers will produce different object codes from the
-same source code and the naming conventions are different.</p>
-<p>The consequences:</p>
+<h1>Kompilowanie kodu źródłowego<a class="headerlink" href="#compiling-the-source-code" title="Link to this heading">#</a></h1>
+<p>Pierwszym krokiem procesu tworzenia programów jest skompilowane kodu źródłowego. Wynikiem tego kroku jest stworzenie pliku obiektowego - zawierającego zbiór instrukcji dla komputera wygenerowanego z kodu źródłowego czytelnego dla człowieka. Różne kompilatory mogą tworzyć różne pliki obiektowe z tego samego kodu źródłowego. Ponadto, nazewnictwo pomiędzy nimi również może się różnić.</p>
+<p>Konsekwencje:</p>
 <ul class="simple">
 <li><p>If you use a particular compiler for one source file, you need to use
 that same compiler (or a compatible one) for all other pieces. After
 all, a program may be built from many different source files and the
 compiled pieces have to cooperate.</p></li>
-<li><p>Each source file will be compiled and the result is stored in a file
-with an extension like „.o” or „.obj”. It is these object files that are
-the input for the next step: the link process.</p></li>
+<li><p>Każdy plik źródłowy będzie skompilowany, a rezultat przechowywany w pliku o rozszerzeniu „.o” lub „.obj”. Te pliki będą również danymi wejściowymi dla następnego kroku: procesu konsolidacji (ang. the link process).</p></li>
 </ul>
 <p>Compilers are complex pieces of software: they have to understand the
 language in much more detail and depth than the average programmer. They
