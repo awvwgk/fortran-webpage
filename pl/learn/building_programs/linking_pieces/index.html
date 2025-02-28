@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="256x256" href="../../../_static/images/favicon.ico" type="image/x-icon">
-    <title>Linking the objects &#8212; Fortran Programming Language</title>
+    <title>Łączenie obiektów &#8212; Fortran Programming Language</title>
   
   
   
@@ -59,7 +59,7 @@
     <link rel="canonical" href="https://fortran-lang.org/en/learn/building_programs/linking_pieces/" />
     <link rel="index" title="Indeks" href="../../../genindex/" />
     <link rel="search" title="Szukaj" href="../../../search/" />
-    <link rel="next" title="Run-time libraries" href="../runtime_libraries/" />
+    <link rel="next" title="Biblioteki środowiska wykonawczego" href="../runtime_libraries/" />
     <link rel="prev" title="Kompilowanie kodu źródłowego" href="../compiling_source/" /> 
 <meta
   name="description"
@@ -564,15 +564,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart/gotchas/">Gotchas</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../">Building programs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../">Tworzenie programów</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../compiling_source/">Kompilowanie kodu źródłowego</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Linking the objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../runtime_libraries/">Run-time libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../include_files/">Include files and modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../managing_libraries/">Managing libraries (static and dynamic libraries)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Łączenie obiektów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../runtime_libraries/">Biblioteki środowiska wykonawczego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../include_files/">Dołącz pliki i moduły</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../managing_libraries/">Zarządzanie bibliotekami (statyczne i dynamiczne biblioteki)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../build_tools/">Narzędzia do kompilacji</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../project_make/">An introduction to make</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../distributing/">Distributing your programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_make/">Wstęp do make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing/">Dystrybucja programów</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../best_practices/">Najlepsze praktyki Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -655,9 +655,9 @@
     <li class="breadcrumb-item"><a href="../../" class="nav-link">Naucz się</a></li>
     
     
-    <li class="breadcrumb-item"><a href="../" class="nav-link">Building programs</a></li>
+    <li class="breadcrumb-item"><a href="../" class="nav-link">Tworzenie programów</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Linking the objects</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Łączenie obiektów</span></li>
   </ul>
 </nav>
 </div>
@@ -674,12 +674,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="linking-the-objects">
-<h1>Linking the objects<a class="headerlink" href="#linking-the-objects" title="Link to this heading">#</a></h1>
-<p>Almost all programs, except for the simplest, are built up from
-different pieces. We are going to examine such a situation in
-more detail.</p>
-<p>Here is a general program for tabulating a function (source code in
-„tabulate.f90”):</p>
+<h1>Łączenie obiektów<a class="headerlink" href="#linking-the-objects" title="Link to this heading">#</a></h1>
+<p>Prawie wszystkie programy, za wyjątkiem tych najprostszych, są zbudowane z różnych części. Przyjrzymy się takiej sytuacji bardziej szczegółowo.</p>
+<p>Tutaj znajduje się ogólny program służący do ujmowania funkcji w tabeli (kod źródłowy znajduje się w „tabulate.f90”):</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">tabulate</span>
 <span class="w">    </span><span class="k">use </span><span class="n">user_functions</span>
 
