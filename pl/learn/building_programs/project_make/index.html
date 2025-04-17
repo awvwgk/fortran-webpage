@@ -892,35 +892,19 @@ gfortran -o src/tests/csv_write_test.exe src/tests/csv_write_test.f90.o libcsv.a
 <div class="admonition tip">
 <p class="admonition-title">Wskazówka</p>
 <p>Używanie awk</p>
-<p>The above script uses the <code class="docutils literal notranslate"><span class="pre">awk</span></code> language, which is designed for the purpose
-of text stream processing and uses a C-like syntax. In <code class="docutils literal notranslate"><span class="pre">awk</span></code> you can define
-groups which are evaluated on certain events, <em>e.g.</em> when a line matches a
-specific pattern, usually expressed by a
-<a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener"> regular expression</a>.</p>
-<p>This <code class="docutils literal notranslate"><span class="pre">awk</span></code> script defines five groups, two of them use the special pattern
-<code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> and <code class="docutils literal notranslate"><span class="pre">END</span></code> which are run before the script starts and after the script
-finishes, respectively.
-Before the script starts we make the script case-insensitive since we are dealing
-with Fortran source code here.
-We also use the special variable <code class="docutils literal notranslate"><span class="pre">FILENAME</span></code> to determine which file we are
-currently parsing and to allow processing multiple files at once.</p>
-<p>With the three patterns defined we are looking for <code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">use</span></code> and
-<code class="docutils literal notranslate"><span class="pre">include</span></code> statements as the first space delimited entry. With the used
-pattern not all valid Fortran code will be parsed correctly.
-A failing example would be:</p>
+<p>Powyższy skrypt używa języka <code class="docutils literal notranslate"><span class="pre">awk</span></code>, który został stworzony w celu przetwarzania strumieniowego tekstu (ang. text stream processing) i używa składni podobnej do C. W <code class="docutils literal notranslate"><span class="pre">awk</span></code> możesz definować grupy, które są ewaluowane na podstawie pewnych zdarzeń _np. _ kiedy dany wiersz pasuje do określonego wzorca, zazwyczaj wyrażonego <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">wyrażeniem regularnym</a>.</p>
+<p>Ten skrypt <code class="docutils literal notranslate"><span class="pre">awk</span></code> definiuje pięć grup, dwie z nich używają specjalnego wzorca <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> oraz <code class="docutils literal notranslate"><span class="pre">END</span></code>, które są uruchamiane odpowiednio zanim skrypt się rozpocznie oraz po skończeniu skryptu. Zanim skrypt się rozpocznie sprawiamy, aby nieuwzględniał wielkości liter, ponieważ mamy tutaj do czynienia z kodem źródłowym Fortran. Używamy również specjalnej zmiennej <code class="docutils literal notranslate"><span class="pre">FILENAME</span></code>, aby określić, który plik jest aktualnie poddawany analizie oraz aby umożliwić przetwarzanie kilku plików na raz.</p>
+<p>Mając określone trzy wzorce, szukamy nimi poleceń<code class="docutils literal notranslate"><span class="pre">module</span></code>, <code class="docutils literal notranslate"><span class="pre">use</span></code> oraz <code class="docutils literal notranslate"><span class="pre">include</span></code> jako pierwszego wpisu rozdzielonego spacją. Przy tym zastosowanym wzorze nie każdy kod Fortran zostanie poprawnie przeanalizowany. Przykładem błędu może być:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use</span><span class="kd">::</span><span class="n">my_module</span><span class="p">,</span><span class="k">only</span><span class="p">:</span><span class="n">proc</span>
 </pre></div>
 </div>
-<p>To make this parsable by the <code class="docutils literal notranslate"><span class="pre">awk</span></code> script we can add another group directly
-after the <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> group, modifying the stream while processing it with</p>
+<p>Aby ten kod mógł zostać przeanalizowany przez <code class="docutils literal notranslate"><span class="pre">awk</span></code> możemy dodać jeszcze jedną grupę zaraz po grupie <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> modyfikując tym samym strumień podczas jego przetwarzania za pomocą</p>
 <div class="highlight-awk notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="kr">gsub</span><span class="p">(</span><span class="sr">/,|:/</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In theory you would need a full Fortran parser to deal with continuation lines
-and other difficulties. This might be possible to implement in <code class="docutils literal notranslate"><span class="pre">awk</span></code> but
-would require a huge script in the end.</p>
+<p>Teoretycznie potrzebny byłby pełny parser Fortran, aby poradzić sobie z kontynuacjami wierszy oraz innymi trudnościami. Mogłoby być to możliwe do zaimplementowania w <code class="docutils literal notranslate"><span class="pre">awk</span></code>, ale ostatecznie wymagałoby ogromnego skryptu.</p>
 <p>Also, keep in mind that generating the dependencies should be fast, an expensive
 parser can produce a significant overhead when generating dependencies for a large
 code base. Making reasonable assumptions can simplify and speed up this step, but
