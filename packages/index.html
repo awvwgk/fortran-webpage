@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -36,10 +36,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0a3c677e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
     <script src="../_static/documentation_options.js?v=51fd25b1"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
@@ -49,7 +49,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'packages';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.19.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://fortran-lang.org/_static/data.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'en';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
@@ -190,11 +190,18 @@
     
       <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
     
   </div>
   
@@ -294,8 +301,7 @@
           
           
           
-          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Discourse</span></a>
+          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i><span class="visually-hidden">Discourse</span></a>
         </li>
         <li class="nav-item">
           
@@ -306,8 +312,7 @@
           
           
           
-          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span></a>
+          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
         </li>
         <li class="nav-item">
           
@@ -318,8 +323,7 @@
           
           
           
-          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -330,8 +334,7 @@
           
           
           
-          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">RSS</span></a>
+          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i><span class="visually-hidden">RSS</span></a>
         </li>
 </ul></div>
       
@@ -466,8 +469,7 @@
           
           
           
-          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Discourse</span></a>
+          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i><span class="visually-hidden">Discourse</span></a>
         </li>
         <li class="nav-item">
           
@@ -478,8 +480,7 @@
           
           
           
-          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span></a>
+          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
         </li>
         <li class="nav-item">
           
@@ -490,8 +491,7 @@
           
           
           
-          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -502,8 +502,7 @@
           
           
           
-          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">RSS</span></a>
+          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i><span class="visually-hidden">RSS</span></a>
         </li>
 </ul></div>
         
@@ -609,7 +608,7 @@ Use the box above to search the package index by keyword, package name, or autho
 <div class="sd-fs-3 docutils">
 <p class="sd-card-text">Featured topics</p>
 </div>
-<p class="sd-card-text"><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">mpi</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">electronic-structure</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">molecular-dynamics</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">quantum-chemistry</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">machine-learning</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">high-performance-computing</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">parallel</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">python</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">linear-algebra</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">openmp</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">finite-element</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">ordinary-differential-equation</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">density-functional-theory</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">computational-fluid-dynamics</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">posix</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">parser</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">testing</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">lua</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">gpu</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">interpolation</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">runge-kutta</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">fft</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">geophysical-fluid-dynamics</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">physics</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">computational-chemistry</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">graphics</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">unit</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">gui</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">cpp</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">formatter</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">finite-difference</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">finite-volume</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">integral</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">integration</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">atmospheric-modelling</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">ocean-modelling</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">spline</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">hdf5</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">string</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">ncurses</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">regex</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">array</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">errors</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">random</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">list</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">database</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">unix</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">algorithmic</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">derivative</span><span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">interface-generator</span></p>
+<p class="sd-card-text"><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/mpi/#sphx-tag-mpi"><span class="std std-ref">mpi</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/electronic-structure/#sphx-tag-electronic-structure"><span class="std std-ref">electronic-structure</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/molecular-dynamics/#sphx-tag-molecular-dynamics"><span class="std std-ref">molecular-dynamics</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/quantum-chemistry/#sphx-tag-quantum-chemistry"><span class="std std-ref">quantum-chemistry</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/machine-learning/#sphx-tag-machine-learning"><span class="std std-ref">machine-learning</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/high-performance-computing/#sphx-tag-high-performance-computing"><span class="std std-ref">high-performance-computing</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/parallel/#sphx-tag-parallel"><span class="std std-ref">parallel</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/python/#sphx-tag-python"><span class="std std-ref">python</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/linear-algebra/#sphx-tag-linear-algebra"><span class="std std-ref">linear-algebra</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/openmp/#sphx-tag-openmp"><span class="std std-ref">openmp</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/finite-element/#sphx-tag-finite-element"><span class="std std-ref">finite-element</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/ordinary-differential-equation/#sphx-tag-ordinary-differential-equation"><span class="std std-ref">ordinary-differential-equation</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/density-functional-theory/#sphx-tag-density-functional-theory"><span class="std std-ref">density-functional-theory</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/computational-fluid-dynamics/#sphx-tag-computational-fluid-dynamics"><span class="std std-ref">computational-fluid-dynamics</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/posix/#sphx-tag-posix"><span class="std std-ref">posix</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/parser/#sphx-tag-parser"><span class="std std-ref">parser</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/testing/#sphx-tag-testing"><span class="std std-ref">testing</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/lua/#sphx-tag-lua"><span class="std std-ref">lua</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/gpu/#sphx-tag-gpu"><span class="std std-ref">gpu</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/interpolation/#sphx-tag-interpolation"><span class="std std-ref">interpolation</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/runge-kutta/#sphx-tag-runge-kutta"><span class="std std-ref">runge-kutta</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/fft/#sphx-tag-fft"><span class="std std-ref">fft</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/geophysical-fluid-dynamics/#sphx-tag-geophysical-fluid-dynamics"><span class="std std-ref">geophysical-fluid-dynamics</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/physics/#sphx-tag-physics"><span class="std std-ref">physics</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/computational-chemistry/#sphx-tag-computational-chemistry"><span class="std std-ref">computational-chemistry</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/graphics/#sphx-tag-graphics"><span class="std std-ref">graphics</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/unit/#sphx-tag-unit"><span class="std std-ref">unit</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/gui/#sphx-tag-gui"><span class="std std-ref">gui</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/cpp/#sphx-tag-cpp"><span class="std std-ref">cpp</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/formatter/#sphx-tag-formatter"><span class="std std-ref">formatter</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/finite-difference/#sphx-tag-finite-difference"><span class="std std-ref">finite-difference</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/finite-volume/#sphx-tag-finite-volume"><span class="std std-ref">finite-volume</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/integral/#sphx-tag-integral"><span class="std std-ref">integral</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/integration/#sphx-tag-integration"><span class="std std-ref">integration</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/atmospheric-modelling/#sphx-tag-atmospheric-modelling"><span class="std std-ref">atmospheric-modelling</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/ocean-modelling/#sphx-tag-ocean-modelling"><span class="std std-ref">ocean-modelling</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/spline/#sphx-tag-spline"><span class="std std-ref">spline</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/hdf5/#sphx-tag-hdf5"><span class="std std-ref">hdf5</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/string/#sphx-tag-string"><span class="std std-ref">string</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/ncurses/#sphx-tag-ncurses"><span class="std std-ref">ncurses</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/regex/#sphx-tag-regex"><span class="std std-ref">regex</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/array/#sphx-tag-array"><span class="std std-ref">array</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/errors/#sphx-tag-errors"><span class="std std-ref">errors</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/random/#sphx-tag-random"><span class="std std-ref">random</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/list/#sphx-tag-list"><span class="std std-ref">list</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/database/#sphx-tag-database"><span class="std std-ref">database</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/unix/#sphx-tag-unix"><span class="std std-ref">unix</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/algorithmic/#sphx-tag-algorithmic"><span class="std std-ref">algorithmic</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/derivative/#sphx-tag-derivative"><span class="std std-ref">derivative</span></a><a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../_tags/interface-generator/#sphx-tag-interface-generator"><span class="std std-ref">interface-generator</span></a></p>
 </div>
 </div>
 </div>
@@ -690,8 +689,8 @@ Use the box above to search the package index by keyword, package name, or autho
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -725,7 +724,7 @@ Use the box above to search the package index by keyword, package name, or autho
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
 </p></div>
       
     </div>

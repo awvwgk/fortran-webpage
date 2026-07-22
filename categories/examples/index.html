@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -36,10 +36,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=0a3c677e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
     <script src="../../_static/documentation_options.js?v=51fd25b1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -49,7 +49,7 @@
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'categories/examples';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.19.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://fortran-lang.org/_static/data.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'en';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
@@ -190,11 +190,18 @@
     
       <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
     
   </div>
   
@@ -294,8 +301,7 @@
           
           
           
-          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Discourse</span></a>
+          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i><span class="visually-hidden">Discourse</span></a>
         </li>
         <li class="nav-item">
           
@@ -306,8 +312,7 @@
           
           
           
-          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span></a>
+          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
         </li>
         <li class="nav-item">
           
@@ -318,8 +323,7 @@
           
           
           
-          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -330,8 +334,7 @@
           
           
           
-          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">RSS</span></a>
+          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i><span class="visually-hidden">RSS</span></a>
         </li>
 </ul></div>
       
@@ -466,8 +469,7 @@
           
           
           
-          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Discourse</span></a>
+          <a href="https://fortran-lang.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i><span class="visually-hidden">Discourse</span></a>
         </li>
         <li class="nav-item">
           
@@ -478,8 +480,7 @@
           
           
           
-          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span></a>
+          <a href="https://twitter.com/fortranlang" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
         </li>
         <li class="nav-item">
           
@@ -490,8 +491,7 @@
           
           
           
-          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/fortran-lang" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -502,8 +502,7 @@
           
           
           
-          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">RSS</span></a>
+          <a href="https://fortran-lang.org/news/atom.xml" title="RSS" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-rss fa-lg" aria-hidden="true"></i><span class="visually-hidden">RSS</span></a>
         </li>
 </ul></div>
         
@@ -620,7 +619,7 @@
 <a href="https://github.com/fortran-gaming/blocktran/issues"><img alt="issues" src="https://img.shields.io/github/issues/fortran-gaming/blocktran" /></a>
 <a href="https://github.com/fortran-gaming/blocktran/pulls"><img alt="pulls" src="https://img.shields.io/github/issues-pr/fortran-gaming/blocktran" /></a></p>
 <p>Object-oriented Fortran falling block game using Curses console graphics</p>
-<p>Tags:  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">game</span></p>
+<p>Tags:  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/game/#sphx-tag-game"><span class="std std-ref">game</span></a></p>
 </div>
 <div class="sd-fs-5 docutils">
 <p class="rubric" id="fortran-2018-examples"><span class="fab fa-github 1em"></span> <a class="reference external" href="https://github.com/scivision/fortran2018-examples">Fortran 2018 examples</a></p>
@@ -632,7 +631,7 @@
 <a href="https://github.com/scivision/fortran2018-examples/issues"><img alt="issues" src="https://img.shields.io/github/issues/scivision/fortran2018-examples" /></a>
 <a href="https://github.com/scivision/fortran2018-examples/pulls"><img alt="pulls" src="https://img.shields.io/github/issues-pr/scivision/fortran2018-examples" /></a></p>
 <p>Easy examples of scientific computing with modern, powerful, easy Fortran 2018 standard</p>
-<p>Tags:  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">block</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">coarray</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">contiguous</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">namelist</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">openmp</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">random</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">submodule</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">iso_fortran_env</span></p>
+<p>Tags:  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/block/#sphx-tag-block"><span class="std std-ref">block</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/coarray/#sphx-tag-coarray"><span class="std std-ref">coarray</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/contiguous/#sphx-tag-contiguous"><span class="std std-ref">contiguous</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/namelist/#sphx-tag-namelist"><span class="std std-ref">namelist</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/openmp/#sphx-tag-openmp"><span class="std std-ref">openmp</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/random/#sphx-tag-random"><span class="std std-ref">random</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/submodule/#sphx-tag-submodule"><span class="std std-ref">submodule</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/iso_fortran_env/#sphx-tag-iso-fortran-env"><span class="std std-ref">iso_fortran_env</span></a></p>
 </div>
 <div class="sd-fs-5 docutils">
 <p class="rubric" id="fortran-patterns"><span class="fab fa-github 1em"></span> <a class="reference external" href="https://github.com/farhanjk/FortranPatterns">Fortran patterns</a></p>
@@ -655,7 +654,7 @@
 <a href="https://github.com/planelles20/numerical-methods-fortran/issues"><img alt="issues" src="https://img.shields.io/github/issues/planelles20/numerical-methods-fortran" /></a>
 <a href="https://github.com/planelles20/numerical-methods-fortran/pulls"><img alt="pulls" src="https://img.shields.io/github/issues-pr/planelles20/numerical-methods-fortran" /></a></p>
 <p>Solving linear, nonlinear equations, ordinary differential equations</p>
-<p>Tags:  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">ordinary-differential-equation</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">partial-differential-equation</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">integral</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">stochastic</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">quadrature</span>  <span class="xref any sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">plotting</span></p>
+<p>Tags:  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/ordinary-differential-equation/#sphx-tag-ordinary-differential-equation"><span class="std std-ref">ordinary-differential-equation</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/partial-differential-equation/#sphx-tag-partial-differential-equation"><span class="std std-ref">partial-differential-equation</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/integral/#sphx-tag-integral"><span class="std std-ref">integral</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/stochastic/#sphx-tag-stochastic"><span class="std std-ref">stochastic</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/quadrature/#sphx-tag-quadrature"><span class="std std-ref">quadrature</span></a>  <a class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary reference internal" href="../../_tags/plotting/#sphx-tag-plotting"><span class="std std-ref">plotting</span></a></p>
 </div>
 <div class="sd-fs-5 docutils">
 <p class="rubric" id="tcp-client-server"><span class="fab fa-github 1em"></span> <a class="reference external" href="https://github.com/modern-fortran/tcp-client-server">tcp-client-server</a></p>
@@ -708,8 +707,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -743,7 +742,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
 </p></div>
       
     </div>
